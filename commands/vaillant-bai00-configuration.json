@@ -80,6 +80,35 @@
                 ]
             }
         },        
+
+        {
+            "label":    "Operational Data from Room Controller to Burner Control Unit",
+            "id":       "boiler.control.setopdata",
+            "command":  "B5 10",
+
+            "broadcast": {
+                "master": [
+                    {"type": "static", "default": "00 00"},
+					{"name": "lead_water_target_temp", "type": "data1c", "label": "Lead water target temperature", "min": 0, "max": 100, "format":"%.1f°C"},
+					{"name": "srv_water_target_temp", "type": "data1c", "label": "Service water target temperature", "min": 0, "max": 100, "format":"%.1f°C"},
+                    {"type": "static", "default": "FF FF"},
+                    {"type": "byte", "children": [
+						{"name": "turnoff_water_heating", "type": "bit", "label": "Turn off water heating"},
+						{"type": "bit"},
+						{"name": "turnoffservice_water_heating", "type": "bit", "label": "Turn off service water heating"},
+						{"type": "bit"},
+						{"type": "bit"},
+						{"type": "bit"},
+						{"name": "unknown", "type": "bit", "label": "unknown"},
+						{"type": "bit"}
+					]},
+                    {"type": "static", "default": "00 00"}
+				],
+                "slave": [
+                    {"type": "static", "default": "01"}
+                ]
+            }
+        },
         
         {
             "label":    "Max. burner anti-cycling time heating at 20 °C flow temperature D.002",
