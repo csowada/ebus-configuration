@@ -109,8 +109,32 @@
                 ]
             }
         },
-        
+
         {
+            "label":    "Operational Data of Burner Control Unit to Room Control Unit",
+            "id":       "boiler.control.getopdata",
+            "command":  "B5 11",
+
+            "broadcast": {
+                "master": [
+                    {"type": "static", "default": "01"}
+                ],
+                "slave": [
+                    {"name": "lead_water_temp", "type": "data1c", "label": "Lead water temperature", "min": 0, "max": 100, "format":"%.1f°C"},
+                    {"name": "lead_water_return_temp", "type": "data1c", "label": "Lead water return temperature", "min": 0, "max": 100, "format":"%.1f°C"},
+                    {"name": "get_temp_outside", "type": "data2b", "label": "Outside Temperature", "min": -50, "max": 50, "format":"%.1f°C"},
+                    {"name": "srv_water_temp", "type": "data1c", "label": "Service water temperature", "min": 0, "max": 100, "format":"%.1f°C"},
+                    {"name": "srv_water_return_temp", "type": "data1c", "label": "Service water return temperature", "min": 0, "max": 100, "format":"%.1f°C"},
+                    {"type": "byte", "children": [
+                        {"name": "lead_heating", "type": "bit", "label": "Lead water heating", "mapping": {"0":"Off", "1":"On"}},
+                        {"name": "servicewater_heating", "type": "bit", "label": "Service water heating", "mapping": {"0":"Off", "1":"On"}}
+                    ]},
+                    {"type": "static", "default": "00 FF"}
+                ]
+            }
+        },
+
+	{
             "label":    "Max. burner anti-cycling time heating at 20 °C flow temperature D.002",
             "id":       "boiler.blocktime_boiler",
             "command":  "B5 09",
