@@ -4,7 +4,10 @@
     "label":        "Vaillant BAI00",
     "description":  "Condensing gas boiler like Vaillant atmoCOMPACT, ecoCOMPACT, auroCOMPACT, ecoTEC, ecoCRAFT ...",
     
-    "authors":      ["Christian Sowada, opensource@cs-dev.de"],
+    "authors":      [
+                    "Christian Sowada, opensource@cs-dev.de",
+                    "Christophe P @ openhab community"
+                    ],
     "identification": ["42 41 49 30 30"],
     
     "commands":
@@ -59,6 +62,24 @@
                 ]
             }
         },
+
+        {
+            "label":    "Get DateTime",
+            "id":       "boiler.control.getdatetime",
+            "command":  "B5 04",
+    
+            "broadcast": {
+                "master": [
+                    {"type": "static", "default": "00"}
+                ],
+                "slave": [
+                    {"name":"get_status", "type": "byte", "label":"status", "format":"%d",
+                        "mapping": {"0":"NoReception", "1":"Reception", "2":"Synchronized", "3":"DataValid"}},
+                    {"name": "get_datetime", "type":"datetime"},
+                    {"name":"get_temp_outside", "type": "data2b", "label": "Outside Temperature", "min": -50, "max": 50, "format":"%.1f°C"}
+                ]
+            }
+        },        
         
         {
             "label":    "Max. burner anti-cycling time heating at 20 °C flow temperature D.002",
