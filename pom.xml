@@ -7,14 +7,43 @@
 	<artifactId>ebus-configuration</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>bundle</packaging>
+	<description>eBUS library configuration</description>
+	<url>https://github.com/csowada/ebus-configuration</url>
 
-	<properties>
-		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <licenses>
+        <license>
+            <name>EPL License</name>
+        </license>
+    </licenses>
 
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
-	</properties>
+    <developers>
+        <developer>
+            <email>git@cs-dev.de</email>
+            <name>Christian Sowada</name>
+            <url>https://github.com/csowada</url>
+            <id>csowada</id>
+        </developer>
+    </developers>
+
+	<issueManagement>
+		<url>https://github.com/csowada/ebus-configuration/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+
+	<scm>
+		<url>https://github.com/csowada/ebus-configuration</url>
+		<connection>scm:git:git://github.com/csowada/ebus-configuration.git</connection>
+		<developerConnection>scm:git:git@github.com/csowada/ebus-configuration.git</developerConnection>
+	</scm>
+
+
+    <properties>
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+    </properties>
 
 	<build>
 		<!-- <finalName>${project.groupId}.${project.artifactId}-${project.version}_${maven.build.timestamp}</finalName> -->
@@ -33,6 +62,13 @@
 					</instructions>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+			</plugin>
+
 		</plugins>
 	</build>
 
@@ -68,7 +104,7 @@
 		<dependency>
 			<groupId>de.csdev.ebus</groupId>
 			<artifactId>core</artifactId>
-			<version>0.9.1</version>
+			<version>0.9.5-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
