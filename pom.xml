@@ -3,11 +3,12 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
+	<name>eBUS library configuration</name>
+	<description>eBUS library configuration</description>
 	<groupId>de.csdev.ebus</groupId>
 	<artifactId>ebus-configuration</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.9.16-SNAPSHOT</version>
 	<packaging>bundle</packaging>
-	<description>eBUS library configuration</description>
 	<url>https://github.com/csowada/ebus-configuration</url>
 
     <licenses>
@@ -30,12 +31,12 @@
 		<system>GitHub Issues</system>
 	</issueManagement>
 
-	<scm>
-		<url>https://github.com/csowada/ebus-configuration</url>
-		<connection>scm:git:git://github.com/csowada/ebus-configuration.git</connection>
-		<developerConnection>scm:git:git@github.com/csowada/ebus-configuration.git</developerConnection>
-	</scm>
-
+    <scm>
+        <connection>scm:git:.</connection>
+        <developerConnection>scm:git:.</developerConnection>
+        <url>scm:git:.</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
@@ -46,7 +47,6 @@
     </properties>
 
 	<build>
-		<!-- <finalName>${project.groupId}.${project.artifactId}-${project.version}_${maven.build.timestamp}</finalName> -->
 		<plugins>
 			<plugin>
 				<groupId>org.apache.felix</groupId>
@@ -103,8 +103,8 @@
 
 		<dependency>
 			<groupId>de.csdev.ebus</groupId>
-			<artifactId>core</artifactId>
-			<version>0.9.5-SNAPSHOT</version>
+			<artifactId>ebus-core</artifactId>
+			<version>0.9.16-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

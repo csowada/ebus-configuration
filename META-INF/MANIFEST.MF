@@ -1,10 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: eBUS Configurations
+Bundle-Name: eBUS library configurations
 Bundle-SymbolicName: de.csdev.ebus-configuration;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.9.16.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ClassPath: .
 Service-Component: OSGI-INF/*.xml
 Export-Package: de.csdev.ebus.configuration
 Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Christian Sowada
