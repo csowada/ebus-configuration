@@ -112,4 +112,12 @@
 		</dependency>
 	</dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>bintray-csowada-mvn</id>
+            <name>csowada-mvn</name>
+            <url>https://api.bintray.com/maven/csowada/mvn/ebus-configuration/;publish=0</url>
+        </repository>
+    </distributionManagement>
+
 </project>
