@@ -11,19 +11,17 @@ package de.csdev.ebus.cfg;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import de.csdev.ebus.cfg.std.EBusConfigurationReader;
 import de.csdev.ebus.command.EBusCommandRegistry;
 import de.csdev.ebus.command.EBusCommandUtils;
 import de.csdev.ebus.command.IEBusCommandMethod;
 import de.csdev.ebus.command.datatypes.EBusTypeException;
-import de.csdev.ebus.command.datatypes.EBusTypeRegistry;
+import de.csdev.ebus.configuration.EBusConfigurationReaderExt;
 import de.csdev.ebus.utils.EBusUtils;
 
 /**
@@ -32,25 +30,12 @@ import de.csdev.ebus.utils.EBusUtils;
  */
 public class EBusVaillantVRC430TelegramTest {
 
-    EBusTypeRegistry types;
     EBusCommandRegistry commandRegistry;
 
     @Before
     public void before() throws IOException, EBusConfigurationReaderException {
 
-        types = new EBusTypeRegistry();
-
-        URL url = EBusConfigurationReader.class.getResource("/commands/vaillant-vrc-configuration.json");
-
-        if (url == null) {
-            throw new RuntimeException("Unable to load json file ...");
-        }
-
-        EBusConfigurationReader cfg = new EBusConfigurationReader();
-        cfg.setEBusTypes(types);
-
-        commandRegistry = new EBusCommandRegistry(EBusConfigurationReader.class);
-        commandRegistry.loadCommandCollection(url);
+        commandRegistry = new EBusCommandRegistry(EBusConfigurationReaderExt.class, true);
     }
 
     @Test

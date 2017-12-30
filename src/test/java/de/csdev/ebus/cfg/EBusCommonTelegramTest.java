@@ -19,14 +19,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.csdev.ebus.TestUtils;
-import de.csdev.ebus.cfg.EBusConfigurationReaderException;
-import de.csdev.ebus.cfg.std.EBusConfigurationReader;
 import de.csdev.ebus.command.EBusCommandRegistry;
 import de.csdev.ebus.command.EBusCommandUtils;
 import de.csdev.ebus.command.IEBusCommandMethod;
 import de.csdev.ebus.command.IEBusCommandMethod.Method;
 import de.csdev.ebus.command.datatypes.EBusTypeException;
-import de.csdev.ebus.command.datatypes.EBusTypeRegistry;
+import de.csdev.ebus.configuration.EBusConfigurationReaderExt;
 import de.csdev.ebus.core.EBusConsts;
 import de.csdev.ebus.utils.EBusUtils;
 
@@ -38,26 +36,12 @@ public class EBusCommonTelegramTest {
 
     private static final Logger logger = LoggerFactory.getLogger(EBusCommonTelegramTest.class);
 
-    EBusTypeRegistry types;
     EBusCommandRegistry commandRegistry;
 
     @Before
     public void before() throws IOException, EBusConfigurationReaderException {
 
-        types = new EBusTypeRegistry();
-
-        // URL url = EBusConfigurationReader.class.getResource("/commands/common-configuration.json");
-        //
-        // if (url == null) {
-        // throw new RuntimeException("Unable to load json file ...");
-        // }
-
-        EBusConfigurationReader cfg = new EBusConfigurationReader();
-        cfg.setEBusTypes(types);
-
-        commandRegistry = new EBusCommandRegistry(EBusConfigurationReader.class);
-        commandRegistry.loadBuildInCommandCollections();
-        // commandRegistry.loadCommandCollection(url);
+        commandRegistry = new EBusCommandRegistry(EBusConfigurationReaderExt.class, true);
     }
 
     @Test
