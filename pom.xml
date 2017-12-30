@@ -6,7 +6,7 @@
 	<description>eBUS library configuration</description>
 	<groupId>de.csdev.ebus</groupId>
 	<artifactId>ebus-configuration</artifactId>
-	<version>0.9.16</version>
+	<version>0.9.17-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 	<url>https://github.com/csowada/ebus-configuration</url>
 
@@ -34,7 +34,7 @@
         <connection>scm:git:.</connection>
         <developerConnection>scm:git:.</developerConnection>
         <url>scm:git:.</url>
-        <tag>ebus-configuration-0.9.16</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
