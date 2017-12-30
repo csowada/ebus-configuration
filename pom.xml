@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
@@ -7,7 +6,7 @@
 	<description>eBUS library configuration</description>
 	<groupId>de.csdev.ebus</groupId>
 	<artifactId>ebus-configuration</artifactId>
-	<version>0.9.16-SNAPSHOT</version>
+	<version>0.9.16</version>
 	<packaging>bundle</packaging>
 	<url>https://github.com/csowada/ebus-configuration</url>
 
@@ -35,7 +34,7 @@
         <connection>scm:git:.</connection>
         <developerConnection>scm:git:.</developerConnection>
         <url>scm:git:.</url>
-        <tag>HEAD</tag>
+        <tag>ebus-configuration-0.9.16</tag>
     </scm>
 
     <properties>
@@ -104,7 +103,7 @@
 		<dependency>
 			<groupId>de.csdev.ebus</groupId>
 			<artifactId>ebus-core</artifactId>
-			<version>0.9.16-SNAPSHOT</version>
+			<version>0.9.16</version>
 		</dependency>
 	</dependencies>
 
