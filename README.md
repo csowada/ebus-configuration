@@ -12,4 +12,4 @@ This repository is used as a community share platform. Most changes to this repo
 ## Information about the format
 
 - [eBUS lib configuration format](https://github.com/csowada/ebus/blob/master/de.csdev.ebus/doc/configuration.md)
-- [Mapping eBUS lib to ebusd configuration](https://github.com/csowada/ebus/blob/master/de.csdev.ebus/doc/configuration.md)
+- [Mapping eBUS lib to ebusd configuration](https://github.com/csowada/ebus/blob/master/de.csdev.ebus/doc/ebusd-mapping.md)
