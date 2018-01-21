@@ -1,0 +1,42 @@
+{
+    "id":           "cwl",
+    "vendor":       "Wolf",
+    "label":        "Wolf CWL",
+    "description":  "Wolf CWL 300/400",
+    
+    "authors":      ["Christian Sowada, opensource@cs-dev.de"],
+    "identification": ["08 16 00 22 03"],
+    
+    "commands":
+    [
+        {
+            "label":    "Temperature Inside",
+            "id":       "ac.temp_inside",
+            "command":  "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "07"}
+                ],
+                "slave": [
+                    {"name": "temp_inside", "type": "int", "label":"Temperature Inside", "reverseByteOrder": true, "factor": 0.1, "min": 1, "max": 60, "format":"%.1f°C"}   
+                ]
+            }
+        },
+        
+        {
+            "label":    "Temperature Outside",
+            "id":       "ac.temp_ouside",
+            "command":  "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "08"}
+                ],
+                "slave": [
+                    {"name": "temp_ouside", "type": "int", "label":"Temperature Outside", "reverseByteOrder": true, "factor": 0.1, "min": -60, "max": 100, "format":"%.1f°C"}   
+                ]
+            }
+        }
+    ]
+}

@@ -9,6 +9,7 @@
         {"name": "wolf-bm2", "url": "./commands/wolf-bm2-configuration.json"},
         {"name": "wolf-cgb2", "url": "./commands/wolf-cgb2-configuration.json"},
         {"name": "wolf-mm", "url": "./commands/wolf-mm-configuration.json"},
-        {"name": "wolf-sm1", "url": "./commands/wolf-sm1-configuration.json"}
+        {"name": "wolf-sm1", "url": "./commands/wolf-sm1-configuration.json"},
+        {"name": "wolf-sm1", "url": "./commands/wolf-cwl-configuration.json"}
     ]
 }
