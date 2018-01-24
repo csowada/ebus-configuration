@@ -1,0 +1,283 @@
+{
+    "id": "vrc700_hc1",
+    "vendor": "Vaillant",
+    "label": "Vaillant VRC 700 heating circuit 1",
+    "description": "Vaillant weather compensating regulation VRC 700 - heating circuit 1 commands",
+	
+    "authors":      ["Sinisa Mikulandra, mikulandra@inet.hr"],
+    "identification": ["37 30 30 30 30"],
+
+	"templates": [     	
+		{"name":"dummy", "template": [{"name": "_unknown", "type": "bytes", "length": "4"}]},
+		{"name":"dummy1", "template": [{"name": "_unknown1", "type": "bytes", "length": "1"}]}
+	],
+    
+	"commands": [
+	
+		{
+            "label":    "HC1 Circuit type",
+            "id":       "hc1.circuit_type",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 02 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.mctype", "label":"HC1 circuit type"},
+				 {"name": "_unknown2", "type": "bytes", "length": "1"}
+				]
+            }	
+		},
+		
+		{
+            "label":    "HC1 Flow setpoint (read only)",
+            "id":       "hc1.flow_setpoint",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 07 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.tempv", "label":"HC1 flow setpoint"}					
+				]
+            }	
+		},
+		
+		{
+            "label":    "HC1 current flow temperature",
+            "id":       "hc1.flow_temp",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 08 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.tempv", "label":"HC1 current flow"}					
+				]
+            }	
+		},
+		
+		{
+            "label":    "HC1 excess temperature",
+            "id":       "hc1.excess_temp",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 0B 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.calibrationv", "label":"HC1 excess temp."}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 02 00 0B 00"},									
+					{"type": "template-block", "id":"b5.calibrationv"}				
+				]                
+            }
+        },			
+			
+		{
+            "label":    "HC1 automatic off mode",
+            "id":       "hc1.auto_off_mode",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 0E 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.offmode", "label":"HC1 auto off mode"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 02 00 0E 00"},									
+					{"type": "template-block", "id":"b5.offmode"}				
+				]                
+            }
+        },
+		
+		{
+            "label":    "HC1 heating curve",
+            "id":       "hc1.heating_curve",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 0F 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"name": "value", "type": "float", "label": "HC1 heating curve"}					
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 02 00 0F 00"},									
+					{"name": "value", "type": "float"}					
+				]                
+            }
+        },
+		
+		{
+            "label":    "HC1 maximum flow temperature setpoint",
+            "id":       "hc1.max_flow_temp",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 10 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.tempv", "label":"HC1 maximum flow setpoint"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 02 00 10 00"},									
+					{"type": "template-block", "id":"b5.tempv"}				
+				]                
+            }
+        },	
+		
+		{
+            "label":    "HC1 minimum flow temperature setpoint",
+            "id":       "hc1.min_flow_temp",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 12 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.tempv", "label":"HC1 minimum flow setpoint"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 02 00 12 00"},									
+					{"type": "template-block", "id":"b5.tempv"}				
+				]                
+            }
+        },	
+		
+		{
+            "label":    "HC1 Summer temperature limit",
+            "id":       "hc1.summer_limit",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 14 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.tempv", "label":"HC1 summer limit"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 02 00 14 00"},									
+					{"type": "template-block", "id":"b5.tempv"}				
+				]                
+            }
+        },	
+		
+		{
+            "label":    "HC1 room temperature switch mode",
+            "id":       "hc1.room_temp_switch_mode",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 15 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.rcmode", "label":"HC1 room temp mode"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 02 00 15 00"},									
+					{"type": "template-block", "id":"b5.rcmode"}				
+				]                
+            }
+        },	
+		
+		{
+            "label":    "HC1 mixer movement status",
+            "id":       "hc1.mixer_move",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 1A 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"name": "value", "type": "float", "label": "HC1 mixer status"}
+				]
+            }	
+		},
+		
+		{
+            "label":    "HC1 curve adaptation applied",
+            "id":       "hc1.curve_adapt",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 1C 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"name": "value", "type": "float", "label": "HC1 curve adaptation"}
+				]
+            }	
+		},
+		
+		{
+            "label":    "HC1 status",
+            "id":       "hc1.status",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 1B 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"name": "value", "type": "uchar", "label": "HC1 status"}					
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 02 00 1B 00"},									
+					{"name": "value", "type": "uchar"}					
+				]                
+            }
+        },
+		
+		{
+            "label":    "HC1 pump status",
+            "id":       "hc1.pump_status",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 00 1E 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"name": "value", "type": "uint", "label": "HC1 pump status"}					
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 02 00 1E 00"},									
+					{"name": "value", "type": "uint"}					
+				]                
+            }
+        }	
+	
+	]
+}

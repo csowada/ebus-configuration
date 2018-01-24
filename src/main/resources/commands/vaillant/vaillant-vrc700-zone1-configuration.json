@@ -1,0 +1,516 @@
+{
+    "id": "vrc700_zone1",
+    "vendor": "Vaillant",
+    "label": "Vaillant VRC 700 zone 1",
+    "description": "Vaillant weather compensating regulation VRC 700 - zone 1 comamnds",
+	
+    "authors":      ["Sinisa Mikulandra, mikulandra@inet.hr"],
+    "identification": ["37 30 30 30 30"],
+
+	"templates": [     	
+		{"name":"dummy", "template": [{"name": "_unknown", "type": "bytes", "length": "4"}]},
+		{"name":"dummy1", "template": [{"name": "_unknown1", "type": "bytes", "length": "1"}]}
+	],
+    
+	"commands": [
+	
+		{
+            "label":    "ZONE1 holiday period start",
+            "id":       "z1.holiday_start",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 03 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.hfrom", "label":"ZONE1 holiday start"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 03 00"},									
+					{"type": "template-block", "id":"b5.hfrom"}				
+				]                
+            }
+        },
+
+		{
+            "label":    "ZONE1 holiday period end",
+            "id":       "z1.holiday_end",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 04 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.hto", "label":"ZONE1 holiday end"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 04 00"},									
+					{"type": "template-block", "id":"b5.hto"}				
+				]                
+            }
+        },	
+		
+		{
+            "label":    "ZONE1 holiday setpoint temperature",
+            "id":       "z1.holiday_setpoint",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 05 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.tempv", "label":"ZONE1 holiday setpoint"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 05 00"},									
+					{"type": "template-block", "id":"b5.tempv"}				
+				]                
+            }
+        },	
+		
+		{
+            "label":    "ZONE1 operation mode",
+            "id":       "z1.op_mode",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 06 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.opmode", "label":"ZONE1 operation mode"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 06 00"},									
+					{"type": "template-block", "id":"b5.opmode"}				
+				]                
+            }
+        },	
+		
+		{
+            "label":    "ZONE1 day setpoint temperature",
+            "id":       "z1.day_setpoint",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 07 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.tempv", "label":"ZONE1 day setpoint"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 07 00"},									
+					{"type": "template-block", "id":"b5.tempv"}				
+				]                
+            }
+        },	
+
+		{
+            "label":    "ZONE1 manual setpoint temperature (Quick Veto)",
+            "id":       "z1.quick_veto",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 08 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.tempv", "label":"ZONE1 quick veto"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 08 00"},									
+					{"type": "template-block", "id":"b5.tempv"}				
+				]                
+            }
+        },	
+		
+		{
+            "label":    "ZONE1 night setpoint",
+            "id":       "z1.night_setpoint",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 09 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.tempv", "label":"ZONE1 night setpoint"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 09 00"},									
+					{"type": "template-block", "id":"b5.tempv"}				
+				]                
+            }
+        },	
+
+		{
+            "label":    "ZONE1 bank holiday start",
+            "id":       "z1.bank_holiday_start",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 0C 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.hfrom", "label":"ZONE1 bank holiday start"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 0C 00"},									
+					{"type": "template-block", "id":"b5.hfrom"}				
+				]                
+            }
+        },	
+
+		{
+            "label":    "ZONE1 bank holiday end",
+            "id":       "z1.bank_holiday_end",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 0D 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.hto", "label":"ZONE1 bank holiday end"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 0D 00"},									
+					{"type": "template-block", "id":"b5.hto"}				
+				]                
+            }
+        },	
+
+		{
+            "label":    "ZONE1 sf mode",
+            "id":       "z1.sf_mode",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 0E 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.sfmode", "label":"ZONE1 sf mode"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 0E 00"},									
+					{"type": "template-block", "id":"b5.sfmode"}				
+				]                
+            }
+        },
+
+		{
+            "label":    "ZONE1 current room temperature",
+            "id":       "z1.room_temp",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 02 01 0F 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"name": "value", "type": "float", "label": "ZONE1 room"}
+				]
+            }	
+		},
+		
+		{
+            "label":    "ZONE1 valve status",
+            "id":       "z1.valve_status",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 12 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"name": "value", "type": "uchar", "label": "ZONE1 valve status"}					
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 12 00"},									
+					{"name": "value", "type": "uchar"}					
+				]                
+            }
+        },
+		
+		{
+            "label":    "ZONE1 room temperature mapping",
+            "id":       "z1.room_map",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 13 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.zmapping", "label":"ZONE1 room temp mapping"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 13 00"},									
+					{"type": "template-block", "id":"b5.zmapping"}				
+				]                
+            }
+        },	
+
+		{
+            "label":    "ZONE1 actual setpoint",
+            "id":       "z1.actual_setpoint",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 14 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.tempv", "label":"ZONE1 actual setpoint"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 14 00"},									
+					{"type": "template-block", "id":"b5.tempv"}				
+				]                
+            }
+        },	
+		
+		{
+            "label":    "ZONE1 short name",
+            "id":       "z1.short_name",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 16 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.shortname", "label":"ZONE1 short name"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 16 00"},									
+					{"type": "template-block", "id":"b5.shortname"}				
+				]                
+            }
+        },	
+		
+		{
+            "label":    "ZONE1 name part1",
+            "id":       "z1.name1",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 17 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.zname", "label":"ZONE1 name1"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 17 00"},									
+					{"type": "template-block", "id":"b5.zname"}				
+				]                
+            }
+        },	
+		
+		{
+            "label":    "ZONE1 name part2",
+            "id":       "z1.name2",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 03 00 18 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id":"b5.zname", "label":"ZONE1 name2"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "02 01 03 00 18 00"},									
+					{"type": "template-block", "id":"b5.zname"}				
+				]                
+            }
+        },
+
+		{
+            "label":    "Zone1 heating timer Monday",
+            "id":       "z1h.timer_mon",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 03 00 02 00"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy1"},
+                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 heating timer monday"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "04 03 00 02 00"},									
+					{"type": "template-block", "id":"b5.slot1-3"}				
+				]                
+            }
+        },
+		
+		{
+            "label":    "Zone1 heating timer Tuesday",
+            "id":       "z1h.timer_tue",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 03 00 02 01"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy1"},
+                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 heating timer tuesday"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "04 03 00 02 01"},									
+					{"type": "template-block", "id":"b5.slot1-3"}				
+				]                
+            }
+        },
+		
+		{
+            "label":    "Zone1 heating timer Wednesday",
+            "id":       "z1h.timer_wed",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 03 00 02 02"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy1"},
+                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 heating timer wednesday"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "04 03 00 02 02"},									
+					{"type": "template-block", "id":"b5.slot1-3"}				
+				]                
+            }
+        },
+		
+		{
+            "label":    "Zone1 heating timer Thursday",
+            "id":       "z1h.timer_thu",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 03 00 02 03"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy1"},
+                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 heating timer thursday"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "04 03 00 02 03"},									
+					{"type": "template-block", "id":"b5.slot1-3"}				
+				]                
+            }
+        },
+		
+		{
+            "label":    "Zone1 heating timer Friday",
+            "id":       "z1h.timer_fri",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 03 00 02 04"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy1"},
+                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 heating timer friday"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "04 03 00 02 04"},									
+					{"type": "template-block", "id":"b5.slot1-3"}				
+				]                
+            }
+        },
+		
+		{
+            "label":    "Zone1 heating timer Saturday",
+            "id":       "z1h.timer_sat",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 03 00 02 05"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy1"},
+                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 heating timer saturday"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "04 03 00 02 05"},									
+					{"type": "template-block", "id":"b5.slot1-3"}				
+				]                
+            }
+        },
+		
+		{
+            "label":    "Zone1 heating timer Sunday",
+            "id":       "z1h.timer_sun",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 03 00 02 06"}					
+				],
+                "slave": [
+				 {"type": "template-block", "id": "dummy1"},
+                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 heating timer sunday"}				
+				]
+            },
+			"set": {
+                "master": [
+                    {"type": "static", "default": "04 03 00 02 06"},									
+					{"type": "template-block", "id":"b5.slot1-3"}				
+				]                
+            }
+        },		
+	
+	]
+}
