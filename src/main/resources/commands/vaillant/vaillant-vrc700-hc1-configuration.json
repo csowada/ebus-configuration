@@ -24,7 +24,7 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.mctype", "label":"HC1 circuit type"},
+                 {"type": "template-block", "id":"vaillant.mctype", "label":"HC1 circuit type"},
 				 {"name": "_unknown2", "type": "bytes", "length": "1"}
 				]
             }	
@@ -40,7 +40,7 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.tempv", "label":"HC1 flow setpoint"}					
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"HC1 flow setpoint"}					
 				]
             }	
 		},
@@ -55,7 +55,7 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.tempv", "label":"HC1 current flow"}					
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"HC1 current flow"}					
 				]
             }	
 		},
@@ -70,13 +70,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.calibrationv", "label":"HC1 excess temp."}				
+                 {"type": "template-block", "id":"vaillant.calibrationv", "label":"HC1 excess temp."}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 02 00 0B 00"},									
-					{"type": "template-block", "id":"b5.calibrationv"}				
+					{"type": "template-block", "id":"vaillant.calibrationv"}				
 				]                
             }
         },			
@@ -91,13 +91,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.offmode", "label":"HC1 auto off mode"}				
+                 {"type": "template-block", "id":"vaillant.offmode", "label":"HC1 auto off mode"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 02 00 0E 00"},									
-					{"type": "template-block", "id":"b5.offmode"}				
+					{"type": "template-block", "id":"vaillant.offmode"}				
 				]                
             }
         },
@@ -133,13 +133,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.tempv", "label":"HC1 maximum flow setpoint"}				
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"HC1 maximum flow setpoint"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 02 00 10 00"},									
-					{"type": "template-block", "id":"b5.tempv"}				
+					{"type": "template-block", "id":"vaillant.tempv"}				
 				]                
             }
         },	
@@ -154,13 +154,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.tempv", "label":"HC1 minimum flow setpoint"}				
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"HC1 minimum flow setpoint"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 02 00 12 00"},									
-					{"type": "template-block", "id":"b5.tempv"}				
+					{"type": "template-block", "id":"vaillant.tempv"}				
 				]                
             }
         },	
@@ -175,13 +175,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.tempv", "label":"HC1 summer limit"}				
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"HC1 summer limit"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 02 00 14 00"},									
-					{"type": "template-block", "id":"b5.tempv"}				
+					{"type": "template-block", "id":"vaillant.tempv"}				
 				]                
             }
         },	
@@ -196,13 +196,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.rcmode", "label":"HC1 room temp mode"}				
+                 {"type": "template-block", "id":"vaillant.rcmode", "label":"HC1 room temp mode"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 02 00 15 00"},									
-					{"type": "template-block", "id":"b5.rcmode"}				
+					{"type": "template-block", "id":"vaillant.rcmode"}				
 				]                
             }
         },	

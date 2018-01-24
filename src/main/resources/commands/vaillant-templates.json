@@ -42,7 +42,7 @@
 			{"name": "to", "type": "template", "id": "vaillant.to.value"}		
     	]},
     	
-    	{"name":"slot3", "template": [						
+    	{"name":"slot1-3", "template": [						
 			{"name": "from1", "type": "template", "id": "vaillant.from.value"},
 			{"name": "to1", "type": "template", "id": "vaillant.to.value"},
 			{"name": "from2", "type": "template", "id": "vaillant.from.value"},

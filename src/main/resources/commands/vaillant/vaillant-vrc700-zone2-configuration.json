@@ -24,13 +24,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.hfrom", "label":"ZONE2 holiday start"}				
+                 {"type": "template-block", "id":"vaillant.hfrom", "label":"ZONE2 holiday start"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 03 00"},									
-					{"type": "template-block", "id":"b5.hfrom"}				
+					{"type": "template-block", "id":"vaillant.hfrom"}				
 				]                
             }
         },
@@ -45,13 +45,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.hto", "label":"ZONE2 holiday end"}				
+                 {"type": "template-block", "id":"vaillant.hto", "label":"ZONE2 holiday end"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 04 00"},									
-					{"type": "template-block", "id":"b5.hto"}				
+					{"type": "template-block", "id":"vaillant.hto"}				
 				]                
             }
         },	
@@ -66,13 +66,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.tempv", "label":"ZONE2 holiday setpoint"}				
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"ZONE2 holiday setpoint"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 05 00"},									
-					{"type": "template-block", "id":"b5.tempv"}				
+					{"type": "template-block", "id":"vaillant.tempv"}				
 				]                
             }
         },	
@@ -87,13 +87,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.opmode", "label":"ZONE2 operation mode"}				
+                 {"type": "template-block", "id":"vaillant.opmode", "label":"ZONE2 operation mode"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 06 00"},									
-					{"type": "template-block", "id":"b5.opmode"}				
+					{"type": "template-block", "id":"vaillant.opmode"}				
 				]                
             }
         },	
@@ -108,13 +108,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.tempv", "label":"ZONE2 day setpoint"}				
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"ZONE2 day setpoint"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 07 00"},									
-					{"type": "template-block", "id":"b5.tempv"}				
+					{"type": "template-block", "id":"vaillant.tempv"}				
 				]                
             }
         },	
@@ -129,13 +129,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.tempv", "label":"ZONE2 quick veto"}				
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"ZONE2 quick veto"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 08 00"},									
-					{"type": "template-block", "id":"b5.tempv"}				
+					{"type": "template-block", "id":"vaillant.tempv"}				
 				]                
             }
         },	
@@ -150,13 +150,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.tempv", "label":"ZONE2 night setpoint"}				
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"ZONE2 night setpoint"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 09 00"},									
-					{"type": "template-block", "id":"b5.tempv"}				
+					{"type": "template-block", "id":"vaillant.tempv"}				
 				]                
             }
         },	
@@ -171,13 +171,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.hfrom", "label":"ZONE2 bank holiday start"}				
+                 {"type": "template-block", "id":"vaillant.hfrom", "label":"ZONE2 bank holiday start"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 0C 00"},									
-					{"type": "template-block", "id":"b5.hfrom"}				
+					{"type": "template-block", "id":"vaillant.hfrom"}				
 				]                
             }
         },	
@@ -192,13 +192,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.hto", "label":"ZONE2 bank holiday end"}				
+                 {"type": "template-block", "id":"vaillant.hto", "label":"ZONE2 bank holiday end"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 0D 00"},									
-					{"type": "template-block", "id":"b5.hto"}				
+					{"type": "template-block", "id":"vaillant.hto"}				
 				]                
             }
         },	
@@ -213,13 +213,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.sfmode", "label":"ZONE2 sf mode"}				
+                 {"type": "template-block", "id":"vaillant.sfmode", "label":"ZONE2 sf mode"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 0E 00"},									
-					{"type": "template-block", "id":"b5.sfmode"}				
+					{"type": "template-block", "id":"vaillant.sfmode"}				
 				]                
             }
         },
@@ -270,13 +270,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.zmapping", "label":"ZONE2 room temp mapping"}				
+                 {"type": "template-block", "id":"vaillant.zmapping", "label":"ZONE2 room temp mapping"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 13 00"},									
-					{"type": "template-block", "id":"b5.zmapping"}				
+					{"type": "template-block", "id":"vaillant.zmapping"}				
 				]                
             }
         },	
@@ -291,13 +291,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.tempv", "label":"ZONE2 actual setpoint"}				
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"ZONE2 actual setpoint"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 14 00"},									
-					{"type": "template-block", "id":"b5.tempv"}				
+					{"type": "template-block", "id":"vaillant.tempv"}				
 				]                
             }
         },	
@@ -312,13 +312,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.shortname", "label":"ZONE2 short name"}				
+                 {"type": "template-block", "id":"vaillant.shortname", "label":"ZONE2 short name"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 16 00"},									
-					{"type": "template-block", "id":"b5.shortname"}				
+					{"type": "template-block", "id":"vaillant.shortname"}				
 				]                
             }
         },	
@@ -333,13 +333,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.zname", "label":"ZONE2 name1"}				
+                 {"type": "template-block", "id":"vaillant.zname", "label":"ZONE2 name1"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 17 00"},									
-					{"type": "template-block", "id":"b5.zname"}				
+					{"type": "template-block", "id":"vaillant.zname"}				
 				]                
             }
         },	
@@ -354,13 +354,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"b5.zname", "label":"ZONE2 name2"}				
+                 {"type": "template-block", "id":"vaillant.zname", "label":"ZONE2 name2"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 03 01 18 00"},									
-					{"type": "template-block", "id":"b5.zname"}				
+					{"type": "template-block", "id":"vaillant.zname"}				
 				]                
             }
         },
@@ -375,13 +375,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 heating timer monday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 heating timer monday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 02 00"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -396,13 +396,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 heating timer tuesday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 heating timer tuesday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 02 01"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -417,13 +417,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 heating timer wednesday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 heating timer wednesday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 02 02"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -438,13 +438,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 heating timer thursday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 heating timer thursday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 02 03"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -459,13 +459,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 heating timer friday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 heating timer friday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 02 04"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -480,13 +480,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 heating timer saturday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 heating timer saturday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 02 05"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -501,13 +501,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 heating timer sunday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 heating timer sunday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 02 06"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         }			

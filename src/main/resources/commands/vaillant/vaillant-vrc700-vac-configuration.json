@@ -24,13 +24,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Ventilation timer monday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Ventilation timer monday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 01 00"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -45,13 +45,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Ventilation timer tuesday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Ventilation timer tuesday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 01 01"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -66,13 +66,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Ventilation timer wednesday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Ventilation timer wednesday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 01 02"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -87,13 +87,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Ventilation timer thursday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Ventilation timer thursday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 01 03"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -108,13 +108,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Ventilation timer friday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Ventilation timer friday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 01 04"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -129,13 +129,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Ventilation timer saturday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Ventilation timer saturday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 01 05"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -150,13 +150,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Ventilation timer sunday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Ventilation timer sunday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 01 06"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -171,13 +171,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Noise reduction timer monday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Noise reduction timer monday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 02 00"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -192,13 +192,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Noise reduction timer tuesday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Noise reduction timer tuesday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 02 01"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -213,13 +213,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Noise reduction timer wednesday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Noise reduction timer wednesday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 02 02"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -234,13 +234,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Noise reduction timer thursday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Noise reduction timer thursday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 02 03"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -255,13 +255,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Noise reduction timer friday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Noise reduction timer friday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 02 04"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -276,13 +276,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Noise reduction timer saturday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Noise reduction timer saturday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 02 05"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -297,13 +297,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Noise reduction timer sunday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Noise reduction timer sunday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 02 06"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -318,13 +318,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Tariff timer monday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Tariff timer monday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 03 00"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -339,13 +339,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Tariff timer tuesday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Tariff timer tuesday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 03 01"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -360,13 +360,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Tariff timer wednesday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Tariff timer wednesday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 03 02"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -381,13 +381,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Tariff timer thursday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Tariff timer thursday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 03 03"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -402,13 +402,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Tariff timer friday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Tariff timer friday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 03 04"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -423,13 +423,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Tariff timer saturday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Tariff timer saturday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 03 05"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -444,13 +444,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Tariff timer sunday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Tariff timer sunday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 00 00 03 06"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -465,13 +465,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 cooling timer monday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone1 cooling timer monday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 00 01 00"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -486,13 +486,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 cooling timer tuesday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone1 cooling timer tuesday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 00 01 01"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -507,13 +507,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 cooling timer wednesday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone1 cooling timer wednesday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 00 01 02"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -528,13 +528,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 cooling timer thursday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone1 cooling timer thursday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 00 01 03"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -549,13 +549,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 cooling timer friday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone1 cooling timer friday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 00 01 04"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -570,13 +570,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 cooling timer saturday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone1 cooling timer saturday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 00 01 05"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -591,13 +591,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone1 cooling timer sunday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone1 cooling timer sunday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 00 01 06"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -612,13 +612,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 cooling timer monday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 cooling timer monday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 01 00"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -633,13 +633,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 cooling timer tuesday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 cooling timer tuesday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 01 01"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -654,13 +654,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 cooling timer wednesday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 cooling timer wednesday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 01 02"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -675,13 +675,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 cooling timer thursday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 cooling timer thursday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 01 03"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -696,13 +696,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 cooling timer friday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 cooling timer friday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 01 04"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -717,13 +717,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 cooling timer saturday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 cooling timer saturday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 01 05"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         },
@@ -738,13 +738,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy1"},
-                 {"type": "template-block", "id":"b5.slot1-3", "label":"Zone2 cooling timer sunday"}				
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Zone2 cooling timer sunday"}				
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "04 03 01 01 06"},									
-					{"type": "template-block", "id":"b5.slot1-3"}				
+					{"type": "template-block", "id":"vaillant.slot1-3"}				
 				]                
             }
         }			
