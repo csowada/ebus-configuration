@@ -20,11 +20,11 @@
     	]},
     	
     	{"name":"from", "template": [						
-			{"name": "value", "type": "template", "id": "vaillant.templ.ttm"}		
+			{"name": "value", "type": "template", "id": "vaillant.templ.ttm", "format": "%1$tH:%1$tM"}		
     	]},
     	
     	{"name":"to", "template": [						
-			{"name": "value", "type": "template", "id": "vaillant.templ.ttm"}
+			{"name": "value", "type": "template", "id": "vaillant.templ.ttm", "format": "%1$tH:%1$tM"}
     	]},
     	
     	{"name":"slot1", "template": [						
@@ -84,7 +84,7 @@
     	]},
     	
     	{"name":"energy4", "template": [			
-			{"name": "value", "type": "uchar", "length": "4", "format": "%s kWh"}
+			{"name": "value", "type": "uchar", "length": 4, "format": "%s kWh"}
     	]},
 		
 		{"name":"hfrom", "template": [			
@@ -112,15 +112,15 @@
     	]},
 		
 		{"name":"zname", "template": [						
-			{"name": "value", "type": "string", "length": "5"}			
+			{"name": "value", "type": "string", "length": 5}			
     	]},
 		
 		{"name":"shortname", "template": [						
-			{"name": "value", "type": "string", "length": "6"}			
+			{"name": "value", "type": "string", "length": 6}			
     	]},
 		
 		{"name":"shortphone", "template": [						
-			{"name": "value", "type": "string", "length": "6"}			
+			{"name": "value", "type": "string", "length": 6}			
     	]},
 		
 		{"name":"mamode", "template": [						
