@@ -3,10 +3,10 @@
     "vendor":       "Wolf",
     "label":        "Wolf MM",
     "description":  "Wolf Mixer Module",
-    
+
     "authors":      ["Christian Sowada, opensource@cs-dev.de"],
     "identification": ["01 21 00 5A 00"],
-    
+
     "commands":
     [
         {
@@ -34,6 +34,6 @@
                     {"name":"_s_unknown9", "type": "byte"}
                 ]
             }
-        }   
+        }
     ]
 }

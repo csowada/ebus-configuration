@@ -1,912 +1,909 @@
 {
-    "id": "vrc700_general",
-    "vendor": "Vaillant",
-    "label": "Vaillant VRC 700 general",
-    "description": "Vaillant weather compensating regulation VRC 700 - general commands",
-	
-    "authors":      ["Sinisa Mikulandra, mikulandra@inet.hr"],
+    "id":           "vrc700_general",
+    "vendor":       "Vaillant",
+    "label":        "Vaillant VRC 700 general",
+    "description":  "Vaillant weather compensating regulation VRC 700 - general commands",
+
+    "authors":      ["Sinisa Mikulandra, mikulandra@inet.hr",
+                    "Christian Sowada, opensource@cs-dev.de"],
+
     "identification": ["37 30 30 30 30"],
 
-	"templates": [     	
-		{"name":"dummy", "template": [{"name": "_unknown", "type": "bytes", "length": "4"}]},
-		{"name":"dummy1", "template": [{"name": "_unknown1", "type": "bytes", "length": "1"}]}
-	],
-    
-	"commands": [	
-		
-		{
+    "commands": [
+
+        {
             "label":    "Continuous heating temperature",
             "id":       "gen.continous_heating",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 02 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 02 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.tempv", "label":"Continuous heating"}					
-				]
-            }	
-		},
-		
-		{
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"Continuous heating"}
+                ]
+            }
+        },
+
+        {
             "label":    "Frost protection delay",
             "id":       "gen.frost_override_time",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 03 01"}
-				],
+                    {"type": "static", "default": "02 00 00 00 03 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.hoursum2", "label":"Frost protection delay"}					
-				]
-            }	
-		},
-		
-		{
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.hoursum2", "label":"Frost protection delay"}
+                ]
+            }
+        },
+
+        {
             "label":    "HCW parallel loading",
             "id":       "gen.hcw_parallel",
             "command":  "B5 24",
             "get": {
                 "master": [
                     {"type": "static", "default": "02 00 00 00 0A 00"}
-				],
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
+                 {"type": "template-block", "id": "vaillant.unknown4"},
                  {"type": "template-block", "id":"vaillant.onoff", "label":"HCW parallel loading"}
-				]
-            }	
-		},
-		
-		{
+                ]
+            }
+        },
+
+        {
             "label":    "Maximal room humidity",
             "id":       "gen.max_room_humidity",
             "command":  "B5 24",
             "get": {
                 "master": [
                     {"type": "static", "default": "02 00 00 00 0E 00"}
-				],
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"name": "value", "type": "uint", "label": "Max. room humidity", "format": "%s"}					
-				]
-            }	
-		},				
-		
-		{
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"name": "value", "type": "uint", "label": "Max. room humidity", "format": "%s"}
+                ]
+            }
+        },
+
+        {
             "label":    "Adaptive heating curve",
             "id":       "gen.adaptive_curve",
             "command":  "B5 24",
             "get": {
                 "master": [
-                 {"type": "static", "default": "02 00 00 00 14 00"}					
-				],
+                 {"type": "static", "default": "02 00 00 00 14 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id": "vaillant.yesno", "label": "Adaptive heating curve"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id": "vaillant.yesno", "label": "Adaptive heating curve"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 14 00"},									
-					{"type": "template-block", "id":"vaillant.yesno"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 14 00"},
+                    {"type": "template-block", "id":"vaillant.yesno"}
+                ]
             }
-        },		
-		
-		{
+        },
+
+        {
             "label":    "Max. cylinder charging time",
             "id":       "gen.cylider_charging_time",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 17 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 17 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.minutes2", "label":"Cylinder charging time"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.minutes2", "label":"Cylinder charging time"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 17 00"},									
-					{"type": "template-block", "id":"vaillant.minutes2"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 17 00"},
+                    {"type": "template-block", "id":"vaillant.minutes2"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "HWC Lock time",
             "id":       "gen.lock_time",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 18 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 18 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.minutes2", "label":"HWC lock time"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.minutes2", "label":"HWC lock time"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 18 00"},									
-					{"type": "template-block", "id":"vaillant.minutes2"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 18 00"},
+                    {"type": "template-block", "id":"vaillant.minutes2"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Pump additional time",
             "id":       "gen.pump_additional",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 1B 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 1B 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.minutes2", "label":"Pump additional time"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.minutes2", "label":"Pump additional time"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 1B 00"},									
-					{"type": "template-block", "id":"vaillant.minutes2"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 1B 00"},
+                    {"type": "template-block", "id":"vaillant.minutes2"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Cylinder charge hysteresis",
             "id":       "gen.cylinder_ch_hyst",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 27 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 27 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.calibrationv", "label":"Cylinder charge hysteresis"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.calibrationv", "label":"Cylinder charge hysteresis"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 27 00"},									
-					{"type": "template-block", "id":"vaillant.calibrationv"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 27 00"},
+                    {"type": "template-block", "id":"vaillant.calibrationv"}
+                ]
             }
-        },		
-		
-		{
+        },
+
+        {
             "label":    "Cylinder charge offset",
             "id":       "gen.cylinder_ch_offset",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 29 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 29 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.calibrationv", "label":"Cylinder charge offset"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.calibrationv", "label":"Cylinder charge offset"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 29 00"},									
-					{"type": "template-block", "id":"vaillant.calibrationv"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 29 00"},
+                    {"type": "template-block", "id":"vaillant.calibrationv"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Maintenance date",
             "id":       "gen.maintenance_date",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 2C 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 2C 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"name": "value", "type": "date", "label": "Maintenance date", "variant": "hex"}					
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"name": "value", "type": "date", "label": "Maintenance date", "variant": "hex_short", "format": "%1$td.%1$tm.%1$tY"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 2C 00"},									
-					{"name": "value", "type": "date", "variant": "hex"}					
-				]                
+                    {"type": "static", "default": "02 01 00 00 2C 00"},
+                    {"name": "value", "type": "date", "variant": "hex_short", "format": "%1$td.%1$tm.%1$tY"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Date",
             "id":       "gen.date",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 34 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 34 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"name": "value", "type": "date", "label": "Actual date", "variant": "hex", "format": "%1$td.%1$tm.%1$tY"}					
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"name": "value", "type": "date", "label": "Actual date", "variant": "hex_short", "format": "%1$td.%1$tm.%1$tY"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 34 00"},									
-					{"name": "value", "type": "date", "variant": "hex"}					
-				]                
+                    {"type": "static", "default": "02 01 00 00 34 00"},
+                    {"name": "value", "type": "date", "variant": "hex_short"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Time",
             "id":       "gen.time",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 35 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 35 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"name": "value", "type": "time", "label": "Actual time", "variant": "hex", "reverseByteOrder": "true", "format": "%1$tH:%1$tM"}					
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"name": "value", "type": "time", "label": "Actual time", "variant": "hex", "reverseByteOrder": "true", "format": "%1$tH:%1$tM"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 35 00"},									
-					{"name": "value", "type": "time", "variant": "hex", "reverseByteOrder": "true"}					
-				]                
+                    {"type": "static", "default": "02 01 00 00 35 00"},
+                    {"name": "value", "type": "time", "variant": "hex", "reverseByteOrder": "true"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Hydraulic scheme",
             "id":       "gen.hydraulic_scheme",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 36 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 36 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"name": "value", "type": "uint", "label": "Hydraulic scheme"}					
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"name": "value", "type": "uint", "label": "Hydraulic scheme"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 36 00"},									
-					{"name": "value", "type": "uint"}					
-				]                
+                    {"type": "static", "default": "02 01 00 00 36 00"},
+                    {"name": "value", "type": "uint"}
+                ]
             }
-        },		
-		
-		{
+        },
+
+        {
             "label":    "Water pressure",
             "id":       "gen.pressure",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 39 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 39 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.pressv", "label":"Water"}					
-				]
-            }	
-		},
-		
-		{
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.pressv", "label":"Water"}
+                ]
+            }
+        },
+
+        {
             "label":    "Total solar yield",
             "id":       "gen.solar_yield_total",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 3D 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 3D 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.energy4", "label":"Total solar yield"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.energy4", "label":"Total solar yield"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 3D 00"},									
-					{"type": "template-block", "id":"vaillant.energy4"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 3D 00"},
+                    {"type": "template-block", "id":"vaillant.energy4"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Total yield",
             "id":       "gen.yield_total",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 3E 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 3E 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.energy4", "label":"Total yield"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.energy4", "label":"Total yield"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 3E 00"},									
-					{"type": "template-block", "id":"vaillant.energy4"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 3E 00"},
+                    {"type": "template-block", "id":"vaillant.energy4"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Flow temperature",
             "id":       "gen.flow_temperature",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 4B 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 4B 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.tempv", "label":"System flow"}					
-				]
-            }	
-		},
-		
-		{
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"System flow"}
+                ]
+            }
+        },
+
+        {
             "label":    "Multi relay setting",
             "id":       "gen.multi_relay",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 4D 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 4D 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.mamode", "label":"Multi relay setting"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.mamode", "label":"Multi relay setting"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 4D 00"},									
-					{"type": "template-block", "id":"vaillant.mamode"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 4D 00"},
+                    {"type": "template-block", "id":"vaillant.mamode"}
+                ]
             }
         },
-		
-			{
+
+            {
             "label":    "Energy sum this month (HC)",
             "id":       "gen.energy_sum_this_month_hc",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 4F 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 4F 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum this month (HC)"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum this month (HC)"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 4F 00"},									
-					{"type": "template-block", "id":"vaillant.energy4"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 4F 00"},
+                    {"type": "template-block", "id":"vaillant.energy4"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Energy sum this month (HWC)",
             "id":       "gen.energy_sum_this_month_hwc",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 50 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 50 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum this month (HWC)"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum this month (HWC)"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 50 00"},									
-					{"type": "template-block", "id":"vaillant.energy4"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 50 00"},
+                    {"type": "template-block", "id":"vaillant.energy4"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Energy sum last month (HC)",
             "id":       "gen.energy_sum_last_month_hc",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 53 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 53 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum last month (HC)"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum last month (HC)"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 53 00"},									
-					{"type": "template-block", "id":"vaillant.energy4"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 53 00"},
+                    {"type": "template-block", "id":"vaillant.energy4"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Energy sum last month (HWC)",
             "id":       "gen.energy_sum_last_month_hwc",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 54 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 54 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum last month (HWC)"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum last month (HWC)"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 54 00"},									
-					{"type": "template-block", "id":"vaillant.energy4"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 54 00"},
+                    {"type": "template-block", "id":"vaillant.energy4"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Energy sum (HC)",
             "id":       "gen.energy_sum_hc",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 57 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 57 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum (HC)"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum (HC)"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 57 00"},									
-					{"type": "template-block", "id":"vaillant.energy4"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 57 00"},
+                    {"type": "template-block", "id":"vaillant.energy4"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Energy sum (HWC)",
             "id":       "gen.energy_sum_hwc",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 58 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 58 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum (HWC)"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum (HWC)"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 58 00"},									
-					{"type": "template-block", "id":"vaillant.energy4"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 58 00"},
+                    {"type": "template-block", "id":"vaillant.energy4"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Energy sum",
             "id":       "gen.energy_sum",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 5C 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 5C 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.energy4", "label":"Energy sum"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 5C 00"},									
-					{"type": "template-block", "id":"vaillant.energy4"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 5C 00"},
+                    {"type": "template-block", "id":"vaillant.energy4"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Op. mode effect",
             "id":       "gen.op_mode_effect",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 69 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 69 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.zonesel", "label":"Op. mode effect"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.zonesel", "label":"Op. mode effect"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 69 00"},									
-					{"type": "template-block", "id":"vaillant.zonesel"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 69 00"},
+                    {"type": "template-block", "id":"vaillant.zonesel"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Instaler's name 1",
             "id":       "gen.installer_1",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 6C 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 6C 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.shortname", "label":"Installer's name 1"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.shortname", "label":"Installer's name 1"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 6C 00"},									
-					{"type": "template-block", "id":"vaillant.shortname"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 6C 00"},
+                    {"type": "template-block", "id":"vaillant.shortname"}
+                ]
             }
-        },	
-		
-		{
+        },
+
+        {
             "label":    "Instaler's name 2",
             "id":       "gen.installer_2",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 6D 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 6D 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.shortname", "label":"Installer's name 2"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.shortname", "label":"Installer's name 2"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 6D 00"},									
-					{"type": "template-block", "id":"vaillant.shortname"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 6D 00"},
+                    {"type": "template-block", "id":"vaillant.shortname"}
+                ]
             }
-        },	
+        },
 
-		{
+        {
             "label":    "Phone number 1",
             "id":       "gen.phone_1",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 6F 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 6F 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.shortphone", "label":"Phone number 1"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.shortphone", "label":"Phone number 1"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 6F 00"},									
-					{"type": "template-block", "id":"vaillant.shortphone"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 6F 00"},
+                    {"type": "template-block", "id":"vaillant.shortphone"}
+                ]
             }
-        },		
+        },
 
-		{
+        {
             "label":    "Phone number 2",
             "id":       "gen.phone_2",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 70 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 70 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.shortphone", "label":"Phone number 2"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.shortphone", "label":"Phone number 2"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 70 00"},									
-					{"type": "template-block", "id":"vaillant.shortphone"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 70 00"},
+                    {"type": "template-block", "id":"vaillant.shortphone"}
+                ]
             }
-        },				
-		
-		{
+        },
+
+        {
             "label":    "Holiday start",
             "id":       "gen.holiday_start",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 71 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 71 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.hfrom", "label":"Holiday start"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.hfrom", "label":"Holiday start"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 71 00"},									
-					{"type": "template-block", "id":"vaillant.hfrom"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 71 00"},
+                    {"type": "template-block", "id":"vaillant.hfrom"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Holiday end",
             "id":       "gen.holiday_end",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 72 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 72 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.hto", "label":"Holiday end"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.hto", "label":"Holiday end"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 72 00"},									
-					{"type": "template-block", "id":"vaillant.hto"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 72 00"},
+                    {"type": "template-block", "id":"vaillant.hto"}
+                ]
             }
-        },	
-		
-		{
+        },
+
+        {
             "label":    "Displayed outside temperature",
             "id":       "gen.display_outside",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 73 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 73 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.tempv", "label":"Displayed outside temp."}					
-				]
-            }	
-		},
-			
-		{
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"Displayed outside temp."}
+                ]
+            }
+        },
+
+        {
             "label":    "SF mode",
             "id":       "gen.sf_mode",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 74 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 74 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.sfmode", "label":"SFmode"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.sfmode", "label":"SFmode"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 74 00"},									
-					{"type": "template-block", "id":"vaillant.sfmode"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 74 00"},
+                    {"type": "template-block", "id":"vaillant.sfmode"}
+                ]
             }
-        },	
-		
-		{
+        },
+
+        {
             "label":    "Menu Key code",
             "id":       "gen.key_code",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 76 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 76 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"name": "value", "type": "uint", "label": "Key code"}					
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"name": "value", "type": "uint", "label": "Key code"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 76 00"},									
-					{"name": "value", "type": "uint"}					
-				]                
+                    {"type": "static", "default": "02 01 00 00 76 00"},
+                    {"name": "value", "type": "uint"}
+                ]
             }
         },
 
-		{
+        {
             "label":    "Operation mode",
             "id":       "gen.operation_mode",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 7B 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 7B 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.opmode", "label":"OpMode"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.opmode", "label":"OpMode"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 7B 00"},									
-					{"type": "template-block", "id":"vaillant.opmode"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 7B 00"},
+                    {"type": "template-block", "id":"vaillant.opmode"}
+                ]
             }
         },
-		
-		{
+
+        {
             "label":    "Holiday setpoint",
             "id":       "gen.holiday_setpoint",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 82 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 82 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.tempv", "label":"Holiday setpoint"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"Holiday setpoint"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 82 00"},									
-					{"type": "template-block", "id":"vaillant.tempv"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 82 00"},
+                    {"type": "template-block", "id":"vaillant.tempv"}
+                ]
             }
-        },	
-		
-		{
+        },
+
+        {
             "label":    "Bank holiday start",
             "id":       "gen.bank_holiday_start",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 83 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 83 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.hfrom", "label":"Bank holiday start"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.hfrom", "label":"Bank holiday start"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 83 00"},									
-					{"type": "template-block", "id":"vaillant.hfrom"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 83 00"},
+                    {"type": "template-block", "id":"vaillant.hfrom"}
+                ]
             }
-        },	
-		
-		{
+        },
+
+        {
             "label":    "Bank holiday end",
             "id":       "gen.bank_holiday_end",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 84 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 84 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.hto", "label":"Bank holiday end"}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.hto", "label":"Bank holiday end"}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 84 00"},									
-					{"type": "template-block", "id":"vaillant.hto"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 84 00"},
+                    {"type": "template-block", "id":"vaillant.hto"}
+                ]
             }
         },
 
-		{
+        {
             "label":    "Average outside temperature (3h)",
             "id":       "gen.outside_3h",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 95 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 95 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.tempv", "label":"Avg. outside temp."}				
-				]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"Avg. outside temp."}
+                ]
             },
-			"set": {
+            "set": {
                 "master": [
-                    {"type": "static", "default": "02 01 00 00 95 00"},									
-					{"type": "template-block", "id":"vaillant.tempv"}				
-				]                
+                    {"type": "static", "default": "02 01 00 00 95 00"},
+                    {"type": "template-block", "id":"vaillant.tempv"}
+                ]
             }
-        },	
+        },
 
-		{
+        {
             "label":    "Maintenance due",
             "id":       "gen.maintenance_due",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 96 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 96 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.yesno", "label":"Maintenance due"}					
-				]
-            }	
-		},		
-		
-		{
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.yesno", "label":"Maintenance due"}
+                ]
+            }
+        },
+
+        {
             "label":    "HWC storage top",
             "id":       "gen.hwc_storage_top",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 9D 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 9D 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.tempv", "label":"HWC storage top"}					
-				]
-            }	
-		},
-		
-		{
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"HWC storage top"}
+                ]
+            }
+        },
+
+        {
             "label":    "HWC storage bottom",
             "id":       "gen.hwc_storage_bottom",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 9E 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 9E 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.tempv", "label":"HWC storage bottom"}					
-				]
-            }	
-		},
-		
-		{
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"HWC storage bottom"}
+                ]
+            }
+        },
+
+        {
             "label":    "Heating storage top",
             "id":       "gen.hc_storage_top",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 9F 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 9F 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.tempv", "label":"Heating storage top"}					
-				]
-            }	
-		},
-		
-		{
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"Heating storage top"}
+                ]
+            }
+        },
+
+        {
             "label":    "Heating storage bottom",
             "id":       "gen.hc_storage_bottom",
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 A0 00"}					
-				],
+                    {"type": "static", "default": "02 00 00 00 A0 00"}
+                ],
                 "slave": [
-				 {"type": "template-block", "id": "dummy"},
-                 {"type": "template-block", "id":"vaillant.tempv", "label":"Heating storage bottom"}					
-				]
-            }	
-		}	
-	
-	]
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"Heating storage bottom"}
+                ]
+            }
+        }
+
+    ]
 }

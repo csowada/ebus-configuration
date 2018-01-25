@@ -2,143 +2,167 @@
     "id":           "vaillant",
     "label":        "Vaillant Templates",
     "description":  "Templates for Vaillant devices",
-    
+
     "authors":      ["Christian Sowada, opensource@cs-dev.de",
-    				"Sinisa Mikulandra, mikulandra@inet.hr"],
-    
+                    "Sinisa Mikulandra, mikulandra@inet.hr"],
+
     "templates": [
-    
-  		{"name":"templ", "template": [
-  		
-  			{"name": "ttm", "type": "time", "variant": "minutes_short", "minuteMultiplier": 10, "replaceValue": "90", "min":0, "max": 144},
-  			
-			{"name": "tth", "type": "time", "variant": "minutes_short", "minuteMultiplier": 30, "replaceValue": "90", "min":0, "max": 48},
-			
-			{"name": "ttq", "type": "time", "variant": "minutes_short", "minuteMultiplier": 15, "replaceValue": "90", "min":0, "max": 96},
-			
-  			{"name": "hti", "type": "time", "variant": "hex", "reverseByteOrder": "true"}
-    	]},
-    	
-    	{"name":"from", "template": [						
-			{"name": "value", "type": "template", "id": "vaillant.templ.ttm"}		
-    	]},
-    	
-    	{"name":"to", "template": [						
-			{"name": "value", "type": "template", "id": "vaillant.templ.ttm"}
-    	]},
-    	
-    	{"name":"slot1", "template": [						
-			{"name": "from", "type": "template", "id": "vaillant.from.value"},
-			{"name": "to", "type": "template", "id": "vaillant.to.value"}		
-    	]},
-    	
-    	{"name":"slot2", "template": [						
-			{"name": "from", "type": "template", "id": "vaillant.from.value"},
-			{"name": "to", "type": "template", "id": "vaillant.to.value"}		
-    	]},
-    	
-    	{"name":"slot3", "template": [						
-			{"name": "from", "type": "template", "id": "vaillant.from.value"},
-			{"name": "to", "type": "template", "id": "vaillant.to.value"}		
-    	]},
-    	
-    	{"name":"slot1-3", "template": [						
-			{"name": "from1", "type": "template", "id": "vaillant.from.value"},
-			{"name": "to1", "type": "template", "id": "vaillant.to.value"},
-			{"name": "from2", "type": "template", "id": "vaillant.from.value"},
-			{"name": "to2", "type": "template", "id": "vaillant.to.value"},
-			{"name": "from3", "type": "template", "id": "vaillant.from.value"},
-			{"name": "to3", "type": "template", "id": "vaillant.to.value"}	
-    	]},
-    	
-    	{"name":"tempv", "template": [			
-			{"name": "value", "type": "float", "label": "%s temperature", "format": "%.1f°C"}
-    	]},
 
-		{"name":"pressv", "template": [			
-			{"name": "value", "type": "float", "label": "%s pressure", "format": "%.1fbar"}
-    	]},				
-		
-		{"name":"minutes2", "template": [			
-			{"name": "value", "type": "uint", "format": "%s min"}
-    	]},
-		
-		{"name":"hoursum2", "template": [			
-			{"name": "value", "type": "uint", "format": "%s h"}
-    	]},
-		
-		{"name":"calibrationv", "template": [			
-			{"name": "value", "type": "float", "format": "%s K"}
-    	]},
-		
-		{"name":"mctype", "template": [						
-			{"name": "value", "type": "uchar", "mapping": {"0":"inactive", "1":"mixer", "2":"fixed", "3":"hwc", "4":"returnincr", "5":"pool"}}			
-    	]},
-		
-		{"name":"onoff", "template": [						
-			{"name": "value", "type": "uchar", "mapping": {"0":"OFF", "1":"ON"}}			
-    	]},
+        {"name":"unknown4", "template": [
+            {"name": "_unknown4", "type": "bytes", "length": 4}
+        ]},
 
-		{"name":"yesno", "template": [						
-			{"name": "value", "type": "uchar", "mapping": {"0":"NO", "1":"YES"}}			
-    	]},
-    	
-    	{"name":"energy4", "template": [			
-			{"name": "value", "type": "uchar", "length": "4", "format": "%s kWh"}
-    	]},
-		
-		{"name":"hfrom", "template": [			
-			{"name": "value", "type": "date", "variant": "hex_short", "format": "%1$td.%1$tm.%1$tY"}
-    	]},
-		
-		{"name":"hto", "template": [			
-			{"name": "value", "type": "date", "variant": "hex_short", "format": "%1$td.%1$tm.%1$tY"}
-    	]},
-				
-		{"name":"zonesel", "template": [						
-			{"name": "value", "type": "uint", "mapping": {"0":"all", "1":"1", "2":"2", "3":"3", "4":"4", "5":"5", "6":"6"}}			
-    	]},
-		
-		{"name":"sfmode", "template": [						
-			{"name": "value", "type": "uchar", "mapping": {"0":"auto", "1":"ventilation", "2":"party", "3":"veto", "6":"load"}}			
-    	]},
-		
-		{"name":"opmode", "template": [						
-			{"name": "value", "type": "uint", "mapping": {"0":"off", "1":"auto", "2":"day", "3":"night"}}			
-    	]},
-		
-		{"name":"zmapping", "template": [						
-			{"name": "value", "type": "uint", "mapping": {"0":"none", "1":"VRC700", "2":"VR91.1", "3":"VR91.2", "4":"VR91.3"}}			
-    	]},
-		
-		{"name":"zname", "template": [						
-			{"name": "value", "type": "string", "length": "5"}			
-    	]},
-		
-		{"name":"shortname", "template": [						
-			{"name": "value", "type": "string", "length": "6"}			
-    	]},
-		
-		{"name":"shortphone", "template": [						
-			{"name": "value", "type": "string", "length": "6"}			
-    	]},
-		
-		{"name":"mamode", "template": [						
-			{"name": "value", "type": "uint", "mapping": {"0":"circulation", "1":"dryer", "2":"zone", "3":"legiopump"}}			
-    	]},
-		
-		{"name":"offmode", "template": [						
-			{"name": "value", "type": "uint", "mapping": {"0":"eco", "1":"night"}}			
-    	]},
-		
-		{"name":"rcmode", "template": [						
-			{"name": "value", "type": "uint", "mapping": {"0":"off", "1":"modulating", "2":"thermostat"}}			
-    	]},
-    	
-    	{"name":"temp_sensor", "template": [
-			{"name": "value", "type": "data2c", "label": "Temp. %s actual value", "min": 0, "max": 100, "format":"%.1f°C"},
-			{"name": "status", "type": "uchar", "label": "Temp. %s actual value status", 
-				"mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
-    	]}
-	]
+        {"name":"unknown1", "template": [
+            {"name": "_unknown4", "type": "bytes", "length": 1}
+        ]},
+
+        {"name":"templ", "template": [
+            {"name": "bti", "type": "time", "format": "%1$tH:%1$tM"},
+
+            {"name": "btm", "type": "time", "variant": "short", "format": "%1$tH:%1$tM"},
+
+            {"name": "vti", "type": "time", "variant": "hex", "format": "%1$tH:%1$tM"},
+
+            {"name": "vtm", "type": "time", "variant": "hex_short", "reverseByteOrder": "true", "format": "%1$tH:%1$tM"},
+
+            {"name": "hti", "type": "time", "variant": "hex", "reverseByteOrder": "true", "format": "%1$tH:%1$tM"},
+
+            {"name": "htm", "type": "time", "variant": "hex_short", "format": "%1$tH:%1$tM"},
+
+            {"name": "min", "type": "time", "variant": "minutes", "format": "%1$tH:%1$tM"},
+
+            {"name": "ttm", "type": "time", "variant": "minutes_short", "minuteMultiplier": 10, "replaceValue": "90", "format": "%1$tH:%1$tM"},
+
+            {"name": "tth", "type": "time", "variant": "minutes_short", "minuteMultiplier": 30, "replaceValue": "00", "format": "%1$tH:%1$tM"},
+
+            {"name": "ttq", "type": "time", "variant": "minutes_short", "minuteMultiplier": 15, "replaceValue": "00", "format": "%1$tH:%1$tM"}
+        ]},
+
+        {"name":"from", "template": [
+            {"name": "value", "type": "template", "id": "vaillant.templ.ttm"}
+        ]},
+
+        {"name":"to", "template": [
+            {"name": "value", "type": "template", "id": "vaillant.templ.ttm"}
+        ]},
+
+        {"name":"slot1", "template": [
+            {"name": "from", "type": "template", "id": "vaillant.from.value"},
+            {"name": "to", "type": "template", "id": "vaillant.to.value"}
+        ]},
+
+        {"name":"slot2", "template": [
+            {"name": "from", "type": "template", "id": "vaillant.from.value"},
+            {"name": "to", "type": "template", "id": "vaillant.to.value"}
+        ]},
+
+        {"name":"slot3", "template": [
+            {"name": "from", "type": "template", "id": "vaillant.from.value"},
+            {"name": "to", "type": "template", "id": "vaillant.to.value"}
+        ]},
+
+        {"name":"slot1-3", "template": [
+            {"name": "from1", "type": "template", "id": "vaillant.from.value"},
+            {"name": "to1", "type": "template", "id": "vaillant.to.value"},
+            {"name": "from2", "type": "template", "id": "vaillant.from.value"},
+            {"name": "to2", "type": "template", "id": "vaillant.to.value"},
+            {"name": "from3", "type": "template", "id": "vaillant.from.value"},
+            {"name": "to3", "type": "template", "id": "vaillant.to.value"}
+        ]},
+
+        {"name":"tempv", "template": [
+            {"name": "value", "type": "float", "label": "%s temperature", "format": "%.1f°C"}
+        ]},
+
+        {"name":"temp", "template": [
+            {"name": "value", "type": "data2c", "label": "%s temperature", "min": -30, "max": 100, "format":"%.1f°C"}
+        ]},
+
+        {"name":"temp_sensor", "template": [
+            {"name": "value", "type": "data2c", "label": "%s temperature", "min": -30, "max": 100, "format":"%.1f°C"},
+            {"name": "status", "type": "uchar", "label": "%s status",
+                "mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
+        ]},
+
+        {"name":"pressv", "template": [
+            {"name": "value", "type": "float", "label": "%s pressure", "format": "%.1fbar"}
+        ]},
+
+        {"name":"minutes2", "template": [
+            {"name": "value", "type": "uint", "format": "%s min"}
+        ]},
+
+        {"name":"hoursum2", "template": [
+            {"name": "value", "type": "uint", "format": "%s h"}
+        ]},
+
+        {"name":"calibrationv", "template": [
+            {"name": "value", "type": "float", "format": "%s K"}
+        ]},
+
+        {"name":"mctype", "template": [
+            {"name": "value", "type": "uchar", "mapping": {"0":"inactive", "1":"mixer", "2":"fixed", "3":"hwc", "4":"returnincr", "5":"pool"}}
+        ]},
+
+        {"name":"onoff", "template": [
+            {"name": "value", "type": "uchar", "mapping": {"0":"OFF", "1":"ON"}}
+        ]},
+
+        {"name":"yesno", "template": [
+            {"name": "value", "type": "uchar", "mapping": {"0":"NO", "1":"YES"}}
+        ]},
+
+        {"name":"energy4", "template": [
+            {"name": "value", "type": "uchar", "length": 4, "format": "%s kWh"}
+        ]},
+
+        {"name":"hfrom", "template": [
+            {"name": "value", "type": "date", "variant": "hex_short", "format": "%1$td.%1$tm.%1$tY"}
+        ]},
+
+        {"name":"hto", "template": [
+            {"name": "value", "type": "date", "variant": "hex_short", "format": "%1$td.%1$tm.%1$tY"}
+        ]},
+
+        {"name":"zonesel", "template": [
+            {"name": "value", "type": "uint", "mapping": {"0":"all", "1":"1", "2":"2", "3":"3", "4":"4", "5":"5", "6":"6"}}
+        ]},
+
+        {"name":"sfmode", "template": [
+            {"name": "value", "type": "uchar", "mapping": {"0":"auto", "1":"ventilation", "2":"party", "3":"veto", "6":"load"}}
+        ]},
+
+        {"name":"opmode", "template": [
+            {"name": "value", "type": "uint", "mapping": {"0":"off", "1":"auto", "2":"day", "3":"night"}}
+        ]},
+
+        {"name":"zmapping", "template": [
+            {"name": "value", "type": "uint", "mapping": {"0":"none", "1":"VRC700", "2":"VR91.1", "3":"VR91.2", "4":"VR91.3"}}
+        ]},
+
+        {"name":"zname", "template": [
+            {"name": "value", "type": "string", "length": 5}
+        ]},
+
+        {"name":"shortname", "template": [
+            {"name": "value", "type": "string", "length": 6}
+        ]},
+
+        {"name":"shortphone", "template": [
+            {"name": "value", "type": "string", "length": 6}
+        ]},
+
+        {"name":"mamode", "template": [
+            {"name": "value", "type": "uint", "mapping": {"0":"circulation", "1":"dryer", "2":"zone", "3":"legiopump"}}
+        ]},
+
+        {"name":"offmode", "template": [
+            {"name": "value", "type": "uint", "mapping": {"0":"eco", "1":"night"}}
+        ]},
+
+        {"name":"rcmode", "template": [
+            {"name": "value", "type": "uint", "mapping": {"0":"off", "1":"modulating", "2":"thermostat"}}
+        ]}
+
+    ]
 }

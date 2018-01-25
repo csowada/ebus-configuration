@@ -1,0 +1,15 @@
+{
+    "id":           "wolf",
+    "label":        "Wolf Templates",
+    "description":  "Templates for Wolf/Kromschröder devices",
+
+    "authors":      ["Christian Sowada, opensource@cs-dev.de"],
+
+    "templates": [
+
+        {"name":"temp_water", "template": [
+            {"name": "value", "type": "word", "label": "%s temperature", "factor": 0.1 , "min": 1, "max": 100, "format":"%.1f°C"}
+        ]}
+
+    ]
+}

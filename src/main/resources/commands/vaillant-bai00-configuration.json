@@ -9,7 +9,7 @@
                     "Christophe P @ openhab community"
                     ],
     "identification": ["42 41 49 30 30"],
-    
+
     "commands":
     [
         {
@@ -143,11 +143,11 @@
             "label":    "Max. burner anti-cycling time heating at 20 °C flow temperature D.002",
             "id":       "boiler.blocktime_boiler",
             "command":  "B5 09",
-    
+
             "template": [
                 {"name": "blocktime_boiler", "type": "uchar", "label": "Max. burner anti-cycling time heating at 20 °C flow temperature", "min": 2, "max": 60, "format":"%d min"}
             ],
-    
+
             "get": {
                 "master": [
                     {"type": "static", "default": "0D 09 04"}
@@ -175,7 +175,7 @@
                 ],
                 "slave": [
                     {"name": "temp_outlet", "type": "data2c", "label": "Outlet temp. actual value", "min": 0, "max": 100, "format":"%.1f°C"},
-                    {"name": "status", "type": "uchar", "label": "Outlet temp. actual value status", 
+                    {"name": "status", "type": "uchar", "label": "Outlet temp. actual value status",
                         "mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
                 ]
             }
@@ -192,7 +192,7 @@
                 ],
                 "slave": [
                     {"name": "temp_cylinder", "type": "data2c", "label": "Measured value of hot water sensor", "min": 0, "max": 100, "format":"%.1f°C"},
-                    {"name": "status", "type": "uchar", "label": "Outlet temp. actual value status", 
+                    {"name": "status", "type": "uchar", "label": "Outlet temp. actual value status",
                         "mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
                 ]
             }
@@ -331,7 +331,7 @@
                     {"type": "static", "default": "0D 0E 00"}
                 ],
                 "slave": [
-                    {"name": "state_thermostat_24V", "type": "uchar", "label": "Room thermostat 24V", "min": 0, "max": 1, "format":"%d", 
+                    {"name": "state_thermostat_24V", "type": "uchar", "label": "Room thermostat 24V", "min": 0, "max": 1, "format":"%d",
                         "mapping": {"0":"off", "1":"on"}}
                 ]
             }
@@ -347,7 +347,7 @@
                     {"type": "static", "default": "0D 0C 04"}
                 ],
                 "slave": [
-                    {"name": "state_return_regulation", "type": "uchar", "label": "Heating flow/return regulation changeover", "min": 0, "max": 1, "format":"%d", 
+                    {"name": "state_return_regulation", "type": "uchar", "label": "Heating flow/return regulation changeover", "min": 0, "max": 1, "format":"%d",
                         "mapping": {"0":"flow", "1":"return"}}
                 ]
             }
@@ -363,7 +363,7 @@
                     {"type": "static", "default": "0D 58 00"}
                 ],
                 "slave": [
-                    {"name": "state_dhw_demand", "type": "uchar", "label": "Hot water requirement", "min": 0, "max": 1, "format":"%d", 
+                    {"name": "state_dhw_demand", "type": "uchar", "label": "Hot water requirement", "min": 0, "max": 1, "format":"%d",
                         "mapping": {"0":"off", "1":"on"}}
                 ]
             }
@@ -379,7 +379,7 @@
                     {"type": "static", "default": "0D F2 03"}
                 ],
                 "slave": [
-                    {"name": "mode_summer_winter_switch", "type": "uchar", "label": "Summer/winter operating mode", "min": 0, "max": 1, "format":"%d", 
+                    {"name": "mode_summer_winter_switch", "type": "uchar", "label": "Summer/winter operating mode", "min": 0, "max": 1, "format":"%d",
                         "mapping": {"0":"off", "1":"on"}}
                 ]
             }
@@ -395,7 +395,7 @@
                     {"type": "static", "default": "0D 47 04"}
                 ],
                 "slave": [
-                    {"name": "state_dhw_demand_ebus", "type": "uchar", "label": "Hot water generation enabled by eBUS controller", "min": 0, "max": 1, "format":"%d", 
+                    {"name": "state_dhw_demand_ebus", "type": "uchar", "label": "Hot water generation enabled by eBUS controller", "min": 0, "max": 1, "format":"%d",
                         "mapping": {"0":"off", "1":"on"}}
                 ]
             }
@@ -411,7 +411,7 @@
                     {"type": "static", "default": "0D BB 00"}
                 ],
                 "slave": [
-                    {"name": "state_gas_valve", "type": "uchar", "label": "Gas valve status", "format":"%d", 
+                    {"name": "state_gas_valve", "type": "uchar", "label": "Gas valve status", "format":"%d",
                         "mapping": {"240":"off", "15":"on"}}
                 ]
             }
@@ -474,7 +474,7 @@
                 ],
                 "slave": [
                     {"name": "temp_flow", "type": "data2c", "label": "Measured value of hot water sensor", "min": 0, "max": 100, "format":"%.1f°C"},
-                    {"name": "status", "type": "uchar", "label": "Status flow temperature", 
+                    {"name": "status", "type": "uchar", "label": "Status flow temperature",
                         "mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
                 ]
             }
@@ -491,7 +491,7 @@
                 ],
                 "slave": [
                     {"name": "temp_return", "type": "data2c", "label": "Return temperature", "min": 0, "max": 100, "format":"%.1f°C"},
-                    {"name": "status", "type": "uchar", "label": "Status return temperature", 
+                    {"name": "status", "type": "uchar", "label": "Status return temperature",
                         "mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
                 ]
             }
@@ -523,7 +523,7 @@
                 ],
                 "slave": [
                     {"name": "temp_outside", "type": "data2c", "label": "Outside temperature", "min": -40, "max": 70, "format":"%.1f°C"},
-                    {"name": "status", "type": "uchar", "label": "Status Outside temperature", 
+                    {"name": "status", "type": "uchar", "label": "Status Outside temperature",
                         "mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
                 ]
             }
@@ -540,11 +540,11 @@
                 ],
                 "slave": [
                     {"name": "pressure", "type": "int", "label": "Boilder pressure", "factor": 0.001, "format":"%.1f bar"},
-                    {"name": "status", "type": "uchar", "label": "Status Boilder pressure", 
+                    {"name": "status", "type": "uchar", "label": "Status Boilder pressure",
                         "mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
                 ]
             }
         }
-        
+
     ]
 }
