@@ -268,7 +268,7 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"name": "value", "type": "uint", "label": "HC1 pump status"}					
+                 {"name": "value", "type": "uint", "label": "HC1 pump status", "mapping": {"0":"OFF", "1":"ON"}}					
 				]
             },
 			"set": {
