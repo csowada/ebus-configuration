@@ -9,7 +9,7 @@
     
     "templates": [
     
-    	{"name":"temp_sensor", "template": [
+    	{"name":"vtempl.temp_sensor", "template": [
 			{"name": "value", "type": "data2c", "label": "Temp. %s actual value", "min": 0, "max": 100, "format":"%.1f°C"},
 			{"name": "status", "type": "uchar", "label": "Temp. %s actual value status", 
 				"mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
@@ -30,7 +30,8 @@
                     {"type": "static", "default": "0D 16 00"}
                 ],
                 "slave": [
-                	{"type":"template-block", "id":"temp_sensor", "label": "Outlet"}                	
+                	{"type":"template-block", "id":"vtempl.temp_sensor", "name": "outlety", "label": "Outlet"},
+                	{"type":"template", "id":"xtemp_sensor.value", "name": "outletx", "label": "Outlet"}
                 ]
             }
         },

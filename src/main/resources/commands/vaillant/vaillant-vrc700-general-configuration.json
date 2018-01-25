@@ -35,7 +35,7 @@
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 00 00 03 00"}
+                    {"type": "static", "default": "02 00 00 00 03 01"}
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
@@ -210,13 +210,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"name": "value", "type": "date", "label": "Maintenance date", "variant": "hex_short", "format": "%1$td.%1$tm.%1$tY"}					
+                 {"name": "value", "type": "date", "label": "Maintenance date", "variant": "hex"}					
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 00 00 2C 00"},									
-					{"name": "value", "type": "date", "variant": "hex_short"}					
+					{"name": "value", "type": "date", "variant": "hex"}					
 				]                
             }
         },
@@ -231,13 +231,13 @@
 				],
                 "slave": [
 				 {"type": "template-block", "id": "dummy"},
-                 {"name": "value", "type": "date", "label": "Actual date", "variant": "hex_short", "format": "%1$td.%1$tm.%1$tY"}					
+                 {"name": "value", "type": "date", "label": "Actual date", "variant": "hex", "format": "%1$td.%1$tm.%1$tY"}					
 				]
             },
 			"set": {
                 "master": [
                     {"type": "static", "default": "02 01 00 00 34 00"},									
-					{"name": "value", "type": "date", "variant": "hex_short"}					
+					{"name": "value", "type": "date", "variant": "hex"}					
 				]                
             }
         },
