@@ -232,7 +232,7 @@
             "command":  "B5 24",
             "get": {
                 "master": [
-                    {"type": "static", "default": "02 00 02 01 0F 00"}
+                    {"type": "static", "default": "02 00 03 01 0F 00"}
                 ],
                 "slave": [
                  {"type": "template-block", "id": "vaillant.unknown4"},

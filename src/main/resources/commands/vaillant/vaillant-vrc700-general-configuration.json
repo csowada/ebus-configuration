@@ -903,6 +903,32 @@
                  {"type": "template-block", "id":"vaillant.tempv", "label":"Heating storage bottom"}
                 ]
             }
+        },
+		
+		{
+            "label":    "Temperature broadcast",
+            "id":       "gen.bc_temp_outside",
+            "command":  "B5 16",
+
+            "broadcast": {
+                "master": [
+                    {"type": "static", "default": "01"},
+                    {"name":"temp_outside", "type": "data2b", "label": "Outside Temperature", "min": -50, "max": 70, "format":"%.1f°C"}
+                ]
+            }
+        },
+
+        {
+            "label":    "Date broadcast",
+            "id":       "gen.bc_datetime",
+            "command":  "B5 16",
+
+            "broadcast": {
+                "master": [
+                    {"type": "static", "default": "00"},
+                    {"name": "datetime", "type":"datetime"}
+                ]
+            }
         }
 
     ]
