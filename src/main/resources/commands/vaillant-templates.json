@@ -39,35 +39,35 @@
         ]},
 
         {"name":"from", "template": [
-            {"name": "value", "type": "template", "id": "vaillant.templ.ttm"}
+            {"name": "value", "type": "template", "id": "vaillant.templ.ttm", "label": "From"}
         ]},
 
         {"name":"to", "template": [
-            {"name": "value", "type": "template", "id": "vaillant.templ.ttm"}
+            {"name": "value", "type": "template", "id": "vaillant.templ.ttm", "label": "To"}
         ]},
 
         {"name":"slot1", "template": [
-            {"name": "from", "type": "template", "id": "vaillant.from.value"},
-            {"name": "to", "type": "template", "id": "vaillant.to.value"}
+            {"name": "from", "type": "template", "id": "vaillant.from.value", "label": "From"},
+            {"name": "to", "type": "template", "id": "vaillant.to.value", "label": "To"}
         ]},
 
         {"name":"slot2", "template": [
-            {"name": "from", "type": "template", "id": "vaillant.from.value"},
-            {"name": "to", "type": "template", "id": "vaillant.to.value"}
+            {"name": "from", "type": "template", "id": "vaillant.from.value", "label": "From"},
+            {"name": "to", "type": "template", "id": "vaillant.to.value", "label": "To"}
         ]},
 
         {"name":"slot3", "template": [
-            {"name": "from", "type": "template", "id": "vaillant.from.value"},
-            {"name": "to", "type": "template", "id": "vaillant.to.value"}
+            {"name": "from", "type": "template", "id": "vaillant.from.value", "label": "From"},
+            {"name": "to", "type": "template", "id": "vaillant.to.value", "label": "To"}
         ]},
 
         {"name":"slot1-3", "template": [
-            {"name": "from1", "type": "template", "id": "vaillant.from.value"},
-            {"name": "to1", "type": "template", "id": "vaillant.to.value"},
-            {"name": "from2", "type": "template", "id": "vaillant.from.value"},
-            {"name": "to2", "type": "template", "id": "vaillant.to.value"},
-            {"name": "from3", "type": "template", "id": "vaillant.from.value"},
-            {"name": "to3", "type": "template", "id": "vaillant.to.value"}
+            {"name": "from1", "type": "template", "id": "vaillant.from.value", "label": "From (1)"},
+            {"name": "to1", "type": "template", "id": "vaillant.to.value", "label": "To (1)"},
+            {"name": "from2", "type": "template", "id": "vaillant.from.value", "label": "From (2)"},
+            {"name": "to2", "type": "template", "id": "vaillant.to.value", "label": "To (2)"},
+            {"name": "from3", "type": "template", "id": "vaillant.from.value", "label": "From (3)"},
+            {"name": "to3", "type": "template", "id": "vaillant.to.value", "label": "To (3)"}
         ]},
 
         {"name":"tempv", "template": [
