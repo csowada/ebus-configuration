@@ -7,7 +7,8 @@
     "authors":      ["Dominic Kuschmierz, dk_github@icloud.com",
                     "Christian Sowada, opensource@cs-dev.de"],
 
-    "identification": ["50 4D 57 30 30"],
+    "identification": ["50 4D 57 30 30",
+                       "50 4D 57 30 31"],
 
     "commands":
     [
