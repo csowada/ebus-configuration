@@ -109,7 +109,7 @@
                 ],
                 "slave": [
                  {"type": "template-block", "id": "vaillant.unknown4"},
-                 {"name": "value", "type": "float", "label": "HC2 heating curve"}
+                 {"name": "value", "type": "float", "label": "HC2 heating curve", "format":"%.2f"}
                 ]
             },
             "set": {
