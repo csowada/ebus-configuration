@@ -1,0 +1,486 @@
+{
+    "id":           "vrc700_hwc",
+    "vendor":       "Vaillant",
+    "label":        "Vaillant VRC 700 hot water circuit",
+    "description":  "Vaillant weather compensating regulation VRC 700 - hot water circuit commands",
+
+    "authors":      ["Sinisa Mikulandra, mikulandra@inet.hr",
+                    "Christian Sowada, opensource@cs-dev.de"],
+
+    "identification": ["37 30 30 30 30"],
+
+    "commands": [
+
+        {
+            "label":    "HWC operation mode",
+            "id":       "hwc.op_mode",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 01 00 03 00"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.opmode", "label":"HWC operation mode"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "02 01 01 00 03 00"},
+                    {"type": "template-block", "id":"vaillant.opmode"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC setpoint temperature",
+            "id":       "hwc.setpoint",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 01 00 04 00"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"HWC setpoint"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "02 01 01 00 04 00"},
+                    {"type": "template-block", "id":"vaillant.tempv"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC storage temperature",
+            "id":       "hwc.storage_temp",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 01 00 05 00"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"HWC storage temp"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC flow temperature",
+            "id":       "hwc.flow_temp",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 01 00 08 00"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.tempv", "label":"HWC flow temperature"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC holiday start",
+            "id":       "hwc.holiday_start",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 01 00 09 00"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.hfrom", "label":"HWC holiday start"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "02 01 01 00 09 00"},
+                    {"type": "template-block", "id":"vaillant.hfrom"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC holiday end",
+            "id":       "hwc.holiday_end",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 01 00 0A 00"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.hto", "label":"HWC holiday end"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "02 01 01 00 0A 00"},
+                    {"type": "template-block", "id":"vaillant.hto"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC bank holiday start",
+            "id":       "hwc.bank_holiday_start",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 01 00 0B 00"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.hfrom", "label":"HWC bank holiday start"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "02 01 01 00 0B 00"},
+                    {"type": "template-block", "id":"vaillant.hfrom"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC bank holiday end",
+            "id":       "hwc.bank_holiday_end",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 01 00 0C 00"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.hto", "label":"HWC bank holiday end"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "02 01 01 00 0C 00"},
+                    {"type": "template-block", "id":"vaillant.hto"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC SF mode",
+            "id":       "hwc.sf_mode",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02 00 01 00 0D 00"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown4"},
+                 {"type": "template-block", "id":"vaillant.sfmode", "label":"HWC SF mode"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "02 01 01 00 0D 00"},
+                    {"type": "template-block", "id":"vaillant.sfmode"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC timer Monday",
+            "id":       "hwc.timer_mon",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 01 00"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"HWC timer monday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 01 00"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC timer Tuesday",
+            "id":       "hwc.timer_tue",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 01 01"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"HWC timer tuesday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 01 01"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC timer Wednesday",
+            "id":       "hwc.timer_wed",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 01 02"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"HWC timer wednesday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 01 02"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC timer Thursday",
+            "id":       "hwc.timer_thu",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 01 03"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"HWC timer thursday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 01 03"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC timer Friday",
+            "id":       "hwc.timer_fri",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 01 04"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"HWC timer friday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 01 04"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC timer Saturday",
+            "id":       "hwc.timer_sat",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 01 05"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"HWC timer saturday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 01 05"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "HWC timer Sunday",
+            "id":       "hwc.timer_sun",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 01 06"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"HWC timer sunday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 01 06"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "Circulation timer Monday",
+            "id":       "cc.timer_mon",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 02 00"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Circulation timer monday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 02 00"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "Circulation timer Tuesday",
+            "id":       "cc.timer_tue",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 02 01"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Circulation timer tuesday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 02 01"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "Circulation timer Wednesday",
+            "id":       "cc.timer_wed",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 02 02"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Circulation timer wednesday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 02 02"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "Circulation timer Thursday",
+            "id":       "cc.timer_thu",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 02 03"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Circulation timer thursday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 02 03"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "Circulation timer Friday",
+            "id":       "cc.timer_fri",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 02 04"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Circulation timer friday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 02 04"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "Circulation timer Saturday",
+            "id":       "cc.timer_sat",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 02 05"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Circulation timer saturday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 02 05"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        },
+
+        {
+            "label":    "Circulation timer Sunday",
+            "id":       "cc.timer_sun",
+            "command":  "B5 24",
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03 01 00 02 06"}
+                ],
+                "slave": [
+                 {"type": "template-block", "id": "vaillant.unknown1"},
+                 {"type": "template-block", "id":"vaillant.slot1-3", "label":"Circulation timer sunday"}
+                ]
+            },
+            "set": {
+                "master": [
+                    {"type": "static", "default": "04 01 00 02 06"},
+                    {"type": "template-block", "id":"vaillant.slot1-3"}
+                ]
+            }
+        }
+
+    ]
+}

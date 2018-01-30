@@ -3,17 +3,17 @@
     "vendor":       "Wolf",
     "label":        "Wolf CGB-2",
     "description":  "Condensing gas boiler Wolf CGB-2",
-    
+
     "authors":      ["Christian Sowada, opensource@cs-dev.de"],
     "identification": ["01 21 00 5A 40"],
-    
+
     "commands":
     [
         {
             "label":    "Modulation level",
             "id":       "boiler.modulation",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},
@@ -24,12 +24,12 @@
                 ]
             }
         },
-    
+
         {
             "label":    "Heating circuit pump speed",
             "id":       "boiler.modulation_pump",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},
@@ -40,12 +40,12 @@
                 ]
             }
         },
-    
+
         {
             "label":    "System pressure",
             "id":       "boiler.pressure",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},
@@ -56,12 +56,12 @@
                 ]
             }
         },
-    
+
         {
             "label":    "Burner Firmware Version",
             "id":       "boiler.fw_version",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},
@@ -72,12 +72,12 @@
                 ]
             }
         },
-    
+
         {
             "label":    "Burner starts",
             "id":       "boiler.starts",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},
@@ -88,12 +88,12 @@
                 ]
             }
         },
-    
+
         {
             "label":    "Actual I/O value",
             "id":       "boiler.value_io",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},
@@ -104,12 +104,12 @@
                 ]
             }
         },
-    
+
         {
             "label":    "Power ON count",
             "id":       "boiler.count_power_on",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},
@@ -120,12 +120,12 @@
                 ]
             }
         },
-    
+
         {
             "label":    "Burner hours run",
             "id":       "burner.runtime",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},
@@ -136,12 +136,12 @@
                 ]
             }
         },
-    
+
         {
             "label":    "Current flue gas temperature",
             "id":       "boiler.temp_exhaust",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},
@@ -152,12 +152,12 @@
                 ]
             }
         },
-    
+
         {
             "label":    "Mains hours",
             "id":       "boiler.runtime",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},
@@ -168,12 +168,12 @@
                 ]
             }
         },
-    
+
         {
             "label":    "Boiler temperature",
             "id":       "dhw.temp_flow",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},
@@ -184,12 +184,12 @@
                 ]
             }
         },
-    
+
         {
             "label":    "DHW temperature",
             "id":       "dhw.temp_dhw",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},
@@ -200,12 +200,12 @@
                 ]
             }
         },
-        
+
         {
             "label":    "Boiler return temperature",
             "id":       "dhw.temp_return",
             "command":  "50 22",
-    
+
             "get": {
                 "master": [
                     {"type": "kw-crc"},

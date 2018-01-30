@@ -3,19 +3,19 @@
     "vendor":       "Vaillant",
     "label":        "Vaillant VRC 430(f)/470(f)",
     "description":  "Programming unit Vaillant VRC 430, 430f, 470 and 470f",
-    
+
     "authors":      [
-    				"Christian Sowada, opensource@cs-dev.de",
-    				"Christophe P @ openhab community"
-    				],
-    
+                    "Christian Sowada, opensource@cs-dev.de",
+                    "Christophe P @ openhab community"
+                    ],
+
     "identification": [
                     "34 33 30 30 30",
                     "34 37 30 30 30",
                     "46 34 37 30 30",
                     "46 34 33 30 30"
                     ],
-    
+
     "commands":
     [
         {
@@ -302,7 +302,7 @@
                 ]
             }
         },
-        
+
         {
             "label":    "Controller time",
             "id":       "controller.time",
@@ -311,7 +311,7 @@
             "template": [
                 {"name": "time", "type": "time", "variant": "hex_short", "label": "Controller time"}
             ],
-    
+
             "get": {
                 "master": [
                     {"type": "static", "default": "0D 60 00"}
@@ -327,7 +327,7 @@
                 ]
             }
         },
-        
+
         {
             "label":    "Controller date",
             "id":       "controller.date",
@@ -336,7 +336,7 @@
             "template": [
                 {"name": "date", "type": "date", "variant": "hex_short", "label": "Controller date"}
             ],
-    
+
             "get": {
                 "master": [
                     {"type": "static", "default": "0D 60 00"}
@@ -352,7 +352,7 @@
                 ]
             }
         },
-        
+
         {
             "label":    "Outside temperature",
             "id":       "controller.temp_outside",
@@ -399,12 +399,12 @@
                 ]
             }
         },
-        
+
         {
             "label":    "Outside temperature",
             "id":       "controller.bc.temp_outside",
             "command":  "B5 16",
-    
+
             "broadcast": {
                 "master": [
                     {"type": "static", "default": "01"},
@@ -412,12 +412,12 @@
                 ]
             }
         },
-        
+
         {
             "label":    "Controller Date",
             "id":       "controller.bc.datetime",
             "command":  "B5 16",
-    
+
             "broadcast": {
                 "master": [
                     {"type": "static", "default": "00"},

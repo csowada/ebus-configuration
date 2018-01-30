@@ -1,0 +1,12 @@
+{
+    "files": [
+        {"name": "vaillant-templates", "url": "vaillant-templates.json"},
+        {"name": "vaillant-vrc700-general", "url": "vaillant-vrc700-general-configuration.json"}, 
+		{"name": "vaillant-vrc700-hwc", "url": "vaillant-vrc700-hwc-configuration.json"}, 
+		{"name": "vaillant-vrc700-hc1", "url": "vaillant-vrc700-hc1-configuration.json"}, 
+		{"name": "vaillant-vrc700-hc2", "url": "vaillant-vrc700-hc2-configuration.json"}, 
+		{"name": "vaillant-vrc700-zone1", "url": "vaillant-vrc700-zone1-configuration.json"}, 
+		{"name": "vaillant-vrc700-zone2", "url": "vaillant-vrc700-zone2-configuration.json"}, 
+		{"name": "vaillant-vrc700-vac", "url": "vaillant-vrc700-vac-configuration.json"} 
+    ]
+}
