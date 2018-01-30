@@ -488,8 +488,7 @@
                 "master": [
                     {"type": "static", "default": "0D 54 00"}
                 ],
-                "slave": [
-                    {"name": "state_diverter_valve", "type": "uchar", "label": "Position of the diverter valve", "format":"%d",
+                "slave": [                    {"name": "state_diverter_valve", "type": "uchar", "label": "Position of the diverter valve", "format":"%d",
                         "mapping":   {"0":"heating", "40":"parallel", "100":"dhw"}}
                 ]
             }
@@ -521,7 +520,7 @@
                 "master": [
                     {"type": "static", "default": "0D 98 00"}
                 ],
-,                "slave": [
+                "slave": [
                     {"name": "temp_return", "type": "data2c", "label": "Return temperature", "min": 0, "max": 100, "format":"%.1f°C"},
                     {"name": "status", "type": "uchar", "label": "Status return temperature",
                         "mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
