@@ -339,7 +339,7 @@
 
             "get": {
                 "master": [
-                    {"type": "static", "default": "0D 60 00"}
+                    {"type": "static", "default": "0D 61 00"}
                 ],
                 "slave": [
                     {"type": "template-block"}
@@ -347,7 +347,7 @@
             },
             "set": {
                 "master": [
-                    {"type": "static", "default": "0E 60 00"},
+                    {"type": "static", "default": "0E 61 00"},
                     {"type": "template-block"}
                 ]
             }
