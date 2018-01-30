@@ -4,9 +4,9 @@
 
 	<name>eBUS library configuration</name>
 	<description>eBUS library configuration</description>
-	<groupId>de.csdev.ebus</groupId>
+	<groupId>de.cs-dev.ebus</groupId>
 	<artifactId>ebus-configuration</artifactId>
-	<version>0.9.16</version>
+	<version>0.9.18-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 	<url>https://github.com/csowada/ebus-configuration</url>
 
@@ -31,9 +31,9 @@
 	</issueManagement>
 
     <scm>
-        <connection>scm:git:.</connection>
-        <developerConnection>scm:git:.</developerConnection>
-        <url>scm:git:.</url>
+        <connection>scm:git:git://github.com/csowada/ebus-configuration.git</connection>
+        <developerConnection>scm:git:git://github.com/csowada/ebus-configuration.git</developerConnection>
+        <url>scm:git:git@github.com/csowada/ebus-configuration.git</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -71,7 +71,50 @@
                     <localCheckout>true</localCheckout>
                 </configuration>
 			</plugin>
-
+			
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-source-plugin</artifactId>
+              <version>2.2.1</version>
+              <executions>
+                <execution>
+                  <id>attach-sources</id>
+                  <goals>
+                    <goal>jar-no-fork</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
+            
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>2.9.1</version>
+              <executions>
+                <execution>
+                  <id>attach-javadocs</id>
+                  <goals>
+                    <goal>jar</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
+            
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-gpg-plugin</artifactId>
+              <version>1.5</version>
+              <executions>
+                <execution>
+                  <id>sign-artifacts</id>
+                  <phase>verify</phase>
+                  <goals>
+                    <goal>sign</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
+            
 		</plugins>
 	</build>
 
@@ -105,9 +148,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.csdev.ebus</groupId>
+			<groupId>de.cs-dev.ebus</groupId>
 			<artifactId>ebus-core</artifactId>
-			<version>0.9.16</version>
+			<version>0.9.18-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

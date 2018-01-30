@@ -1,0 +1,16 @@
+sudo: false
+language: java
+cache:
+  directories:
+  - "$HOME/.cache"
+deploy:
+  provider: script
+  script: "mvn deploy --settings .travis.settings.xml -DskipTests=true --batch-mode"
+  skip_cleanup: true
+
+notifications:
+  email:
+    recipients:
+    - git@cs-dev.de
+    on_success: change
+    on_failure: always
