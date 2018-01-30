@@ -505,7 +505,7 @@
                 "master": [
                     {"type": "static", "default": "0D 98 00"}
                 ],
-                "slave": [
+,                "slave": [
                     {"name": "temp_return", "type": "data2c", "label": "Return temperature", "min": 0, "max": 100, "format":"%.1f°C"},
                     {"name": "status", "type": "uchar", "label": "Status return temperature",
                         "mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
@@ -558,6 +558,22 @@
                     {"name": "pressure", "type": "int", "label": "Boilder pressure", "factor": 0.001, "format":"%.1f bar"},
                     {"name": "status", "type": "uchar", "label": "Status Boilder pressure",
                         "mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
+                ]
+            }
+        },
+
+        {
+            "label":    "Boiler Flame",
+            "id":       "boiler.flame",
+            "command":  "B5 09",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "0D 05 00"}
+                ],
+                "slave": [
+                    {"name": "flame", "type": "uchar", "label": "Boildr flame",
+                        "mapping": {"240":"off", "15":"on"}}
                 ]
             }
         }
