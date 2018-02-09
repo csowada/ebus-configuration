@@ -1,3 +1,7 @@
+Master build: [![Build Status](https://travis-ci.org/csowada/ebus-configuration.svg?branch=master)](https://travis-ci.org/csowada/ebus-configuration)
+
+---
+
 # Community platform - ebus-configuration
 
 This repository is used as a community share platform. Most changes to this repository should be included in further releases. Feel free to contribute new or changed files.
