@@ -10,13 +10,22 @@
     "commands":
     [
         {
-            "label":    "Operational Data of Burner Control unit to Room Control Unit - Block 1",
+            "label":    "Mixer data",
             "id":       "mixer.data1",
             "command":  "50 14",
 
             "get": {
                 "master": [
-                    {"name":"_unknown1", "type": "byte"},
+				    {"type": "byte", "children": [
+						{"name": "state_dhw", "type": "bit", "label": "DHW status"},
+						{"name": "state_heating", "type": "bit", "label": "Heating status"},
+						{"name": "state_dhw_force", "type": "bit", "label": "DHW force status"},
+						{"name": "_state_unknown1", "type": "bit", "label": "_unknown1 status"},
+						{"name": "state_dhw_circulation", "type": "bit", "label": "DHW circulation status"},
+						{"name": "state_standby", "type": "bit", "label": "Standby status"},
+						{"name": "_state_unknown2", "type": "bit", "label": "_unknown2 status"},
+						{"name": "_state_unknown3", "type": "bit", "label": "_unknown3 status"}
+                    ]},
                     {"name":"_unknown2", "type": "byte"},
                     {"name":"temp_d_mixer", "type": "data2b", "label": "Mixer desire temperature", "reverseByteOrder": true, "min":0, "max":100, "format":"%.1f°C"},
                     {"name":"temp_room", "type": "data2b", "label": "Room temperature", "reverseByteOrder": true, "min":0, "max":100, "format":"%.1f°C"},
@@ -25,13 +34,12 @@
                 "slave": [
                     {"name":"_s_unknown1", "type": "byte"},
                     {"name":"_s_unknown2", "type": "byte"},
+                    {"name":"temp_mixer", "type": "data2b", "label": "Mixer temperature", "min":0, "max":100, "format":"%.1f°C"},
                     {"name":"_s_unknown3", "type": "byte"},
                     {"name":"_s_unknown4", "type": "byte"},
                     {"name":"_s_unknown5", "type": "byte"},
                     {"name":"_s_unknown6", "type": "byte"},
-                    {"name":"_s_unknown7", "type": "byte"},
-                    {"name":"_s_unknown8", "type": "byte"},
-                    {"name":"_s_unknown9", "type": "byte"}
+                    {"name":"_s_unknown7", "type": "byte"}
                 ]
             }
         }
