@@ -588,7 +588,7 @@
                     {"type": "static", "default": "0D 05 00"}
                 ],
                 "slave": [
-                    {"name": "flame", "type": "uchar", "label": "Boildr flame",
+                    {"name": "flame", "type": "uchar", "label": "Boiler flame",
                         "mapping": {"240":"off", "15":"on"}}
                 ]
             }
