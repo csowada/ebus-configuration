@@ -5,7 +5,6 @@ Bundle-SymbolicName: de.csdev.ebus-configuration;singleton:=true
 Bundle-Version: 0.9.16
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ClassPath: .
-Service-Component: OSGI-INF/*.xml
 Export-Package: de.csdev.ebus.configuration
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Christian Sowada
