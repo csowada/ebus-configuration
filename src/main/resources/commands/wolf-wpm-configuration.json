@@ -1,0 +1,95 @@
+{
+	"id":			"WPM1",
+	"vendor":		"Wolf",
+	"label":		"Wolf WPM-1",
+	"description":	"WPM-1 Wolf",
+
+	"authors":		[
+					"Rolf Steiner",
+					"Christian Sowada, opensource@cs-dev.de"
+					],
+	"identification": ["01 21 00 5A 41"],
+
+	"commands":
+	[
+		{
+			"label":	"Outside temperature",
+			"id":		"wpm.temp_outside",
+			"command":	"50 22",
+
+			"get": {
+				"master": [
+					{"type": "kw-crc"},
+					{"type": "static", "default": "0C 00"}
+				],
+				"slave": [
+					{"name": "temp_outside", "type": "number", "label": "Outside temperature", "factor": 0.1, "length": 2, "min":-50, "max":50, "format":"%.1f°C"}
+				]
+			}
+		},
+		
+		{
+			"label":	"Collector return temperature",
+			"id":		"wpm.temp_return_coll",
+			"command":	"50 22",
+
+			"get": {
+				"master": [
+					{"type": "kw-crc"},
+					{"type": "static", "default": "82 30"}
+				],
+				"slave": [
+					{"name": "T_Sammler_RL", "type": "word", "label": "Collector return temperature", "factor": 0.1 ,"min":0, "max":100, "format":"%.1f°C"}
+				]
+			}
+		},
+		
+		{
+			"label":	"DHW temperature",
+			"id":		"wpm.temp_dhw",
+			"command":	"50 22",
+
+			"get": {
+				"master": [
+					{"type": "kw-crc"},
+					{"type": "static", "default": "0E 00"}
+				],
+				"slave": [
+					{"name": "temp_dhw", "type": "word", "label": "DHW temperature", "factor": 0.1 ,"min":0, "max":100, "format":"%.1f°C"}
+				]
+			}
+		},
+		
+		{
+			"label":	"Heating flow temperature",
+			"id":		"heating.temp_flow",
+			"command":	"50 22",
+
+			"get": {
+				"master": [
+					{"type": "kw-crc"},
+					{"type": "static", "default": "0D 00"}
+				],
+				"slave": [
+					{"name": "temp_flow", "type": "word", "label": "Heating flow temperature", "factor": 0.01 ,"min":0, "max":100, "format":"%.1f°C"}
+				]
+			}
+		},
+		
+		{
+		   "label":		"Heating return temperature",
+			"id":		"heating.temp_return",
+			"command":	"50 22",
+
+			"get": {
+				"master": [
+					{"type": "kw-crc"},
+					{"type": "static", "default": "16 00"}
+				],
+				"slave": [
+					{"name": "temp_return", "type": "word", "label": "Heating return temperature", "factor": 0.01 ,"min":0, "max":100, "format":"%.1f°C"}
+				]
+			}
+		}
+	]
+}
