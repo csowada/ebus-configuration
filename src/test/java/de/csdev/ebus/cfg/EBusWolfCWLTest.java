@@ -70,12 +70,12 @@ public class EBusWolfCWLTest {
         }
     }
 
-    @Test
-    public void testDateTimeBroadcast() {
-
-        // 22:00:34 06.11.2017 (Monday)
-        byte[] byteArray = EBusUtils.toByteArray("31 3C 40 22 01 07 9A 00 02 00 BE 92 00 AA");
-
-    }
+    // @Test
+    // public void testDateTimeBroadcast() {
+    //
+    // // 22:00:34 06.11.2017 (Monday)
+    // byte[] byteArray = EBusUtils.toByteArray("31 3C 40 22 01 07 9A 00 02 00 BE 92 00 AA");
+    //
+    // }
 
 }

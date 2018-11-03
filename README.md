@@ -26,7 +26,7 @@ https://oss.sonatype.org/content/repositories/releases/de/cs-dev/ebus/ebus-confi
 <dependency>
   <groupId>de.cs-dev.ebus</groupId>
   <artifactId>ebus-configuration</artifactId>
-  <version>0.9.17.2</version>
+  <version>0.9.19</version>
 </dependency>
 ```
 
