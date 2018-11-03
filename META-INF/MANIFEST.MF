@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: eBUS library configurations
 Bundle-SymbolicName: de.csdev.ebus-configuration;singleton:=true
-Bundle-Version: 0.9.18
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Version: 0.9.19
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: .
 Export-Package: de.csdev.ebus.configuration
 Bundle-ActivationPolicy: lazy
