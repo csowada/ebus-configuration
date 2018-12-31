@@ -571,8 +571,8 @@
                     {"type": "static", "default": "0D 02 00"}
                 ],
                 "slave": [
-                    {"name": "pressure", "type": "int", "label": "Boilder pressure", "factor": 0.001, "format":"%.1f bar"},
-                    {"name": "status", "type": "uchar", "label": "Status Boilder pressure",
+                    {"name": "pressure", "type": "int", "label": "Boiler pressure", "factor": 0.001, "format":"%.1f bar"},
+                    {"name": "status", "type": "uchar", "label": "Status Boiler pressure",
                         "mapping": {"0":"ok", "85":"circuit", "170":"cutoff"}}
                 ]
             }
