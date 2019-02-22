@@ -222,7 +222,7 @@
 		<dependency>
 			<groupId>de.cs-dev.ebus</groupId>
 			<artifactId>ebus-core</artifactId>
-			<version>0.9.18-SNAPSHOT</version>
+			<version>0.9.19-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
