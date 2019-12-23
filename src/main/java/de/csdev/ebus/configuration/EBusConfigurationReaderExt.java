@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016-2018 by the respective copyright holders.
+ * Copyright (c) 2016-2019 by the respective copyright holders.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -23,6 +23,7 @@ public class EBusConfigurationReaderExt extends EBusConfigurationReader {
     @Override
     public List<IEBusCommandCollection> loadBuildInConfigurationCollections() {
         try {
+            logger.info("LOAD ... EXT ...................");
             return loadConfigurationCollectionBundle(
                     EBusConfigurationReaderExt.class.getResource("/index-configuration.json"));
         } catch (Exception e) {
