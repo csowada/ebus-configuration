@@ -8,18 +8,19 @@
  */
 package de.csdev.ebus.cfg;
 
+import static org.junit.Assert.*;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
 import org.junit.Before;
+import org.junit.Test;
 
-import de.csdev.ebus.TestUtils;
 import de.csdev.ebus.command.EBusCommandRegistry;
 import de.csdev.ebus.command.EBusCommandUtils;
 import de.csdev.ebus.command.IEBusCommandMethod;
 import de.csdev.ebus.command.datatypes.EBusTypeException;
 import de.csdev.ebus.configuration.EBusConfigurationReaderExt;
-import de.csdev.ebus.utils.EBusUtils;
 
 /**
  * @author Christian Sowada - Initial contribution
@@ -34,19 +35,15 @@ public class KW_CRC_Test {
         commandRegistry = new EBusCommandRegistry(EBusConfigurationReaderExt.class, true);
     }
 
-    // @Test
-    public void xxx() throws EBusTypeException {
-        IEBusCommandMethod commandMethod = commandRegistry.getCommandMethodById("wolf-cgb2", "boiler.pressure",
+    @Test
+    public void testKWCrc() throws EBusTypeException {
+        IEBusCommandMethod commandMethod = commandRegistry.getCommandMethodById("cgb2", "boiler.pressure",
                 IEBusCommandMethod.Method.GET);
+
+        assertNotNull("Unable to get command cgb2.boiler.pressure", commandMethod);
+
         ByteBuffer buffer = EBusCommandUtils.buildMasterTelegram(commandMethod, (byte) 0x00, (byte) 0x0FF, null);
 
-        System.out.println(EBusUtils.toHexDumpString(buffer).toString());
+        assertEquals("KW CRC Invalid", buffer.get(5), 0x77);
     }
-
-    // @Test
-    public void encodeCC() throws EBusTypeException {
-        byte[] bs = EBusUtils.toByteArray("30 08 50 22 03 CC 1A 27 59 00 02 98 00 0C 00");
-        TestUtils.canResolve(commandRegistry, bs);
-    }
-
 }
