@@ -24,7 +24,8 @@
                 "master": [
                     {"type": "kw-crc"},
                     {"type": "static", "default": "74 27"},
-                    {"type": "template-block"}
+                    {"type": "template-block"},
+                    {"type": "static", "default": "00 5D 01 00 00"}
                 ]
             },
 
@@ -55,7 +56,8 @@
                 "master": [
                     {"type": "kw-crc"},
                     {"type": "static", "default": "75 27"},
-                    {"type": "template-block"}
+                    {"type": "template-block"},
+                    {"type": "static", "default": "00 5D 01 00 00"}
                 ]
             },
 
