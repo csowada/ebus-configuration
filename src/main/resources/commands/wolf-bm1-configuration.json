@@ -42,6 +42,53 @@
 					{"name": "temp_inside", "type": "number", "label": "Inside temperature", "factor": 0.1, "length": 2, "min":-10, "max":50, "format":"%.1f°C"}
 				]
 			 }
-		 }
+		 },
+		 
+		 {
+            "label":    "Heating program",
+            "id":       "heating.program_heating_circuit",
+
+            "template": [
+                {"name": "program", "type": "byte", "label": "Heating program", "min": 1, "max": 4,
+                    "mapping": {"1": "standby", "2": "auto", "3": "heating mode", "4":"economy mode", "5":"summer"}
+                }
+            ],
+
+            "set": {
+                "command":  "50 23",
+                "master": [
+                    {"type": "kw-crc"},
+                    {"type": "static", "default": "12 01"},
+                    {"type": "template-block"}
+                ]
+            },
+
+            "get": {
+                "command":  "50 22",
+                "master": [
+                    {"type": "kw-crc"},
+                    {"type": "static", "default": "12 01"}
+                ],
+                "slave": [
+                    {"type": "template-block"}
+                ]
+            }
+        },
+        
+        {
+            "label":    "Outside temperature",
+            "id":       "controller.temp_outside",
+            "command":  "50 22",
+ 
+            "get": {
+                "master": [
+                    {"type": "kw-crc"},
+                    {"type": "static", "default": "0C 00"}
+                ],
+                "slave": [
+                    {"name": "temp_inside", "type": "number", "label": "Outside temperature", "factor": 0.1, "length": 2, "min":-50, "max":50, "format":"%.1f°C"}
+                ]
+             }
+         }
 	]
 }
