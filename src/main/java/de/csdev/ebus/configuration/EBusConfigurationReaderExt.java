@@ -23,7 +23,6 @@ public class EBusConfigurationReaderExt extends EBusConfigurationReader {
     @Override
     public List<IEBusCommandCollection> loadBuildInConfigurationCollections() {
         try {
-            logger.info("LOAD ... EXT ...................");
             return loadConfigurationCollectionBundle(
                     EBusConfigurationReaderExt.class.getResource("/index-configuration.json"));
         } catch (Exception e) {
