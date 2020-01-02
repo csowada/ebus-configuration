@@ -422,7 +422,8 @@
             "broadcast": {
                 "master": [
                     {"type": "static", "default": "00"},
-                    {"name": "datetime", "type":"datetime"}
+                    {"name": "date", "type":"date"},
+                    {"name": "time", "type":"time"}
                 ]
             }
         }
