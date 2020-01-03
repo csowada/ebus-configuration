@@ -90,8 +90,6 @@ public class EBusVaillantVRC430TelegramTest {
 
         for (IEBusCommandMethod method : find) {
 
-            System.out.println("EBusVaillantVRC430TelegramTest.testDateTimeBroadcast() > " + method.getParent());
-
             try {
                 Map<String, Object> map = EBusCommandUtils.decodeTelegram(method, byteArray);
                 Object object = map.get("datetime");
