@@ -14,7 +14,7 @@
             "id":       "heating.program_heating_circuit",
 
             "template": [
-                {"name": "program", "type": "byte", "label": "Heating program", "min": 0, "max": 3,
+                {"name": "program", "type": "int", "label": "Heating program", "min": 0, "max": 3,
                     "mapping": {"0": "standby", "1": "auto", "2": "heating mode", "3":"economy mode"}
                 }
             ],
@@ -25,7 +25,7 @@
                     {"type": "kw-crc"},
                     {"type": "static", "default": "74 27"},
                     {"type": "template-block"},
-                    {"type": "static", "default": "00 5D 01 00 00"}
+                    {"type": "static", "default": "5D 01 00 00"}
                 ]
             },
 
@@ -46,7 +46,7 @@
             "id":       "dhw.program_dhw_circuit",
 
             "template": [
-                {"name": "program", "type": "byte", "label": "DHW program", "min": 0, "max": 2,
+                {"name": "program", "type": "int", "label": "DHW program", "min": 0, "max": 2,
                     "mapping": {"0": "standby", "1": "auto", "2": "always on"}
                 }
             ],
@@ -57,7 +57,7 @@
                     {"type": "kw-crc"},
                     {"type": "static", "default": "75 27"},
                     {"type": "template-block"},
-                    {"type": "static", "default": "00 5D 01 00 00"}
+                    {"type": "static", "default": "5D 01 00 00"}
                 ]
             },
 
