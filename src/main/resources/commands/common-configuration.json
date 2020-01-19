@@ -25,12 +25,13 @@
             "label":    "Operational Data of Burner Control unit to Room Control Unit - Block 1",
             "id":       "auto_stroker.op_data_bc2tc_b1",
             "command":  "05 03",
-
+            
             "get": {
+                "type":     "master-master",
                 "master": [
                     {"name":"block_number", "type": "static", "default": "01"},
                     {"name":"status_auto_stroker", "type": "byte", "label": "Status indication"},
-                    {"type": "byte", "children": [
+                    {"name":"states", "type": "byte", "children": [
                         {"name":"state_air_pressure", "type": "bit", "label": "Air pressure monitor"},
                         {"name":"state_gas_pressure", "type": "bit", "label": "Gas pressure monitor"},
                         {"name":"state_water_flow", "type": "bit", "label": "Water flow"},
@@ -55,6 +56,7 @@
             "command":  "05 03",
 
             "get": {
+                "type":     "master-master",
                 "master": [
                     {"name":"block_number", "type": "static", "default": "02"},
                     {"name":"temp_exhaust", "type": "data2c", "label": "Exhaust temperatur", "min": 0, "max":600, "format":"%.1f°C"},
@@ -72,6 +74,7 @@
             "command":  "05 07",
 
             "get": {
+                "type":     "master-master",
                 "master": [
                     {"name": "status_heat_req1", "type": "byte", "label": "Status heat request 1",
                         "mapping": {
@@ -150,7 +153,7 @@
             "id":       "controller.d_values_rc2",
             "command":  "08 00",
 
-            "get": {
+            "broadcast": {
                 "master": [
                     {"name": "temp_d_boiler", "type": "data2b", "label": "Boiler desire temperature", "min":0, "max":100, "format":"%.1f°C"},
                     {"name": "temp_outside", "type": "data2b", "label": "Outside temperature", "min":-30, "max":50, "format":"%.1f°C"},

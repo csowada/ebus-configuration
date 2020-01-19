@@ -21,6 +21,7 @@
 
             "set": {
                 "command":  "50 23",
+                "type":     "master-master",
                 "master": [
                     {"type": "kw-crc"},
                     {"type": "static", "default": "74 27"},
@@ -53,6 +54,7 @@
 
             "set": {
                 "command":  "50 23",
+                "type":     "master-master",
                 "master": [
                     {"type": "kw-crc"},
                     {"type": "static", "default": "75 27"},
