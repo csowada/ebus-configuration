@@ -153,16 +153,27 @@
             "id":       "controller.d_values_rc2",
             "command":  "08 00",
 
-            "broadcast": {
-                "master": [
+            "template": [
                     {"name": "temp_d_boiler", "type": "data2b", "label": "Boiler desire temperature", "min":0, "max":100, "format":"%.1f°C"},
                     {"name": "temp_outside", "type": "data2b", "label": "Outside temperature", "min":-30, "max":50, "format":"%.1f°C"},
                     {"name": "performance_forced", "type": "data1b", "label": "Forced performance"},
-                    {"type": "byte", "children": [
+                    {"name": "states", "type": "byte", "children": [
                         {"name": "state_dhw", "type": "bit", "label": "State DHW active"},
                         {"name": "state_hc", "type": "bit", "label": "State heating circuit active"}
                     ]},
                     {"name": "temp_d_dhw", "type": "data2b", "label": "DHW desire temperature", "min":0, "max":100, "format":"%.1f°C"}
+            ],
+
+            "broadcast": {
+                "master": [
+                    {"type": "template-block"}
+                ]
+            },
+            
+            "get": {
+                "type": "master-master",
+                "master": [
+                    {"type": "template-block"}
                 ]
             }
         },
