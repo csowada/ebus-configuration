@@ -52,7 +52,7 @@ public class EBusCommonTelegramTest {
         assertNotNull("Command common.identification not found!", commandMethod);
 
         try {
-            ByteBuffer buffer = EBusCommandUtils.buildMasterTelegram(commandMethod, (byte) 0x00, (byte) 0xFF, null);
+            ByteBuffer buffer = EBusCommandUtils.buildMasterTelegram(commandMethod, (byte) 0x00, (byte) 0x04, null);
             assertNotNull("Unable to compose byte buffer for command", buffer);
 
         } catch (EBusTypeException e) {
@@ -169,7 +169,7 @@ public class EBusCommonTelegramTest {
     }
 
     @Test
-    public void decodeBroadcast() {
+    public void testDecodeBroadcast() {
         byte[] bs = EBusUtils.toByteArray("30 FE 07 00 09 00 80 10 54 21 16 08 03 17 02 AA");
         TestUtils.canResolve(commandRegistry, bs);
 

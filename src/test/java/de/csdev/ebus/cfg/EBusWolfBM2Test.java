@@ -43,6 +43,13 @@ public class EBusWolfBM2Test {
     }
 
     @Test
+    public void testSetWolfMasterMaster() {
+        IEBusCommandMethod method = commandRegistry.getCommandMethodById("bm2", "heating.program_heating_circuit",
+                Method.SET);
+        assertEquals(IEBusCommandMethod.Type.MASTER_MASTER, method.getType());
+    }
+
+    @Test
     public void testGetDHWProgram() {
         IEBusCommand command = commandRegistry.getCommandById("bm2", "dhw.program_dhw_circuit");
 

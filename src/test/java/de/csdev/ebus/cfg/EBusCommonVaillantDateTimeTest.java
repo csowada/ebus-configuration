@@ -47,7 +47,7 @@ public class EBusCommonVaillantDateTimeTest {
 
     private void checkTime(String strBuffer, Map<String, Object> expectedResults) throws EBusTypeException {
 
-        logger.info("Resolve: " + strBuffer);
+        logger.debug("Resolve: " + strBuffer);
 
         byte[] byteArray = EBusUtils.toByteArray(strBuffer);
         List<IEBusCommandMethod> list = commandRegistry.find(byteArray);
@@ -55,7 +55,7 @@ public class EBusCommonVaillantDateTimeTest {
         assertFalse(list.isEmpty());
 
         for (IEBusCommandMethod method : list) {
-            logger.info("ID: {}.{}", method.getParent().getParentCollection().getId(), method.getParent().getId());
+            logger.debug("ID: {}.{}", method.getParent().getParentCollection().getId(), method.getParent().getId());
             Map<String, Object> map = EBusCommandUtils.decodeTelegram(method, byteArray);
 
             for (Entry<String, Object> entry : map.entrySet()) {
@@ -64,7 +64,7 @@ public class EBusCommonVaillantDateTimeTest {
                     assertEquals(expectedResults.get(entry.getKey()), entry.getValue());
                 }
 
-                logger.info("{} -> {}", entry.getKey(), entry.getValue());
+                logger.debug("{} -> {}", entry.getKey(), entry.getValue());
             }
         }
     }

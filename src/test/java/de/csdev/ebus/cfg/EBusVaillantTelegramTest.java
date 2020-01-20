@@ -8,10 +8,12 @@
  */
 package de.csdev.ebus.cfg;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assume.assumeNoException;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +24,7 @@ import org.junit.Test;
 import de.csdev.ebus.command.EBusCommandRegistry;
 import de.csdev.ebus.command.EBusCommandUtils;
 import de.csdev.ebus.command.IEBusCommandMethod;
+import de.csdev.ebus.command.IEBusCommandMethod.Method;
 import de.csdev.ebus.command.datatypes.EBusTypeException;
 import de.csdev.ebus.configuration.EBusConfigurationReaderExt;
 import de.csdev.ebus.utils.EBusUtils;
@@ -30,7 +33,7 @@ import de.csdev.ebus.utils.EBusUtils;
  * @author Christian Sowada - Initial contribution
  *
  */
-public class EBusWolfCWLTest {
+public class EBusVaillantTelegramTest {
 
     EBusCommandRegistry commandRegistry;
 
@@ -41,41 +44,45 @@ public class EBusWolfCWLTest {
     }
 
     @Test
-    public void test1() {
-        Map<String, Object> map = check("31 3C 40 22 01 08 95 00 02 00 15 39 00 15 29 AA");
-
-        assertNotNull(map);
-        assertFalse(map.isEmpty());
-        assertTrue(map.containsKey("temp_ouside"));
-        assertEquals(new BigDecimal("2.1"), map.get("temp_ouside"));
+    public void testSetVaillantMasterSlave() {
+        IEBusCommandMethod method = commandRegistry.getCommandMethodById("vrc700_general", "gen.operation_mode",
+                Method.SET);
+        assertEquals(IEBusCommandMethod.Type.MASTER_SLAVE, method.getType());
     }
 
     @Test
-    public void test2() {
-        Map<String, Object> map = check("31 3C 40 22 01 07 9A 00 02 00 BE 92 00 AA");
+    public void testDateTimeBroadcast() {
 
-        assertNotNull(map);
-        assertFalse(map.isEmpty());
-        assertTrue(map.containsKey("temp_inside"));
-        assertEquals(new BigDecimal("19.0"), map.get("temp_inside"));
-    }
+        byte[] byteArray = EBusUtils.toByteArray("31 15 B5 24 08 02 01 00 00 7B 00 00 00 E1");
 
-    public Map<String, Object> check(String byteString) {
-        byte[] byteArray = EBusUtils.toByteArray(byteString);
+        // vrc700_general gen.operation_mode
         List<IEBusCommandMethod> find = commandRegistry.find(byteArray);
 
         for (IEBusCommandMethod method : find) {
+
+            Map<String, Object> values = new HashMap<>();
+            values.put("value", BigDecimal.ZERO);
+
             try {
+
+                assertEquals(IEBusCommandMethod.Type.MASTER_SLAVE, method.getType());
+
+                ByteBuffer buildMasterTelegram = EBusCommandUtils.buildMasterTelegram(method, (byte) 0x31, (byte) 0x15,
+                        values);
+
                 Map<String, Object> map = EBusCommandUtils.decodeTelegram(method, byteArray);
-                return map;
+                Object object = map.get("value");
+
+                assertEquals(BigDecimal.ZERO, object);
+
+                assertEquals(EBusUtils.toHexDumpString(byteArray).toString(),
+                        EBusUtils.toHexDumpString(buildMasterTelegram).toString());
 
             } catch (EBusTypeException e) {
                 e.printStackTrace();
-                fail();
+                assumeNoException(e);
             }
         }
-
-        return new HashMap<String, Object>();
     }
 
 }

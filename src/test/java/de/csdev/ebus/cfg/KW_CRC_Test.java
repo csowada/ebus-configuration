@@ -42,7 +42,7 @@ public class KW_CRC_Test {
 
         assertNotNull("Unable to get command cgb2.boiler.pressure", commandMethod);
 
-        ByteBuffer buffer = EBusCommandUtils.buildMasterTelegram(commandMethod, (byte) 0x00, (byte) 0x0FF, null);
+        ByteBuffer buffer = EBusCommandUtils.buildMasterTelegram(commandMethod, (byte) 0x00, (byte) 0x04, null);
 
         assertEquals("KW CRC Invalid", buffer.get(5), 0x77);
     }
