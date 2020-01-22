@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,10 +38,10 @@ public class EBusCommonVaillantDateTimeTest {
 
     private static final Logger logger = LoggerFactory.getLogger(EBusCommonVaillantDateTimeTest.class);
 
-    EBusCommandRegistry commandRegistry;
+    static EBusCommandRegistry commandRegistry;
 
-    @Before
-    public void before() throws IOException, EBusConfigurationReaderException {
+    @BeforeClass
+    public static void before() throws IOException, EBusConfigurationReaderException {
         commandRegistry = new EBusCommandRegistry(EBusConfigurationReaderExt.class, true);
     }
 

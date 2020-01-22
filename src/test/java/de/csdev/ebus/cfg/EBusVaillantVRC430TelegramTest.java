@@ -16,7 +16,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.csdev.ebus.command.EBusCommandRegistry;
@@ -33,11 +33,10 @@ import de.csdev.ebus.utils.EBusUtils;
  */
 public class EBusVaillantVRC430TelegramTest {
 
-    EBusCommandRegistry commandRegistry;
+    static EBusCommandRegistry commandRegistry;
 
-    @Before
-    public void before() throws IOException, EBusConfigurationReaderException {
-
+    @BeforeClass
+    public static void before() throws IOException, EBusConfigurationReaderException {
         commandRegistry = new EBusCommandRegistry(EBusConfigurationReaderExt.class, true);
     }
 

@@ -8,7 +8,7 @@
  */
 package de.csdev.ebus.cfg;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.junit.Assume.assumeNoException;
 
 import java.io.IOException;
@@ -18,8 +18,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.csdev.ebus.command.EBusCommandRegistry;
 import de.csdev.ebus.command.EBusCommandUtils;
@@ -35,11 +37,12 @@ import de.csdev.ebus.utils.EBusUtils;
  */
 public class EBusVaillantTelegramTest {
 
-    EBusCommandRegistry commandRegistry;
+    private static final Logger logger = LoggerFactory.getLogger(EBusVaillantTelegramTest.class);
 
-    @Before
-    public void before() throws IOException, EBusConfigurationReaderException {
+    static EBusCommandRegistry commandRegistry;
 
+    @BeforeClass
+    public static void before() throws IOException, EBusConfigurationReaderException {
         commandRegistry = new EBusCommandRegistry(EBusConfigurationReaderExt.class, true);
     }
 
@@ -51,7 +54,22 @@ public class EBusVaillantTelegramTest {
     }
 
     @Test
-    public void testDateTimeBroadcast() {
+    public void testVaillantNoSlaveDataDefined() {
+
+        // currently this command has no slave data defined, that is not
+        // correct. but it should work for now.
+
+        byte[] byteArray = EBusUtils.toByteArray("FF 15 B5 24 07 02 01 00 00 74 00 05 9B 00 02 00 00 2C 00");
+
+        // vrc700_general.gen.sf_mode
+        List<IEBusCommandMethod> find = commandRegistry.find(byteArray);
+
+        assertFalse(find.isEmpty());
+        logger.debug("Successful resolved: {}", EBusCommandUtils.getFullId(find.get(0)));
+    }
+
+    @Test
+    public void testVaillantSetOperationMode() {
 
         byte[] byteArray = EBusUtils.toByteArray("31 15 B5 24 08 02 01 00 00 7B 00 00 00 E1");
 

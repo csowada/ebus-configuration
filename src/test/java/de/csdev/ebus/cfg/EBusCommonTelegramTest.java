@@ -13,7 +13,7 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,10 +36,10 @@ public class EBusCommonTelegramTest {
 
     private static final Logger logger = LoggerFactory.getLogger(EBusCommonTelegramTest.class);
 
-    EBusCommandRegistry commandRegistry;
+    static EBusCommandRegistry commandRegistry;
 
-    @Before
-    public void before() throws IOException, EBusConfigurationReaderException {
+    @BeforeClass
+    public static void before() throws IOException, EBusConfigurationReaderException {
 
         commandRegistry = new EBusCommandRegistry(EBusConfigurationReaderExt.class, true);
     }
@@ -86,9 +86,7 @@ public class EBusCommonTelegramTest {
     }
 
     @Test
-    public void ResolveCommonTelegrams() {
-        byte[] bs = null;
-
+    public void testTelegram1() {
         /*
          * 2014-10-23 16:10:31 - >>> Datum/Zeitmeldung eines eBUS Masters
          * 2014-10-23 16:10:31 - >>> common.time_min 8 Zeit Min
@@ -99,9 +97,12 @@ public class EBusCommonTelegramTest {
          * 2014-10-23 16:10:31 - >>> common.time_sec 10 Zeit Sek.
          * 2014-10-23 16:10:31 - >>> common.time_hour 16 Zeit Stunde
          */
-        bs = EBusUtils.toByteArray("30 FE 07 00 09 00 80 10 08 16 23 10 04 14 A2 AA");
+        byte[] bs = EBusUtils.toByteArray("30 FE 07 00 09 00 80 10 08 16 23 10 04 14 A2 AA");
         TestUtils.canResolve(commandRegistry, bs);
+    }
 
+    @Test
+    public void testTelegram2() {
         /*
          * 2014-10-23 16:10:30 - >>> Betriebsdaten des Feuerungsautomaten an den Regler - Block 1
          * 2014-10-23 16:10:30 - >>> auto_stroker.state_valve2 false Valve2
@@ -120,9 +121,12 @@ public class EBusCommonTelegramTest {
          * 2014-10-23 16:10:30 - >>> auto_stroker.performance_burner null Stellgrad MIN-MAX Kesselleistung in %
          */
 
-        bs = EBusUtils.toByteArray("03 FE 05 03 08 01 00 40 FF 2D 17 30 0E C8 AA");
+        byte[] bs = EBusUtils.toByteArray("03 FE 05 03 08 01 00 40 FF 2D 17 30 0E C8 AA");
         TestUtils.canResolve(commandRegistry, bs);
+    }
 
+    @Test
+    public void testTelegram3() {
         /*
          * 2014-10-23 16:10:33 - >>> Sollwertübertragung des Reglers an andere Regler
          * 2014-10-23 16:10:33 - >>> controller2.temp_t_vessel null Kesselsollwert
@@ -132,9 +136,12 @@ public class EBusCommonTelegramTest {
          * 2014-10-23 16:10:33 - >>> controller2.status_heat_circuit true Heizkreis aktiv
          * 2014-10-23 16:10:33 - >>> controller2.temp_t_boiler 5.0 Brauchwassersoll
          */
-        bs = EBusUtils.toByteArray("03 F1 08 00 08 00 80 99 0E 80 02 00 05 94 AA");
+        byte[] bs = EBusUtils.toByteArray("03 F1 08 00 08 00 80 99 0E 80 02 00 05 94 AA");
         TestUtils.canResolve(commandRegistry, bs);
+    }
 
+    @Test
+    public void testTelegram4() {
         /*
          * 2014-10-23 16:10:39 - >>> Betriebsdaten des Reglers an den Feuerungsautomaten
          * 2014-10-23 16:10:39 - >>> controller.status_warm_req2 3 Statuswärmeanforderung2
@@ -145,9 +152,12 @@ public class EBusCommonTelegramTest {
          * 2014-10-23 16:10:39 - >>> controller.performance_burner 0.0 Stellgrad
          * 2014-10-23 16:10:39 - >>> controller.temp_t_boiler 50.0 Brauchwassersollwert
          */
-        bs = EBusUtils.toByteArray("30 03 05 07 09 BB 03 61 01 00 80 FF 64 FF D5 00 AA");
+        byte[] bs = EBusUtils.toByteArray("30 03 05 07 09 BB 03 61 01 00 80 FF 64 FF D5 00 AA");
         TestUtils.canResolve(commandRegistry, bs);
+    }
 
+    @Test
+    public void testTelegram5() {
         /*
          * 2014-10-23 16:11:18 - >>> Identifikation
          * 2014-10-23 16:11:18 - >>> common._software_ver 1 Software Version
@@ -161,7 +171,7 @@ public class EBusCommonTelegramTest {
          * 2014-10-23 16:11:18 - >>> common._device_id2 90 Geräte ID 2
          * 2014-10-23 16:11:18 - >>> common._device_id1 0 Geräte ID 1
          */
-        bs = EBusUtils.toByteArray("30 08 07 04 00 5E 00 0A 19 01 21 00 5A 40 60 01 00 00 48 00 AA");
+        byte[] bs = EBusUtils.toByteArray("30 08 07 04 00 5E 00 0A 19 01 21 00 5A 40 60 01 00 00 48 00 AA");
         TestUtils.canResolve(commandRegistry, bs);
 
         bs = EBusUtils.toByteArray("FF 76 07 04 00 43 00 0A 50 01 15 00 00 80 02 27 FF FF 81 00 AA");

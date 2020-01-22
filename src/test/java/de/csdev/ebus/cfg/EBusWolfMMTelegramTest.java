@@ -10,7 +10,7 @@ package de.csdev.ebus.cfg;
 
 import java.io.IOException;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.csdev.ebus.TestUtils;
@@ -24,10 +24,10 @@ import de.csdev.ebus.utils.EBusUtils;
  */
 public class EBusWolfMMTelegramTest {
 
-    EBusCommandRegistry commandRegistry;
+    static EBusCommandRegistry commandRegistry;
 
-    @Before
-    public void before() throws IOException, EBusConfigurationReaderException {
+    @BeforeClass
+    public static void before() throws IOException, EBusConfigurationReaderException {
         commandRegistry = new EBusCommandRegistry(EBusConfigurationReaderExt.class, true);
     }
 
