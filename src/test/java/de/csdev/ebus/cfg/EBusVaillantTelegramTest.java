@@ -46,6 +46,21 @@ public class EBusVaillantTelegramTest {
         commandRegistry = new EBusCommandRegistry(EBusConfigurationReaderExt.class, true);
     }
 
+    /**
+     * Simple helper to resolve a telegram
+     *
+     * @param data
+     */
+    private void checkResolveTelegram(String data) {
+        byte[] byteArray = EBusUtils.toByteArray(data);
+
+        // vrc700_general.gen.sf_mode
+        List<IEBusCommandMethod> find = commandRegistry.find(byteArray);
+
+        assertFalse(find.isEmpty());
+        logger.debug("Successful resolved: {}", EBusCommandUtils.getFullId(find.get(0)));
+    }
+
     @Test
     public void testSetVaillantMasterSlave() {
         IEBusCommandMethod method = commandRegistry.getCommandMethodById("vrc700_general", "gen.operation_mode",
@@ -54,18 +69,16 @@ public class EBusVaillantTelegramTest {
     }
 
     @Test
-    public void testVaillantNoSlaveDataDefined() {
+    public void testVaillantTelegrams() {
 
-        // currently this command has no slave data defined, that is not
-        // correct. but it should work for now.
+        // bai.boiler.control.getopdataSGET
+        checkResolveTelegram("10 08 B5 10 09 00 00 4E FF FF FF 00 00 00 74 00 01 01 9A 00 AA");
 
-        byte[] byteArray = EBusUtils.toByteArray("FF 15 B5 24 07 02 01 00 00 74 00 05 9B 00 02 00 00 2C 00");
+        // bai.boiler.control.getopdata:GET
+        checkResolveTelegram("10 08 B5 11 01 01 89 00 09 50 46 00 80 FF 60 01 00 FF 97 00 AA");
 
-        // vrc700_general.gen.sf_mode
-        List<IEBusCommandMethod> find = commandRegistry.find(byteArray);
-
-        assertFalse(find.isEmpty());
-        logger.debug("Successful resolved: {}", EBusCommandUtils.getFullId(find.get(0)));
+        // vrc700_general.gen.sf_mode:SET
+        checkResolveTelegram("FF 15 B5 24 07 02 01 00 00 74 00 05 9B 00 02 00 00 2C 00");
     }
 
     @Test

@@ -17,7 +17,7 @@
             "id":       "boiler.control.datetime",
             "command":  "B5 04",
 
-            "broadcast": {
+            "get": {
                 "master": [
                     {"type": "static", "default": "00"}
                 ],
@@ -35,7 +35,7 @@
             "id":       "boiler.control.setopdata",
             "command":  "B5 10",
 
-            "broadcast": {
+            "set": {
                 "master": [
                     {"type": "static", "default": "00 00"},
                     {"name": "temp_d_lead_water", "type": "data1c", "label": "Lead water target temperature", "min": 0, "max": 100, "format":"%.1f°C"},
@@ -64,7 +64,7 @@
             "id":       "boiler.control.getopdata",
             "command":  "B5 11",
 
-            "broadcast": {
+            "get": {
                 "master": [
                     {"type": "static", "default": "01"}
                 ],
@@ -94,7 +94,7 @@
             "id":       "boiler.control.getopdata.02",
             "command":  "B5 11",
 
-            "broadcast": {
+            "get": {
                 "master": [
                     {"type": "static", "default": "02"}
                 ],
