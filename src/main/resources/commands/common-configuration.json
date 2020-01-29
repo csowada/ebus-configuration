@@ -29,7 +29,7 @@
             "template": [
                 {"name":"block_number", "type": "static", "default": "01"},
                 {"name":"status_auto_stroker", "type": "byte", "label": "Status indication"},
-                {"name":"states", "type": "byte", "children": [
+                {"type": "byte", "children": [
                     {"name":"state_air_pressure", "type": "bit", "label": "Air pressure monitor"},
                     {"name":"state_gas_pressure", "type": "bit", "label": "Gas pressure monitor"},
                     {"name":"state_water_flow", "type": "bit", "label": "Water flow"},
