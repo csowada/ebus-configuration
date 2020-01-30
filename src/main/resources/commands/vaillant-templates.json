@@ -113,7 +113,7 @@
         ]},
 
         {"name":"energy4", "template": [
-            {"name": "value", "type": "uchar", "length": 4, "format": "%s kWh"}
+            {"name": "value", "type": "unumber", "length": 4, "format": "%s kWh"}
         ]},
 
         {"name":"hfrom", "template": [
