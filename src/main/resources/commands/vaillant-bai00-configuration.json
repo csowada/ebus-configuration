@@ -88,8 +88,8 @@
                 ]
             }
         },
-		
-		{
+
+        {
             "label":    "Operational Data of Burner Control Unit to Room Control Unit",
             "id":       "boiler.control.getopdata.02",
             "command":  "B5 11",
@@ -99,9 +99,34 @@
                     {"type": "static", "default": "02"}
                 ],
                 "slave": [
-                    {"type": "static", "default": "03 3C 96 46"},
-					{"name": "srv_water_target", "type": "data1c", "label": "Service water target temperature", "min": 0, "max": 100, "format":"%.1f°C"}
-				]
+                    {"name":"hwcmode", "type": "uchar", "label":"HWC mode", "format":"%d",
+                        "mapping": {"0":"disabled", "1":"on", "2":"off", "3":"auto"}},
+                    {"name": "temp0_max", "type": "uchar", "label": "Sensor 0 target temperature (max)", "min": 0, "max": 100, "format":"%d°C"},
+                    {"name": "temp0_target", "type": "data1c", "label": "Sensor 0 target temperature", "min": 0, "max": 100, "format":"%.1f°C"},
+                    {"name": "srv_water_target_max", "type": "uchar", "label": "Service water target temperature (max)", "min": 0, "max": 100, "format":"%d°C"},
+                    {"name": "srv_water_target", "type": "data1c", "label": "Service water target temperature", "min": 0, "max": 100, "format":"%.1f°C"},
+                    {"name": "_unknown1", "type": "uchar", "label": "Unknown value"}
+                ]
+            }
+        },
+
+        {
+            "label":    "Operational Data of Burner Control Unit to Room Control Unit (b)",
+            "id":       "boiler.control.getopdata.02b",
+            "command":  "B5 11",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02"}
+                ],
+                "slave": [
+                    {"name":"hwcmode", "type": "uchar", "label":"HWC mode", "format":"%d",
+                        "mapping": {"0":"disabled", "1":"on", "2":"off", "3":"auto"}},
+                    {"name": "temp0_max", "type": "uchar", "label": "Sensor 0 target temperature (max)", "min": 0, "max": 100, "format":"%d°C"},
+                    {"name": "temp0_target", "type": "data1c", "label": "Sensor 0 target temperature", "min": 0, "max": 100, "format":"%.1f°C"},
+                    {"name": "srv_water_target_max", "type": "uchar", "label": "Service water target temperature (max)", "min": 0, "max": 100, "format":"%d°C"},
+                    {"name": "srv_water_target", "type": "data1c", "label": "Service water target temperature", "min": 0, "max": 100, "format":"%.1f°C"}
+                ]
             }
         },
 
