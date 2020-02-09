@@ -114,4 +114,29 @@ public class EBusWolfBM2Test {
         }
     }
 
+    @Test
+    public void testSetDHWProgramWithInvalidTargetAddr() {
+        IEBusCommand command = commandRegistry.getCommandById("bm2", "dhw.program_dhw_circuit");
+        assertNotNull(command);
+
+        IEBusCommandMethod commandMethod = command.getCommandMethod(Method.SET);
+
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("program", 0);
+
+        try {
+            // should not work, address 85 is invalid
+            EBusCommandUtils.buildMasterTelegram(commandMethod, (byte) 0xFF, (byte) 0x85, params);
+            fail();
+
+        } catch (IllegalArgumentException e) {
+            assertTrue(e.getLocalizedMessage().contains("replace the slave address"));
+
+        } catch (EBusTypeException e) {
+            e.printStackTrace();
+            fail();
+        }
+
+    }
+
 }
