@@ -13,7 +13,7 @@
 	"commands":
 	[
 		{
-			"label":	"Avarage outside temperature",
+			"label":	"Average outside temperature",
 			"id":		"controller.temp_outside_avg",
 			"command":	"50 22",
  
