@@ -7,7 +7,7 @@
 	<description>eBUS library configuration</description>
 	<groupId>de.cs-dev.ebus</groupId>
 	<artifactId>ebus-configuration</artifactId>
-	<version>1.0.6-SNAPSHOT</version>
+	<version>1.0.9</version>
 	<url>https://github.com/csowada/ebus-configuration</url>
 	<packaging>bundle</packaging>
 
@@ -16,8 +16,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.release>8</maven.compiler.release>
         <license.year>2020</license.year>
-        <bundle.version>1.0.6.${maven.build.timestamp}</bundle.version>
+        <bundle.version>1.0.9.${maven.build.timestamp}</bundle.version>
     </properties>
 
 	<organization>
@@ -249,7 +250,7 @@
 		<dependency>
 			<groupId>de.cs-dev.ebus</groupId>
 			<artifactId>ebus-core</artifactId>
-			<version>1.0.6-SNAPSHOT</version>
+			<version>1.0.9</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
