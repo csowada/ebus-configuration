@@ -7,19 +7,19 @@
 	<description>eBUS library configuration</description>
 	<groupId>de.cs-dev.ebus</groupId>
 	<artifactId>ebus-configuration</artifactId>
-	<version>1.0.9</version>
+	<version>1.1.0</version>
 	<url>https://github.com/csowada/ebus-configuration</url>
 	<packaging>bundle</packaging>
 
-    <properties>
-        <maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.release>8</maven.compiler.release>
-        <license.year>2020</license.year>
-        <bundle.version>1.0.9.${maven.build.timestamp}</bundle.version>
-    </properties>
+	<properties>
+		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.release>8</maven.compiler.release>
+		<license.year>2020</license.year>
+		<bundle.version>1.1.0.${maven.build.timestamp}</bundle.version>
+	</properties>
 
 	<organization>
 		<name>Christian Sowada</name>
@@ -55,29 +55,29 @@
 
 	<build>
 		<plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>buildnumber-maven-plugin</artifactId>
-                <version>1.4</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>create</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!-- Get the scm revision once for all modules -->
-                    <getRevisionOnlyOnce>true</getRevisionOnlyOnce>
-                    <!-- Don't fail on modified local resources -->
-                    <doCheck>false</doCheck>
-                    <!-- Don't update SCM -->
-                    <doUpdate>false</doUpdate>
-                    <!-- Use short version of git revision -->
-                    <shortRevisionLength>7</shortRevisionLength>
-                </configuration>
-            </plugin>
-            
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>create</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- Get the scm revision once for all modules -->
+					<getRevisionOnlyOnce>true</getRevisionOnlyOnce>
+					<!-- Don't fail on modified local resources -->
+					<doCheck>false</doCheck>
+					<!-- Don't update SCM -->
+					<doUpdate>false</doUpdate>
+					<!-- Use short version of git revision -->
+					<shortRevisionLength>7</shortRevisionLength>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
@@ -89,11 +89,13 @@
 						<Bundle-Name>${project.name}</Bundle-Name>
 						<Bundle-Version>${bundle.version}</Bundle-Version>
 						<Export-Package>de.csdev.ebus.configuration.*</Export-Package>
-						
+                        <opt>resolution:=optional</opt>
+                        <Import-Package>org.eclipse.jdt.annotation;$[opt], *</Import-Package>
+                        
 						<Build-Timestamp>${maven.build.timestamp}</Build-Timestamp>
-                        <Build-Commit>${buildNumber}</Build-Commit>
-                        <Build-Branch>${scmBranch}</Build-Branch>
-                        <Build-Number>${env.BUILD_NUMBER}</Build-Number>
+						<Build-Commit>${buildNumber}</Build-Commit>
+						<Build-Branch>${scmBranch}</Build-Branch>
+						<Build-Number>${env.BUILD_NUMBER}</Build-Number>
 					</instructions>
 				</configuration>
 			</plugin>
@@ -250,9 +252,17 @@
 		<dependency>
 			<groupId>de.cs-dev.ebus</groupId>
 			<artifactId>ebus-core</artifactId>
-			<version>1.0.9</version>
+			<version>1.1.0</version>
 			<scope>compile</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.jdt</groupId>
+			<artifactId>org.eclipse.jdt.annotation</artifactId>
+			<version>2.2.100</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<distributionManagement>

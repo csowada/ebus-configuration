@@ -8,7 +8,7 @@
  */
 package de.csdev.ebus.wip;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 
@@ -41,8 +41,10 @@ public class EBusdControllerTest {
     // @Test
     public void testIdentification() throws InterruptedException {
 
-        EBusClient client = new EBusClient(commandRegistry);
         EBusEbusdController controller = new EBusEbusdController("openhab", 8888);
+        assertNotNull(commandRegistry);
+
+        EBusClient client = new EBusClient(commandRegistry);
 
         client.connect(controller, (byte) 0x00);
 

@@ -8,6 +8,8 @@
  */
 package de.csdev.ebus.wip;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -67,7 +69,13 @@ public class EBusCommonTelegramTest2 {
         data = EBusUtils.toByteArray("03 FE 05 03 08 01 00 40 FF 2D 17 30 0E C8 AA");
         IEBusCommand command = commandRegistry.getCommandById("std", "auto_stroker.op_data_bc2tc_b1");
 
-        ByteBuffer masterTelegramMask = EBusCommandUtils.getMasterTelegramMask(command.getCommandMethod(Method.GET));
+        assertNotNull(command);
+
+        IEBusCommandMethod commandMethod = command.getCommandMethod(Method.GET);
+
+        assertNotNull(commandMethod);
+
+        ByteBuffer masterTelegramMask = EBusCommandUtils.getMasterTelegramMask(commandMethod);
 
         // ByteBuffer masterTelegramMask2 =
         // EBusCommandUtils.getMasterTelegramMask(command.getCommandMethod(Method.SET));

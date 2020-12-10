@@ -23,6 +23,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.csdev.ebus.command.EBusCommandException;
 import de.csdev.ebus.command.EBusCommandRegistry;
 import de.csdev.ebus.command.EBusCommandUtils;
 import de.csdev.ebus.command.IEBusCommandMethod;
@@ -58,13 +59,19 @@ public class EBusVaillantTelegramTest {
         List<IEBusCommandMethod> find = commandRegistry.find(byteArray);
 
         assertFalse(find.isEmpty());
-        logger.debug("Successful resolved: {}", EBusCommandUtils.getFullId(find.get(0)));
+
+        IEBusCommandMethod method = find.get(0);
+
+        assertNotNull(method);
+
+        logger.debug("Successful resolved: {}", EBusCommandUtils.getFullId(method));
     }
 
     @Test
     public void testSetVaillantMasterSlave() {
         IEBusCommandMethod method = commandRegistry.getCommandMethodById("vrc700_general", "gen.operation_mode",
                 Method.SET);
+        assertNotNull(method);
         assertEquals(IEBusCommandMethod.Type.MASTER_SLAVE, method.getType());
     }
 
@@ -110,6 +117,9 @@ public class EBusVaillantTelegramTest {
                         EBusUtils.toHexDumpString(buildMasterTelegram).toString());
 
             } catch (EBusTypeException e) {
+                e.printStackTrace();
+                assumeNoException(e);
+            } catch (EBusCommandException e) {
                 e.printStackTrace();
                 assumeNoException(e);
             }
