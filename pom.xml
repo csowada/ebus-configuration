@@ -88,10 +88,7 @@
 						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
 						<Bundle-Name>${project.name}</Bundle-Name>
 						<Bundle-Version>${bundle.version}</Bundle-Version>
-						<Export-Package>de.csdev.ebus.configuration.*</Export-Package>
-                        <opt>resolution:=optional</opt>
-                        <Import-Package>org.eclipse.jdt.annotation;$[opt], *</Import-Package>
-                        
+						<Export-Package>de.csdev.ebus.configuration.*</Export-Package>                      
 						<Build-Timestamp>${maven.build.timestamp}</Build-Timestamp>
 						<Build-Commit>${buildNumber}</Build-Commit>
 						<Build-Branch>${scmBranch}</Build-Branch>
@@ -221,19 +218,39 @@
 	</profiles>
 
 	<dependencies>
-
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.osgi.core</artifactId>
-			<version>1.4.0</version>
-			<scope>provided</scope>
-		</dependency>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.5</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>de.cs-dev.ebus</groupId>
+			<artifactId>ebus-core</artifactId>
+			<version>1.1.0</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>1.4.0</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -247,13 +264,7 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.25</version>
-		</dependency>
-
-		<dependency>
-			<groupId>de.cs-dev.ebus</groupId>
-			<artifactId>ebus-core</artifactId>
-			<version>1.1.0</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -262,7 +273,9 @@
 			<version>2.2.100</version>
 			<scope>provided</scope>
 		</dependency>
+		
 
+		
 	</dependencies>
 
 	<distributionManagement>
