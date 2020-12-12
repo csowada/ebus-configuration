@@ -64,6 +64,9 @@ public class EBusWolfCWLTest {
         List<IEBusCommandMethod> find = commandRegistry.find(byteArray);
 
         for (IEBusCommandMethod method : find) {
+
+            assertNotNull(method);
+
             try {
                 Map<String, Object> map = EBusCommandUtils.decodeTelegram(method, byteArray);
                 return map;

@@ -87,6 +87,7 @@ public class EBusCommonTelegramTest2 {
         // logger.debug("TELE {}", EBusUtils.toHexDumpString(data));
         // logger.debug("MASK {}", EBusUtils.toHexDumpString(masterTelegramMask));
 
+        @SuppressWarnings("unused")
         List<IEBusCommandMethod> find = commandRegistry.find(data);
 
         TestUtils.canResolve(commandRegistry, data);

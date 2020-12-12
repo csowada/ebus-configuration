@@ -34,7 +34,6 @@ public class EBusdControllerTest {
 
     // @Before
     public void before() throws IOException, EBusConfigurationReaderException {
-
         commandRegistry = new EBusCommandRegistry(EBusConfigurationReaderExt.class, true);
     }
 
