@@ -8,27 +8,34 @@
  */
 package de.csdev.ebus.configuration;
 
+import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.csdev.ebus.cfg.std.EBusConfigurationReader;
 import de.csdev.ebus.command.IEBusCommandCollection;
 
+@NonNullByDefault
 public class EBusConfigurationReaderExt extends EBusConfigurationReader {
 
     private static final Logger logger = LoggerFactory.getLogger(EBusConfigurationReaderExt.class);
 
     @Override
-    public List<IEBusCommandCollection> loadBuildInConfigurationCollections() {
+    public @NonNull List<@NonNull IEBusCommandCollection> loadBuildInConfigurationCollections() {
         try {
-            return loadConfigurationCollectionBundle(
-                    EBusConfigurationReaderExt.class.getResource("/index-configuration.json"));
+            URL url = EBusConfigurationReaderExt.class.getResource("/index-configuration.json");
+            if (url != null) {
+                return loadConfigurationCollectionBundle(url);
+            }
         } catch (Exception e) {
             logger.error("error!", e);
         }
-        return null;
+        return Collections.emptyList();
     }
 
 }

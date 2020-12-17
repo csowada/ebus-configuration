@@ -11,6 +11,7 @@ package de.csdev.ebus;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 
 import org.junit.Assert;
 import org.slf4j.Logger;
@@ -27,6 +28,8 @@ public class TestUtils {
     private static final Logger logger = LoggerFactory.getLogger(TestUtils.class);
 
     public static boolean canResolve(EBusCommandRegistry commandRegistry, byte[] data) {
+
+        Objects.requireNonNull(data, "data");
 
         List<IEBusCommandMethod> list = commandRegistry.find(data);
 

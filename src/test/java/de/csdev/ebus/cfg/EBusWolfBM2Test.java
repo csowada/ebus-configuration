@@ -20,6 +20,7 @@ import java.util.Map;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import de.csdev.ebus.command.EBusCommandException;
 import de.csdev.ebus.command.EBusCommandRegistry;
 import de.csdev.ebus.command.EBusCommandUtils;
 import de.csdev.ebus.command.IEBusCommand;
@@ -46,6 +47,9 @@ public class EBusWolfBM2Test {
     public void testSetWolfMasterMaster() {
         IEBusCommandMethod method = commandRegistry.getCommandMethodById("bm2", "heating.program_heating_circuit",
                 Method.SET);
+
+        assertNotNull(method);
+
         assertEquals(IEBusCommandMethod.Type.MASTER_MASTER, method.getType());
     }
 
@@ -57,6 +61,8 @@ public class EBusWolfBM2Test {
 
         IEBusCommandMethod commandMethod = command.getCommandMethod(Method.GET);
 
+        assertNotNull(commandMethod);
+
         HashMap<String, Object> params = new HashMap<>();
         params.put("program", 1);
 
@@ -65,6 +71,9 @@ public class EBusWolfBM2Test {
             assertEquals(EBusUtils.toHexDumpString(buffer).toString(), "00 35 50 22 03 A3 75 27 79");
 
         } catch (EBusTypeException e) {
+            e.printStackTrace();
+            fail();
+        } catch (EBusCommandException e) {
             e.printStackTrace();
             fail();
         }
@@ -78,6 +87,8 @@ public class EBusWolfBM2Test {
 
         IEBusCommandMethod commandMethod = command.getCommandMethod(Method.SET);
 
+        assertNotNull(commandMethod);
+
         HashMap<String, Object> params = new HashMap<>();
         params.put("program", 1);
 
@@ -86,6 +97,9 @@ public class EBusWolfBM2Test {
             assertEquals(EBusUtils.toHexDumpString(buffer).toString(), "00 30 50 23 09 D8 75 27 01 00 5D 01 00 00 BF");
 
         } catch (EBusTypeException e) {
+            e.printStackTrace();
+            fail();
+        } catch (EBusCommandException e) {
             e.printStackTrace();
             fail();
         }
@@ -101,6 +115,9 @@ public class EBusWolfBM2Test {
 
         for (IEBusCommandMethod method : find) {
             try {
+
+                assertNotNull(method);
+
                 Map<String, Object> map = EBusCommandUtils.decodeTelegram(method, byteArray);
 
                 assertNotNull(map.get("program"));
@@ -121,6 +138,8 @@ public class EBusWolfBM2Test {
 
         IEBusCommandMethod commandMethod = command.getCommandMethod(Method.SET);
 
+        assertNotNull(commandMethod);
+
         HashMap<String, Object> params = new HashMap<>();
         params.put("program", 0);
 
@@ -133,6 +152,9 @@ public class EBusWolfBM2Test {
             assertTrue(e.getLocalizedMessage().contains("replace the slave address"));
 
         } catch (EBusTypeException e) {
+            e.printStackTrace();
+            fail();
+        } catch (EBusCommandException e) {
             e.printStackTrace();
             fail();
         }

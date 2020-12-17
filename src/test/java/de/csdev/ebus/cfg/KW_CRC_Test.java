@@ -16,6 +16,7 @@ import java.nio.ByteBuffer;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.csdev.ebus.command.EBusCommandException;
 import de.csdev.ebus.command.EBusCommandRegistry;
 import de.csdev.ebus.command.EBusCommandUtils;
 import de.csdev.ebus.command.IEBusCommandMethod;
@@ -36,7 +37,7 @@ public class KW_CRC_Test {
     }
 
     @Test
-    public void testKWCrc() throws EBusTypeException {
+    public void testKWCrc() throws EBusTypeException, EBusCommandException {
         IEBusCommandMethod commandMethod = commandRegistry.getCommandMethodById("cgb2", "boiler.pressure",
                 IEBusCommandMethod.Method.GET);
 
