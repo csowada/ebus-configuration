@@ -1,0 +1,76 @@
+# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
+# For more information see: https://github.com/actions/setup-java#apache-maven-with-a-settings-path
+
+name: Maven Package
+
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Cache for Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+
+    - name: Import GPG keys
+      run: 'echo -e "$GPG_FILE" | gpg2 --import --no-tty --batch --yes'
+      shell: bash
+      env:
+        GPG_FILE: ${{secrets.GPG_FILE}}
+
+    - name: Set up Java for Apache Maven Central
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+        server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
+        server-username: OSSRH_USERNAME  # env variable for username in deploy
+        server-password: OSSRH_PASSWORD  # env variable for token in deploy
+        gpg-passphrase: GPG_PASSPHRASE  # env variable for GPG private key passphrase
+
+    - name: Build and Verify with Maven
+      run: mvn --batch-mode --update-snapshots clean compile verify
+
+    - name: Publish to Apache Maven Central
+      # run: mvn deploy --batch-mode --update-snapshots -P sign,!build-extras -Dmaven.test.skip=true
+      run: mvn deploy --batch-mode --update-snapshots -P sign,!build-extras,deploy-ossrh -Dmaven.test.skip=true
+      env:
+        OSSRH_USERNAME: ${{ secrets.OSSRH_JIRA_USERNAME }}
+        OSSRH_PASSWORD: ${{ secrets.OSSRH_JIRA_PASSWORD }}
+        GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
+    - name: Set up Java for publishing to GitHub Packages
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+
+    - name: Publish to GitHub Packages
+    #  -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/csowada/ebus
+      run: mvn deploy --batch-mode --update-snapshots -P !sign,!build-extras,!deploy-ossrh,deploy-github -Dmaven.test.skip=true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create GitGub Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          Changes in this Release
+          
+        draft: true
+        prerelease: false

@@ -7,7 +7,7 @@
 	<description>eBUS library configuration</description>
 	<groupId>de.cs-dev.ebus</groupId>
 	<artifactId>ebus-configuration</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.2-feature-SNAPSHOT</version>
 	<url>https://github.com/csowada/ebus-configuration</url>
 	<packaging>bundle</packaging>
 
@@ -18,7 +18,10 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.release>8</maven.compiler.release>
 		<license.year>2020</license.year>
-		<bundle.version>1.1.0.${maven.build.timestamp}</bundle.version>
+		<!-- <bundle.version>1.1.0.${maven.build.timestamp}</bundle.version> -->
+		<sonar.projectKey>csowada_ebus-configuration</sonar.projectKey>
+		<sonar.organization>csowada</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
 	<organization>
@@ -55,6 +58,22 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>com.amashchenko.maven.plugin</groupId>
+				<artifactId>gitflow-maven-plugin</artifactId>
+				<version>1.15.0</version>
+				<configuration>
+					<gitFlowConfig>
+						<productionBranch>master</productionBranch>
+						<developmentBranch>develop</developmentBranch>
+						<versionTagPrefix>v</versionTagPrefix>
+						<origin>origin</origin>
+					</gitFlowConfig>
+					<fetchRemote>false</fetchRemote>
+					<pushRemote>false</pushRemote>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>buildnumber-maven-plugin</artifactId>
@@ -215,6 +234,55 @@
 			</build>
 		</profile>
 
+		<profile>
+			<id>deploy-ossrh</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.8</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>ossrh</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>false</autoReleaseAfterClose>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+
+			<distributionManagement>
+				<snapshotRepository>
+					<id>ossrh</id>
+					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+				</snapshotRepository>
+				<repository>
+					<id>ossrh</id>
+					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+
+		<profile>
+			<id>deploy-github</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+
+			<distributionManagement>
+				<repository>
+				<id>github</id>
+				<name>GitHub Packages</name>
+				<url>https://maven.pkg.github.com/csowada/ebus-configuration</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+
 	</profiles>
 
 	<dependencies>
@@ -242,7 +310,7 @@
 		<dependency>
 			<groupId>de.cs-dev.ebus</groupId>
 			<artifactId>ebus-core</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.2</version>
 			<scope>compile</scope>
 		</dependency>
 		
@@ -277,19 +345,5 @@
 
 		
 	</dependencies>
-
-	<distributionManagement>
-
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-
-		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-
-	</distributionManagement>
 
 </project>
