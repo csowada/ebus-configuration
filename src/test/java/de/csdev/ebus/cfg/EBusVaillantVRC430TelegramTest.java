@@ -50,6 +50,8 @@ public class EBusVaillantVRC430TelegramTest {
 
         for (IEBusCommandMethod method : find) {
 
+            assertNotNull(method);
+
             try {
                 Map<String, Object> map = EBusCommandUtils.decodeTelegram(method, byteArray);
                 Object object = map.get("datetime");
@@ -88,6 +90,8 @@ public class EBusVaillantVRC430TelegramTest {
         List<IEBusCommandMethod> find = commandRegistry.find(byteArray);
 
         for (IEBusCommandMethod method : find) {
+
+            assertNotNull(method);
 
             try {
                 Map<String, Object> map = EBusCommandUtils.decodeTelegram(method, byteArray);
