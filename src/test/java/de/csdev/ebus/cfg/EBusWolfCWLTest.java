@@ -45,8 +45,8 @@ public class EBusWolfCWLTest {
 
         assertNotNull(map);
         assertFalse(map.isEmpty());
-        assertTrue(map.containsKey("temp_ouside"));
-        assertEquals(new BigDecimal("2.1"), map.get("temp_ouside"));
+        assertTrue(map.containsKey("cur"));
+        assertEquals(new BigDecimal("2.1"), map.get("cur"));
     }
 
     @Test
@@ -55,8 +55,8 @@ public class EBusWolfCWLTest {
 
         assertNotNull(map);
         assertFalse(map.isEmpty());
-        assertTrue(map.containsKey("temp_inside"));
-        assertEquals(new BigDecimal("19.0"), map.get("temp_inside"));
+        assertTrue(map.containsKey("cur"));
+        assertEquals(new BigDecimal("19.0"), map.get("cur"));
     }
 
     public Map<String, Object> check(String byteString) {
