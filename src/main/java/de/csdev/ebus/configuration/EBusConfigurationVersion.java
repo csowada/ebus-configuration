@@ -12,6 +12,10 @@ import de.csdev.ebus.core.EBusVersion;
 
 public class EBusConfigurationVersion extends EBusVersion {
 
+    private EBusConfigurationVersion() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static String getVersion() {
         return getVersion(EBusConfigurationVersion.class);
     }
