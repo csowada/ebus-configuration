@@ -9,6 +9,7 @@
 package de.csdev.ebus.cfg;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -103,7 +104,7 @@ public class EBusCommonTelegramTest {
          * 2014-10-23 16:10:31 - >>> common.time_hour 16 Zeit Stunde
          */
         byte[] bs = EBusUtils.toByteArray("30 FE 07 00 09 00 80 10 08 16 23 10 04 14 A2 AA");
-        TestUtils.canResolve(commandRegistry, bs);
+        assertTrue(TestUtils.canResolve(commandRegistry, bs));
     }
 
     @Test
@@ -127,7 +128,7 @@ public class EBusCommonTelegramTest {
          */
 
         byte[] bs = EBusUtils.toByteArray("03 FE 05 03 08 01 00 40 FF 2D 17 30 0E C8 AA");
-        TestUtils.canResolve(commandRegistry, bs);
+        assertTrue(TestUtils.canResolve(commandRegistry, bs));
     }
 
     @Test
@@ -142,7 +143,7 @@ public class EBusCommonTelegramTest {
          * 2014-10-23 16:10:33 - >>> controller2.temp_t_boiler 5.0 Brauchwassersoll
          */
         byte[] bs = EBusUtils.toByteArray("03 F1 08 00 08 00 80 99 0E 80 02 00 05 94 AA");
-        TestUtils.canResolve(commandRegistry, bs);
+        assertTrue(TestUtils.canResolve(commandRegistry, bs));
     }
 
     @Test
@@ -158,7 +159,7 @@ public class EBusCommonTelegramTest {
          * 2014-10-23 16:10:39 - >>> controller.temp_t_boiler 50.0 Brauchwassersollwert
          */
         byte[] bs = EBusUtils.toByteArray("30 03 05 07 09 BB 03 61 01 00 80 FF 64 FF D5 00 AA");
-        TestUtils.canResolve(commandRegistry, bs);
+        assertTrue(TestUtils.canResolve(commandRegistry, bs));
     }
 
     @Test
@@ -177,16 +178,16 @@ public class EBusCommonTelegramTest {
          * 2014-10-23 16:11:18 - >>> common._device_id1 0 Geräte ID 1
          */
         byte[] bs = EBusUtils.toByteArray("30 08 07 04 00 5E 00 0A 19 01 21 00 5A 40 60 01 00 00 48 00 AA");
-        TestUtils.canResolve(commandRegistry, bs);
+        assertTrue(TestUtils.canResolve(commandRegistry, bs));
 
         bs = EBusUtils.toByteArray("FF 76 07 04 00 43 00 0A 50 01 15 00 00 80 02 27 FF FF 81 00 AA");
-        TestUtils.canResolve(commandRegistry, bs);
+        assertTrue(TestUtils.canResolve(commandRegistry, bs));
     }
 
     @Test
     public void testDecodeBroadcast() {
         byte[] bs = EBusUtils.toByteArray("30 FE 07 00 09 00 80 10 54 21 16 08 03 17 02 AA");
-        TestUtils.canResolve(commandRegistry, bs);
+        assertTrue(TestUtils.canResolve(commandRegistry, bs));
 
     }
 
