@@ -23,7 +23,7 @@
 		<sonar.organization>csowada</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
-		<ebus.core.version>1.1.7</ebus.core.version>
+		<ebus.core.version>1.1.8</ebus.core.version>
 	</properties>
 
 	<organization>
