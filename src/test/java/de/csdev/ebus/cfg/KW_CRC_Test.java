@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016-2020 by the respective copyright holders.
+ * Copyright (c) 2016-2023 by the respective copyright holders.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -45,6 +45,6 @@ public class KW_CRC_Test {
 
         ByteBuffer buffer = EBusCommandUtils.buildMasterTelegram(commandMethod, (byte) 0x00, (byte) 0x04, null);
 
-        assertEquals("KW CRC Invalid", buffer.get(5), 0x77);
+        assertEquals("KW CRC Invalid", 0x77, buffer.get(5));
     }
 }

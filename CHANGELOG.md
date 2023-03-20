@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased 
 
+## [1.1.6] - 2021-12-29
+### Changed
+- Update maven dependencies
+
 ## [1.1.5] - 2021-06-26
 ### Changed
 - Update maven dependencies
