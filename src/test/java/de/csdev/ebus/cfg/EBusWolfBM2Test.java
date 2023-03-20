@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2016-2020 by the respective copyright holders.
+ * Copyright (c) 2016-2023 by the respective copyright holders.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -68,7 +68,7 @@ public class EBusWolfBM2Test {
 
         try {
             ByteBuffer buffer = EBusCommandUtils.buildMasterTelegram(commandMethod, (byte) 0x00, (byte) 0x35, params);
-            assertEquals(EBusUtils.toHexDumpString(buffer).toString(), "00 35 50 22 03 A3 75 27 79");
+            assertEquals("00 35 50 22 03 A3 75 27 79", EBusUtils.toHexDumpString(buffer).toString());
 
         } catch (EBusTypeException e) {
             e.printStackTrace();
@@ -94,7 +94,7 @@ public class EBusWolfBM2Test {
 
         try {
             ByteBuffer buffer = EBusCommandUtils.buildMasterTelegram(commandMethod, (byte) 0x00, (byte) 0x30, params);
-            assertEquals(EBusUtils.toHexDumpString(buffer).toString(), "00 30 50 23 09 D8 75 27 01 00 5D 01 00 00 BF");
+            assertEquals("00 30 50 23 09 D8 75 27 01 00 5D 01 00 00 BF", EBusUtils.toHexDumpString(buffer).toString());
 
         } catch (EBusTypeException e) {
             e.printStackTrace();
