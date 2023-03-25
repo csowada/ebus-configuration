@@ -3,38 +3,931 @@
     "vendor":       "Wolf",
     "label":        "Wolf CWL",
     "description":  "Wolf CWL 300/400",
-
-    "authors":      ["Christian Sowada, opensource@cs-dev.de"],
-    "identification": ["08 16 00 22 03"],
+    
+    "authors":      ["Christian Sowada, opensource@cs-dev.de", "Lui Sauberhorn"],
+    "identification": ["08 11 00 22 03"],
 
     "commands":
     [
         {
+            "label":    "Software Version",
+            "id":       "ac.status.software.version",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "00"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "string", "label":"Current Version", "length":"13"}   
+                ]
+            }
+        }
+
+        ,{   
+            "label":    "Fan Step Mode",
+            "id":       "ac.status.fan.step",
+
+            "get": {
+                "command": "40 22",
+                "master": [
+                    {"type": "static", "default": "01"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%d"}
+                ]
+            },
+
+            "set": {
+                "command": "40 a1",
+                "master": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 3, "step": 1, "format":"%d"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Fan Rotation In",
+            "id":       "ac.status.fanrotation.in",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "02"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "format":"%drpm"}   
+                ]
+            }
+        }
+        
+        ,{
+            "label":    "Fan Rotation Out",
+            "id":       "ac.status.fanrotation.out",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "03"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "format":"%drpm"}   
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Position Dip Switch",
+            "id":       "ac.status.dipswitch.onoff",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "04"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%d"}   
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Position Switch",
+            "id":       "ac.status.stepswitch.onoff",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "06"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%d"}   
+                ]
+            }
+        }
+
+        ,{
             "label":    "Temperature Inside",
-            "id":       "ac.temp_inside",
-            "command":  "40 22",
+            "id":       "ac.status.temp.inside",
+            "command": "40 22",
 
             "get": {
                 "master": [
                     {"type": "static", "default": "07"}
                 ],
                 "slave": [
-                    {"name": "temp_inside", "type": "int", "label":"Temperature Inside", "reverseByteOrder": true, "factor": 0.1, "min": 1, "max": 60, "format":"%.1f°C"}
+                    {"name": "cur", "type": "int", "label":"Current Value", "reverseByteOrder": true, "factor": 0.1, "min": 1, "max": 60, "format":"%.1f°C"}   
                 ]
             }
-        },
-
-        {
+        }
+        
+        ,{
             "label":    "Temperature Outside",
-            "id":       "ac.temp_ouside",
-            "command":  "40 22",
+            "id":       "ac.status.temp.outside",
+            "command": "40 22",
 
             "get": {
                 "master": [
                     {"type": "static", "default": "08"}
                 ],
                 "slave": [
-                    {"name": "temp_ouside", "type": "int", "label":"Temperature Outside", "reverseByteOrder": true, "factor": 0.1, "min": -60, "max": 100, "format":"%.1f°C"}
+                    {"name": "cur", "type": "int", "label":"Current Value", "reverseByteOrder": true, "factor": 0.1, "min": -60, "max": 100, "format":"%.1f°C"}   
+                ]
+            }
+        }
+        
+        ,{
+            "label":    "Expected Air Volume In",
+            "id":       "ac.status.volume.in",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "09"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 1, "min": 0, "max": 400, "format":"%dm³/h"}   
+                ]
+            }
+        }
+        
+        ,{
+            "label":    "Expected Air Volume Out",
+            "id":       "ac.status.volume.out",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "0a"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 1, "min": 0, "max": 400, "format":"%dm³/h"}   
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Air Flow In",
+            "id":       "ac.status.airflow.in",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "0b"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 1000, "format":"%4dm³/h"}   
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Air Flow Out",
+            "id":       "ac.status.airflow.out",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "0c"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 1000, "format":"%dm³/h"}   
+                ]
+            }
+        }
+
+        ,{
+            "label":    "ByPass Volume",
+            "id":       "ac.status.bypass.volume",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "0D"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 1, "min": 0, "max": 400, "format":"%dm³/h"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "ByPass Status",
+            "id":       "ac.status.bypass.status",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "0E"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 1, "min": 0, "max": 5, "format":"%d",
+                        "mapping": {
+                            "0": "Initialize", "1": "Opening", "2": "Closing", "3": "Open", "4": "Closed", "5": "Error"
+                        }
+                    }
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Preheater Status",
+            "id":       "ac.status.preheater.onoff",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "0F"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 1, "min": 0, "max": 1, "step": 1, "format":"%d",
+                        "mapping": {
+                            "0":"Initialize", "1": "Disabled", "2": "Enabled"
+                        }
+                    }
+                ]
+            },
+
+            "set": {
+                "command": "40 80",
+                "master": [
+                    {"type": "static", "default": "31"},
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 1, "step": 1, "format":"%d",
+                        "mapping": {
+                            "0": "off", "1": "on"
+                        }
+                    }   
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Preheater Power",
+            "id":       "ac.status.preheater.power",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "10"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%d"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Fan Status",
+            "id":       "ac.status.fan.status",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "11"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 4, "step": 1,  "format":"%d",
+                        "mapping": {
+                            "0": "Initialize", "1": "Const. Flow", "2": "Const. RPM", "3": "Off", "4": "Error"
+                        }
+                    }   
+                ]
+            }
+        }
+
+        ,{
+            "label": "Air Pressure In",
+            "id": "ac.status.airpressure.in",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "14"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 0.1, "min": 0, "max": 10000, "format":"%.1fPa"}   
+                ]
+            }
+        }
+
+        ,{
+            "label": "Air Pressure Out",
+            "id": "ac.status.airpressure.out",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "15"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 0.1, "min": 0, "max": 10000, "format":"%.1fPa"}   
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Filter Status",
+            "id":       "ac.status.filter.state",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "18"}
+                ],
+                "slave": [
+                    {"name": "dirty", "type": "uint", "label":"Filter Dirty", "reverseByteOrder": true, "min": 0, "max": 1, "format":"%d"}
+                ]
+            },
+
+            "set": {
+                "command": "40 91",
+                "master": [
+                    {"type": "static", "default": "7c 01 00"},
+                    {"name": "cur", "type": "uint", "label":"Reset Filter", "reverseByteOrder": true, "min": 0, "max": 5, "step": 1, "format":"%d",
+                        "mapping": {
+                            "0": "ResetNotRequested", "1": "ResetSuccessful", "2": "ResetRelayed", "3": "FilterWarningWasNotSet", "4": "ResetFailed", "5": "UnknownResult"
+                        }
+                    }   
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Postheater Status",
+            "id":       "ac.status.postheater.onoff",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "1d"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 1, "min": 0, "max": 1, "step": 1, "format":"%d",
+                        "mapping": {
+                            "0":"Initialize", "1": "Disabled", "2": "Enabled"
+                        }
+                    }
+                ]
+            },
+
+            "set": {
+                "command": "40 80",
+                "master": [
+                    {"type": "static", "default": "32"},
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 1, "step": 1, "format":"%d",
+                        "mapping": {
+                            "0": "off", "1": "on"
+                        }
+                    }   
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Postheater Power",
+            "id":       "ac.status.postheater.power",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "1e"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%d"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Humidity",
+            "id":       "ac.status.humidity.value",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "20"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 0.1, "min": 0, "max": 100, "step": 0.1, "format":"%.1f%"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Humidity Change",
+            "id":       "ac.status.humidity.change",
+            "command": "40 22",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "21"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 7, "step": 1, "format":"%d",
+                        "mapping": {
+                            "0": "Error", "1": "Not Initialized", "2": "Sensor Not Active", "3": "PowerUp Delay", "4": "Normal RH", "5": "Boost Rising", "6": "Boost Stable", "7": "Boost Decending"
+                        }
+                    }
+                ]
+            }
+        }
+
+        ,{   
+            "label":    "Fan Step 0",
+            "id":       "ac.config.fan.step.0",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "21"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "stp", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%4dm³/h"}
+                ]
+            },
+            "set": {
+                "command": "40 80",
+                "master": [
+                    {"type": "static", "default": "21"},
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 50, "step": 50, "format":"%4dm³/h"}   
+                ]
+            }
+        }
+
+        ,{   
+            "label":    "Fan Step 1",
+            "id":       "ac.config.fan.step.1",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "01"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "stp", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%4dm³/h"}
+                ]
+            },
+
+            "set": {
+                "command": "40 80",
+                "master": [
+                    {"type": "static", "default": "01"},
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 50, "max": 400, "step": 5, "format":"%4dm³/h"}   
+                ]
+            }
+
+        }
+
+        ,{   
+            "label":    "Fan Step 2",
+            "id":       "ac.config.fan.step.2",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "02"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "stp", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%4dm³/h"}
+                ]
+            },
+
+            "set": {
+                "command": "40 80",
+                "master": [
+                    {"type": "static", "default": "02"},
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 50, "max": 400, "step": 5, "format":"%4dm³/h"}   
+                ]
+            }
+        }
+
+        ,{   
+            "label":    "Fan Step 3",
+            "id":       "ac.config.fan.step.3",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "03"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "stp", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%4dm³/h"}
+               ]
+            },
+
+            "set": {
+                "command": "40 80",
+                "master": [
+                    {"type": "static", "default": "03"},
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 50, "max": 400, "step": 5, "format":"%4dm³/h"}   
+                ]
+            }
+        }
+                
+        ,{
+            "label":    "ByPass Config Temperature",
+            "id":       "ac.config.bypass.temp",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "04"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "stp", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%4dm³/h"},   
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%4dm³/h"}
+                ]
+            },
+
+            "set": {
+                "command": "40 80",
+                "master": [
+                    {"type": "static", "default": "04"},
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 0.1, "min": 15, "max": 35, "step": 0.5, "format":"%.1f°C"}   
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Zentralheizung Config",
+            "id":       "ac.config.centralheater.onoff",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "07"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 1, "step": 1, "format":"%d",
+                        "mapping": {
+                            "0": "Off", "1": "On"
+                        }
+                    },
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%d"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Config Inbalance allowed",
+            "id":       "ac.config.misc.inbalance.allowed",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "08"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 1, "step": 1, "format":"%d",
+                        "mapping": {
+                            "0": "Not allowed", "1": "Allowed"
+                        }
+                    },
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%d"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Config Inbalance",
+            "id":       "ac.config.misc.inbalance",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "09"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "int", "label":"Current Value", "reverseByteOrder": true, "min": -100, "max": 100, "step": 1, "format":"%dm³/h"},
+                    {"name": "min", "type": "int", "label":"Minimum", "reverseByteOrder": true, "format":"%dm³/h"},
+                    {"name": "max", "type": "int", "label":"Maximum", "reverseByteOrder": true, "format":"%dm³/h"},
+                    {"name": "ste", "type": "int", "label":"Step", "reverseByteOrder": true, "format":"%dm³/h"},
+                    {"name": "fac", "type": "int", "label":"Factory Default", "reverseByteOrder": true, "format":"%dm³/h"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "ByPass Config Mode",
+            "id":       "ac.config.bypass.mode",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "1b"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%d"}
+                ]
+            },
+
+            "set": {
+                "command": "40 80",
+                "master": [
+                    {"type": "static", "default": "1b"},
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 2, "step": 1, "format":"%d"}   
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Filter, Air Volume Threshold",
+            "id":       "ac.filter.volume.threshold",
+            "command": "40 50",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "1c"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"},
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Config RH Sensor Sensitivity",
+            "id":       "ac.config.misc.displaylight",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "1d"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 100, "step": 5, "format":"%d"},
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%d"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "ByPass Config Hysterese",
+            "id":       "ac.config.bypass.hyst",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "30"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 0.1, "format":"%.1f°C"},
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "factor": 0.1, "format":"%.1f°C"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "factor": 0.1, "format":"%.1f°C"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "factor": 0.1, "format":"%.1f°C"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "factor": 0.1, "format":"%.1f°C"}
+                ]
+            },
+
+            "set": {
+                "command": "40 80",
+                "master": [
+                    {"type": "static", "default": "30"},
+                    {"name": "cur", "type": "uint", "label":"Bypass Hysterese", "reverseByteOrder": true, "factor": 0.1, "min": 0, "max": 5, "step": 0.5, "format":"%.1f°C"}   
+                ]
+            }
+        }
+
+        ,{
+            "label":    "NOT WORKING - Config Preheater Exists",
+            "id":       "ac.config.misc.preheater",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "31"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 1, "step": 1, "format":"%d",
+                        "mapping": {
+                            "0": "no", "1": "yes"
+                        }
+                    },
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%d"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "NOT WORKING - Config Postheater Exists",
+            "id":       "ac.config.misc.postheater",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "32"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 1, "step": 1, "format":"%d",
+                        "mapping": {
+                            "0": "no", "1": "yes"
+                        }
+                    },
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%d"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Filter, Days in Use",
+            "id":       "ac.filter.days",
+            "command":  "40 50",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "22"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%d"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Filter, Air Volume in Use",
+            "id":       "ac.filter.volume.inuse",
+            "command":  "40 50",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "23"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"},
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"}
+               ]
+            }
+        }
+
+        ,{   
+            "label":    "System, Hours in use",
+            "id":       "ac.system.hours",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "24"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "format":"%dh"},
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%dh"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%dh"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%dh"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%dh"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "System, Air Volume in Use",
+            "id":       "ac.system.volume.inuse",
+            "command": "40 50",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "25"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"},
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "factor": 1000, "format":"%dm³"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Config RH Sensor Exists",
+            "id":       "ac.config.misc.rhsensor.exists",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "32"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 1, "step": 1, "format":"%d",
+                        "mapping": {
+                            "0": "no", "1": "yes"
+                        }
+                    },
+                    {"name": "min", "type": "uint", "label":"Minimum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "max", "type": "uint", "label":"Maximum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ste", "type": "uint", "label":"Step", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "fac", "type": "uint", "label":"Factory Default", "reverseByteOrder": true, "format":"%d"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "Config RH Sensor Sensitivity",
+            "id":       "ac.config.misc.rhsensor.sensitivity",
+
+            "get": {
+                "command": "40 50",
+                "master": [
+                    {"type": "static", "default": "33"}
+                ],
+                "slave": [
+                    {"name": "cur", "type": "int", "label":"Current Value", "reverseByteOrder": true, "min": -2, "max": 2, "step": 1, "format":"%d"},
+                    {"name": "min", "type": "int", "label":"Minimum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "max", "type": "int", "label":"Maximum", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ste", "type": "int", "label":"Step", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "fac", "type": "int", "label":"Factory Default", "reverseByteOrder": true, "format":"%d"}
+                ]
+            }
+        }
+
+        ,{
+            "label":    "NOT WORKING - Errors",
+            "id":       "ac.status.errors",
+            "command": "40 90",
+
+            "get": {
+                "master": [
+                    {"type": "static", "default": "00"}
+                ],
+                "slave": [
+                    {"name": "ec00", "type": "uchar", "label":"Error Code 00", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec01", "type": "uchar", "label":"Error Code 01", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec02", "type": "uchar", "label":"Error Code 02", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec03", "type": "uchar", "label":"Error Code 03", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec04", "type": "uchar", "label":"Error Code 04", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec05", "type": "uchar", "label":"Error Code 05", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec06", "type": "uchar", "label":"Error Code 06", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec07", "type": "uchar", "label":"Error Code 07", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec08", "type": "uchar", "label":"Error Code 08", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec09", "type": "uchar", "label":"Error Code 09", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec10", "type": "uchar", "label":"Error Code 10", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec11", "type": "uchar", "label":"Error Code 04", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec12", "type": "uchar", "label":"Error Code 05", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec13", "type": "uchar", "label":"Error Code 06", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec14", "type": "uchar", "label":"Error Code 07", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec15", "type": "uchar", "label":"Error Code 08", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec16", "type": "uchar", "label":"Error Code 09", "reverseByteOrder": true, "format":"%d"},
+                    {"name": "ec17", "type": "uchar", "label":"Error Code 10", "reverseByteOrder": true, "format":"%d"}
+                ]
+            },
+
+            "set": {
+                "command": "40 91",
+                "master": [
+                    {"type": "static", "default": "7c 00 01"},
+                    {"name": "cur", "type": "uint", "label":"Reset Errors", "reverseByteOrder": true, "min": 0, "max": 6, "step": 1, "format":"%d",
+                        "mapping": {
+                            "0": "ResetNotRequested", "1": "ResetSuccessful", "2": "ResetRelayed", "3": "NoErrorsFound", "4": "ResetFailed", "5": "BlockingErrors", "6": "UnknownResult"
+                        }
+                    }   
                 ]
             }
         }
