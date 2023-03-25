@@ -7,7 +7,7 @@
 	<description>eBUS library configuration</description>
 	<groupId>de.cs-dev.ebus</groupId>
 	<artifactId>ebus-configuration</artifactId>
-	<version>1.1.8-SNAPSHOT</version>
+	<version>1.1.8</version>
 	<url>https://github.com/csowada/ebus-configuration</url>
 	<packaging>bundle</packaging>
 
@@ -23,7 +23,7 @@
 		<sonar.organization>csowada</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
-		<ebus.core.version>1.1.9</ebus.core.version>
+		<ebus.core.version>1.1.10</ebus.core.version>
 	</properties>
 
 	<organization>
