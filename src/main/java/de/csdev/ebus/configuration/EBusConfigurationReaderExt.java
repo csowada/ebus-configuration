@@ -12,7 +12,6 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,10 +22,12 @@ import de.csdev.ebus.command.IEBusCommandCollection;
 @NonNullByDefault
 public class EBusConfigurationReaderExt extends EBusConfigurationReader {
 
+    @SuppressWarnings({"null"})
     private static final Logger logger = LoggerFactory.getLogger(EBusConfigurationReaderExt.class);
 
     @Override
-    public @NonNull List<@NonNull IEBusCommandCollection> loadBuildInConfigurationCollections() {
+    @SuppressWarnings({"null"})
+    public List<IEBusCommandCollection> loadBuildInConfigurationCollections() {
         try {
             URL url = EBusConfigurationReaderExt.class.getResource("/index-configuration.json");
             if (url != null) {
