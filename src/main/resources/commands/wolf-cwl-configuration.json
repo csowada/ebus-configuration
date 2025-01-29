@@ -456,7 +456,7 @@
                 "command": "40 80",
                 "master": [
                     {"type": "static", "default": "21"},
-                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 50, "step": 50, "format":"%4dm³/h"}   
+                    {"name": "fan_step0", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 0, "max": 50, "step": 50, "format":"%4dm³/h"}   
                 ]
             }
         },
@@ -483,7 +483,7 @@
                 "command": "40 80",
                 "master": [
                     {"type": "static", "default": "01"},
-                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 50, "max": 400, "step": 5, "format":"%4dm³/h"}   
+                    {"name": "fan_step1", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 50, "max": 400, "step": 5, "format":"%4dm³/h"}   
                 ]
             }
 
@@ -511,7 +511,7 @@
                 "command": "40 80",
                 "master": [
                     {"type": "static", "default": "02"},
-                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 50, "max": 400, "step": 5, "format":"%4dm³/h"}   
+                    {"name": "fan_step2", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 50, "max": 400, "step": 5, "format":"%4dm³/h"}   
                 ]
             }
         },
@@ -538,7 +538,7 @@
                 "command": "40 80",
                 "master": [
                     {"type": "static", "default": "03"},
-                    {"name": "cur", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 50, "max": 400, "step": 5, "format":"%4dm³/h"}   
+                    {"name": "fan_step3", "type": "uint", "label":"Current Value", "reverseByteOrder": true, "min": 50, "max": 400, "step": 5, "format":"%4dm³/h"}   
                 ]
             }
         },
