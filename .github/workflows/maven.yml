@@ -5,60 +5,51 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master, develop ]
+    branches: [master, develop]
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
 
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
-    - name: Cache Maven packages
-      uses: actions/cache@v2
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
+      - name: Cache Maven packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
 
-    - name: Cache SonarCloud packages
-      uses: actions/cache@v2
-      with:
-        path: ~/.sonar/cache
-        key: ${{ runner.os }}-sonar
-        restore-keys: ${{ runner.os }}-sonar
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: 11
+          distribution: temurin
+          cache: maven
+          server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
+          server-username: OSSRH_USERNAME # env variable for username in deploy
+          server-password: OSSRH_PASSWORD # env variable for token in deploy
 
-    - name: Set up Java
-      uses: actions/setup-java@v1
-      with:
-        java-version: 11
-        server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
-        server-username: OSSRH_USERNAME  # env variable for username in deploy
-        server-password: OSSRH_PASSWORD  # env variable for token in deploy
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
 
-    - name: Build and analyze
-      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        BUILD_NUMBER: ${{ github.run_id }}-${{ github.run_number }}
+      - name: Upload Maven build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact
+          path: target/*.jar
 
-    - name: Upload Maven build artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: artifact
-        path: target/*.jar
-
-    # Upload if develop branch
-    - name: Upload snapshot to OSSRH if development release
-      if: ${{ github.ref == 'refs/heads/develop' && github.event_name == 'push' }}
-      run: mvn deploy --batch-mode --update-snapshots -P !sign,!build-extras,deploy-ossrh -Dmaven.test.skip=true -DskipChecks -DskipTest
-      env:
-        OSSRH_USERNAME: ${{ secrets.OSSRH_JIRA_USERNAME }}
-        OSSRH_PASSWORD: ${{ secrets.OSSRH_JIRA_PASSWORD }}
+      # Upload if develop branch
+      - name: Upload snapshot to OSSRH if development release
+        if: ${{ github.ref == 'refs/heads/develop' && github.event_name == 'push' }}
+        run: mvn deploy --batch-mode --update-snapshots -P !sign,!build-extras,deploy-ossrh -Dmaven.test.skip=true -DskipChecks -DskipTest
+        env:
+          OSSRH_USERNAME: ${{ secrets.OSSRH_JIRA_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_JIRA_PASSWORD }}
