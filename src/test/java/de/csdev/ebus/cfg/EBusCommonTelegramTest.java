@@ -8,12 +8,18 @@
  */
 package de.csdev.ebus.cfg;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.ByteBuffer;
+import java.util.List;
+import java.util.Map;
 
+import org.eclipse.jdt.annotation.NonNull;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -110,7 +116,8 @@ public class EBusCommonTelegramTest {
     @Test
     public void testTelegram2() {
         /*
-         * 2014-10-23 16:10:30 - >>> Betriebsdaten des Feuerungsautomaten an den Regler - Block 1
+         * 2014-10-23 16:10:30 - >>> Betriebsdaten des Feuerungsautomaten an den Regler
+         * - Block 1
          * 2014-10-23 16:10:30 - >>> auto_stroker.state_valve2 false Valve2
          * 2014-10-23 16:10:30 - >>> auto_stroker.state_ldw false LDW
          * 2014-10-23 16:10:30 - >>> auto_stroker.status_auto_stroker 0 Statusanzeige
@@ -124,7 +131,8 @@ public class EBusCommonTelegramTest {
          * 2014-10-23 16:10:30 - >>> auto_stroker.state_gdw false GDW
          * 2014-10-23 16:10:30 - >>> auto_stroker.state_flame false Flame
          * 2014-10-23 16:10:30 - >>> auto_stroker.state_valve1 false Valve1
-         * 2014-10-23 16:10:30 - >>> auto_stroker.performance_burner null Stellgrad MIN-MAX Kesselleistung in %
+         * 2014-10-23 16:10:30 - >>> auto_stroker.performance_burner null Stellgrad
+         * MIN-MAX Kesselleistung in %
          */
 
         byte[] bs = EBusUtils.toByteArray("03 FE 05 03 08 01 00 40 FF 2D 17 30 0E C8 AA");
@@ -138,8 +146,10 @@ public class EBusCommonTelegramTest {
          * 2014-10-23 16:10:33 - >>> controller2.temp_t_vessel null Kesselsollwert
          * 2014-10-23 16:10:33 - >>> controller2.temp_outdoor 14.597656 Außentemperatur
          * 2014-10-23 16:10:33 - >>> controller2.power_enforcement null Leistungszwang
-         * 2014-10-23 16:10:33 - >>> controller2.status_bwr false BWR aktiv (Wärmepumpen?)
-         * 2014-10-23 16:10:33 - >>> controller2.status_heat_circuit true Heizkreis aktiv
+         * 2014-10-23 16:10:33 - >>> controller2.status_bwr false BWR aktiv
+         * (Wärmepumpen?)
+         * 2014-10-23 16:10:33 - >>> controller2.status_heat_circuit true Heizkreis
+         * aktiv
          * 2014-10-23 16:10:33 - >>> controller2.temp_t_boiler 5.0 Brauchwassersoll
          */
         byte[] bs = EBusUtils.toByteArray("03 F1 08 00 08 00 80 99 0E 80 02 00 05 94 AA");
@@ -150,11 +160,15 @@ public class EBusCommonTelegramTest {
     public void testTelegram4() {
         /*
          * 2014-10-23 16:10:39 - >>> Betriebsdaten des Reglers an den Feuerungsautomaten
-         * 2014-10-23 16:10:39 - >>> controller.status_warm_req2 3 Statuswärmeanforderung2
+         * 2014-10-23 16:10:39 - >>> controller.status_warm_req2 3
+         * Statuswärmeanforderung2
          * 2014-10-23 16:10:39 - >>> controller.value_fuel null Brennstoffwert
-         * 2014-10-23 16:10:39 - >>> controller.status_warm_req1 187 Statuswärmeanforderung
-         * 2014-10-23 16:10:39 - >>> controller.temp_t_vessel 22.0625 Kesselsollwert-Temperatur
-         * 2014-10-23 16:10:39 - >>> controller.pressure_t_vessel null Kesselsollwert-Druck
+         * 2014-10-23 16:10:39 - >>> controller.status_warm_req1 187
+         * Statuswärmeanforderung
+         * 2014-10-23 16:10:39 - >>> controller.temp_t_vessel 22.0625
+         * Kesselsollwert-Temperatur
+         * 2014-10-23 16:10:39 - >>> controller.pressure_t_vessel null
+         * Kesselsollwert-Druck
          * 2014-10-23 16:10:39 - >>> controller.performance_burner 0.0 Stellgrad
          * 2014-10-23 16:10:39 - >>> controller.temp_t_boiler 50.0 Brauchwassersollwert
          */
@@ -189,6 +203,36 @@ public class EBusCommonTelegramTest {
         byte[] bs = EBusUtils.toByteArray("30 FE 07 00 09 00 80 10 54 21 16 08 03 17 02 AA");
         assertTrue(TestUtils.canResolve(commandRegistry, bs));
 
+    }
+
+    @Test
+    public void testDecodeControllerDValuesRc2() {
+        /**
+         * Test
+         * 
+         * @see https://github.com/csowada/ebus-configuration/issues/20
+         */
+        try {
+            byte[] bs = EBusUtils.toByteArray("10 03 08 00 08 00 05 00 1C 80 E0 00 0A 11 00 AA");
+            assertTrue(TestUtils.canResolve(commandRegistry, bs));
+
+            @NonNull
+            List<IEBusCommandMethod> list = commandRegistry.find(bs);
+
+            @NonNull
+            Map<String, Object> decodeTelegram = EBusCommandUtils.decodeTelegram(list.get(0), bs);
+
+            assertEquals("Temperature Outside", BigDecimal.valueOf(28), decodeTelegram.get("temp_outside"));
+            assertEquals("Temperature D DHW", BigDecimal.valueOf(10), decodeTelegram.get("temp_d_dhw"));
+            assertEquals("Temperature", BigDecimal.valueOf(5), decodeTelegram.get("temp_d_boiler"));
+            assertEquals("State Cooling", true, decodeTelegram.get("state_cooling"));
+            assertEquals("State DHW", false, decodeTelegram.get("state_dhw"));
+            assertEquals("State HC", false, decodeTelegram.get("state_hc"));
+            assertEquals("Performance Forced", null, decodeTelegram.get("performance_forced"));
+
+        } catch (EBusTypeException e) {
+            fail(e.getMessage());
+        }
     }
 
 }
