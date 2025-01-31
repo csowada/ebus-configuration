@@ -189,7 +189,13 @@
                 {"name": "performance_forced", "type": "data1b", "label": "Forced performance"},
                 {"name": "states", "type": "byte", "children": [
                     {"name": "state_dhw", "type": "bit", "label": "State DHW active"},
-                    {"name": "state_hc", "type": "bit", "label": "State heating circuit active"}
+                    {"name": "state_hc", "type": "bit", "label": "State heating circuit active"},
+                    {"name": "_state_unknown_0x04", "type": "bit", "label": "unknown 0x04"},
+                    {"name": "_state_unknown_0x08", "type": "bit", "label": "unknown 0x08"},
+                    {"name": "_state_unknown_0x10", "type": "bit", "label": "unknown 0x10"},
+                    {"name": "state_cooling", "type": "bit", "label": "State cooling active"},
+                    {"name": "_state_unknown_0x40", "type": "bit", "label": "unknown 0x40"},
+                    {"name": "_state_unknown_0x80", "type": "bit", "label": "unknown 0x80"}
                 ]},
                 {"name": "temp_d_dhw", "type": "data2b", "label": "DHW desire temperature", "min":0, "max":100, "format":"%.1f°C"}
             ],

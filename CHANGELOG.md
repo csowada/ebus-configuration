@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased 
 
+## [1.1.9] - 2025-01-31
+### Changed
+- Update dependecies, license headers and pipelines
+- Fix Wolf CWL 300/400 issue for setter `fan_stepX`
+- Add Cooling State to `controller.d_values_rc2`
+- Update to ebus core lib v1.1.13
+
 ## [1.1.8] - 2023-03-25
 ### Changed
 - Enhance Wolf CWL 300/400
