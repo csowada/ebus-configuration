@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased 
 
+## [1.2.0] - 2025-10-24
+### Changed
+- Update to ebus core lib v1.2.0
+
 ## [1.1.9] - 2025-01-31
 ### Changed
 - Update dependecies, license headers and pipelines
